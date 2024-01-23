@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HalisElektronik.Web", "HalisElektronik.Web\HalisElektronik.Web.csproj", "{CB12DD3C-4BB9-4196-B3DD-319E3942E5B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HalisElektronik.Utilities", "HalisElektronik.Utilities\HalisElektronik.Utilities.csproj", "{80534368-3FF8-4998-8A8A-4E575F1779EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HalisElektronik.Repositories", "HalisElektronik.Repository\HalisElektronik.Repositories.csproj", "{501909BC-A29D-4513-A2F9-EB6D27C44ADA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HalisElektronik.Models", "HalisElektronik.Models\HalisElektronik.Models.csproj", "{291CEC7C-9AB1-43DC-8FFD-FA81054D34AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HalisElektronik.ViewModels", "HalisElektronik.ViewModels\HalisElektronik.ViewModels.csproj", "{09FAAC0B-247D-4123-AAA6-197C666B712B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HalisElektronik.Services", "HalisElektronik.Services\HalisElektronik.Services.csproj", "{F4D0C837-565F-4DB7-9853-2F0168754938}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CB12DD3C-4BB9-4196-B3DD-319E3942E5B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB12DD3C-4BB9-4196-B3DD-319E3942E5B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB12DD3C-4BB9-4196-B3DD-319E3942E5B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB12DD3C-4BB9-4196-B3DD-319E3942E5B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80534368-3FF8-4998-8A8A-4E575F1779EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80534368-3FF8-4998-8A8A-4E575F1779EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80534368-3FF8-4998-8A8A-4E575F1779EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80534368-3FF8-4998-8A8A-4E575F1779EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{501909BC-A29D-4513-A2F9-EB6D27C44ADA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{501909BC-A29D-4513-A2F9-EB6D27C44ADA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{501909BC-A29D-4513-A2F9-EB6D27C44ADA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{501909BC-A29D-4513-A2F9-EB6D27C44ADA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{291CEC7C-9AB1-43DC-8FFD-FA81054D34AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{291CEC7C-9AB1-43DC-8FFD-FA81054D34AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{291CEC7C-9AB1-43DC-8FFD-FA81054D34AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{291CEC7C-9AB1-43DC-8FFD-FA81054D34AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09FAAC0B-247D-4123-AAA6-197C666B712B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09FAAC0B-247D-4123-AAA6-197C666B712B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09FAAC0B-247D-4123-AAA6-197C666B712B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09FAAC0B-247D-4123-AAA6-197C666B712B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4D0C837-565F-4DB7-9853-2F0168754938}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4D0C837-565F-4DB7-9853-2F0168754938}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4D0C837-565F-4DB7-9853-2F0168754938}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4D0C837-565F-4DB7-9853-2F0168754938}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {743909BB-8881-4174-A29D-C8547100479D}
+	EndGlobalSection
+EndGlobal

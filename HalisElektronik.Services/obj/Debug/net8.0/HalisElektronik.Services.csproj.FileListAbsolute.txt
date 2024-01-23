@@ -1,0 +1,11 @@
+C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Services\bin\Debug\net8.0\HalisElektronik.Services.deps.json
+C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Services\bin\Debug\net8.0\HalisElektronik.Services.dll
+C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Services\bin\Debug\net8.0\HalisElektronik.Services.pdb
+C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Services\obj\Debug\net8.0\HalisElektronik.Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Services\obj\Debug\net8.0\HalisElektronik.Services.AssemblyInfoInputs.cache
+C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Services\obj\Debug\net8.0\HalisElektronik.Services.AssemblyInfo.cs
+C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Services\obj\Debug\net8.0\HalisElektronik.Services.csproj.CoreCompileInputs.cache
+C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Services\obj\Debug\net8.0\HalisElektronik.Services.dll
+C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Services\obj\Debug\net8.0\refint\HalisElektronik.Services.dll
+C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Services\obj\Debug\net8.0\HalisElektronik.Services.pdb
+C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Services\obj\Debug\net8.0\ref\HalisElektronik.Services.dll

@@ -1,0 +1,17 @@
+C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Utilities\bin\Debug\net7.0\HalisElektronik.Utilities.deps.json
+C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Utilities\bin\Debug\net7.0\HalisElektronik.Utilities.dll
+C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Utilities\bin\Debug\net7.0\HalisElektronik.Utilities.pdb
+C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Utilities\bin\Debug\net7.0\HalisElektronik.Models.dll
+C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Utilities\bin\Debug\net7.0\HalisElektronik.Repositories.dll
+C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Utilities\bin\Debug\net7.0\HalisElektronik.Models.pdb
+C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Utilities\bin\Debug\net7.0\HalisElektronik.Repositories.pdb
+C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Utilities\obj\Debug\net7.0\HalisElektronik.Utilities.csproj.AssemblyReference.cache
+C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Utilities\obj\Debug\net7.0\HalisElektronik.Utilities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Utilities\obj\Debug\net7.0\HalisElektronik.Utilities.AssemblyInfoInputs.cache
+C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Utilities\obj\Debug\net7.0\HalisElektronik.Utilities.AssemblyInfo.cs
+C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Utilities\obj\Debug\net7.0\HalisElektronik.Utilities.csproj.CoreCompileInputs.cache
+C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Utilities\obj\Debug\net7.0\HalisElektronik.Utilities.csproj.CopyComplete
+C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Utilities\obj\Debug\net7.0\HalisElektronik.Utilities.dll
+C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Utilities\obj\Debug\net7.0\refint\HalisElektronik.Utilities.dll
+C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Utilities\obj\Debug\net7.0\HalisElektronik.Utilities.pdb
+C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Utilities\obj\Debug\net7.0\ref\HalisElektronik.Utilities.dll
