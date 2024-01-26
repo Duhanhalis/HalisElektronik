@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HalisElektronik.Repositories")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fefac6f6908aa30e1d68a824e053053a874e2eda")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+994b4a259b0d13153cd387d7c715669080f10d13")]
 [assembly: System.Reflection.AssemblyProductAttribute("HalisElektronik.Repositories")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HalisElektronik.Repositories")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

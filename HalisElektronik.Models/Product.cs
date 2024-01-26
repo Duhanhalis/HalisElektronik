@@ -8,7 +8,7 @@ namespace HalisElektronik.Models
     /// </summary>
     [Table("Products")]
     public class Product
-    {
+    {   
 
         [Key]
         public int ProductId { get; set; }
@@ -21,7 +21,6 @@ namespace HalisElektronik.Models
         public double? Price { get; set; } = null;
         public bool IsStock { get; set; } = true;
         public DateTime Date_Of_Adjustment { get; set; } = DateTime.Now;
-        public ProductMainImage? ProductMainImage { get; set; }
         public ICollection<ProductImageList>? ProductImageList { get; set; }
     }
 }

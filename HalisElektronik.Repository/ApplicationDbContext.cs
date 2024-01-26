@@ -19,7 +19,6 @@ namespace HalisElektronik.Repositories
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductImageList> ProductImageLists { get; set; }
-        public DbSet<ProductMainImage> ProductImages { get; set; }
         public DbSet<Info> Infos { get; set; }
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<BlogsTag> BlogsTags { get; set; }

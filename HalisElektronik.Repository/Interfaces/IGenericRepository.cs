@@ -14,13 +14,11 @@ namespace HalisElektronik.Repositories.Interfaces
             Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
             string includeProperties = ""
             );
-        T GetById(object id);
-        Task<T> GetByIdAsync(object id);
+        T GetById(int id);
+        Task<T> GetByIdAsync(int id);
         void Add(T entity);
         Task<T> AddAsync(T entity);
         void Update(T entity);
-        Task<T> UpdateAsync(T entity);
         void Delete(T entity);
-        Task<T> DeleteAsync(T entity);
     }
 }

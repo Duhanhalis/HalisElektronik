@@ -25,4 +25,8 @@
     <ProjectReference Include="..\HalisElektronik.Models\HalisElektronik.Models.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>

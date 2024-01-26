@@ -2,6 +2,9 @@ using HalisElektronik.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using HalisElektronik.Services;
+using HalisElektronik.Repositories.Interfaces;
+using HalisElektronik.Repositories.Implementation;
+using HalisElektronik.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +17,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 });
 
 builder.Services.ServicesExtenisons();
+//builder.Services.AddScoped<GenericRepository<Product>, ProductRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -34,6 +38,12 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.MapControllerRoute(
+  name: "areas",
+  pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+);
+
 //void DataSeeding()
 //{
 //    using (var scope = app.Services.CreateScope())
