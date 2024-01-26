@@ -8,11 +8,19 @@
 
   <ItemGroup>
     <ProjectReference Include="..\HalisElektronik.Repository\HalisElektronik.Repositories.csproj" />
+    <ProjectReference Include="..\HalisElektronik.Services\HalisElektronik.Services.csproj" />
     <ProjectReference Include="..\HalisElektronik.Utilities\HalisElektronik.Utilities.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Areas\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.15">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
 </Project>

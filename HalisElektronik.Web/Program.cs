@@ -1,6 +1,7 @@
 using HalisElektronik.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
+using HalisElektronik.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,10 +11,9 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     string MySqlConnection = builder.Configuration.GetConnectionString("DefaultConnection")!;
     options.UseMySql(MySqlConnection, ServerVersion.AutoDetect(MySqlConnection));
-}
-);
+});
 
-builder.Services.AddIdentityCore<IdentityUser>().AddEntityFrameworkStores<ApplicationDbContext>();
+builder.Services.ServicesExtenisons();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -15,3 +15,4 @@ C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Utilities\obj\De
 C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Utilities\obj\Debug\net7.0\refint\HalisElektronik.Utilities.dll
 C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Utilities\obj\Debug\net7.0\HalisElektronik.Utilities.pdb
 C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Utilities\obj\Debug\net7.0\ref\HalisElektronik.Utilities.dll
+C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Utilities\obj\Debug\net7.0\HalisElektronik.Utilities.sourcelink.json
