@@ -1,0 +1,27 @@
+﻿@model ProductImageListViewModel
+@{
+    ViewData["Title"] = "ProductsImgCreate";
+    Layout = "../Shared/_LayoutAdmin.cshtml";
+}
+<div class="container">
+    <div class="row  justify-content-center align-items-center">
+        <div class="col"></div>
+        <div class="col-4 border border-1 rounded-3 my-5">
+            <form asp-action="ProductsImgCreate" asp-controller="Product" asp-area="Admin" method="post" enctype="multipart/form-data">
+                <input type="hidden" asp-for="ProductId">
+                <input type="hidden" asp-for="ProductMainId">
+                <input type="hidden" asp-for="ImageUrlString">
+
+                <input type="file" class="form-control mt-5" asp-for="ImageUrl" />
+                <span asp-validation-for="ImageUrl"></span>
+
+                <label asp-for="ImageDescription"></label>
+                <input type="text" class="form-control" asp-for="ImageDescription" />
+
+                <span asp-validation-for="ImageDescription"></span>
+                <button class="btn btn-warning my-3">Ekle</button>
+            </form>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>

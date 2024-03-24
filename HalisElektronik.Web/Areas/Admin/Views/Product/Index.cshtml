@@ -1,0 +1,78 @@
+﻿@{
+    Layout = "../Shared/_LayoutAdmin.cshtml";
+
+}
+@model List<Product>
+
+<div class="row">
+    <partial name="../Shared/_NavbarAdmin.cshtml" />
+    <div class="container col-10">
+        <h1>Ürünler</h1>
+        <hr />
+        <table class="col table table-bordered table-striped table-hover">
+            <thead>
+                <tr class="text-center">
+                    <th>Fotoğraflar</th>
+                    <th>Ürün Id</th>
+                    <th>Ürün Ismi</th>
+                    <th>Ürün Açıklaması</th>
+                    <th>Kategorisi</th>
+                    <th>Fiyat</th>
+                    <th>Mevcut mu ?</th>
+                    <th>Oluşturma Tarihi</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null || Model.Count > 0)
+                {
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td width="25%">
+                                @if (item.ProductImageList != null)
+                                {
+
+                                    <div class="row">
+                                        @foreach (var item1 in item.ProductImageList)
+                                        {
+                                            @if (!String.IsNullOrEmpty(item1.ImageUrl_1))
+                                            {
+                                                <img src="~/ImageLibrary/@item1.ImageUrl_1" alt="@item1.ImageDescription" class="col-3" />
+                                            }
+                                        }
+                                    </div>
+                                }
+                                else
+                                {
+                                    <p>Fotograf Yok</p>
+                                }
+                            </td>
+                            <td>@item.ProductId</td>
+                            <td>@item.Title</td>
+                            <td>
+                                @Html.Raw(item.Description)
+                            </td>
+                            <td>@item?.Category?.CategoryName</td>
+                            <td>@item.Price</td>
+                            <td>@item.IsStock</td>
+                            <td>@item.Date_Of_Adjustment</td>
+                            <td>
+                                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.ProductId" asp-controller="Product" asp-area="Admin">Düzenle</a>
+                                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.ProductId" asp-controller="Product" asp-area="Admin">Sil</a>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr class="text-center">
+                        <th colspan="8" class="text-danger">Ürün Yok</th>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <hr />
+        <a asp-area="Admin" asp-controller="Product" asp-action="Create" class="btn btn-primary">Ürün Ekle</a>
+    </div>
+</div>

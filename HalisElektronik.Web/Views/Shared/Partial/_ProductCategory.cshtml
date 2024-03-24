@@ -1,0 +1,22 @@
+﻿@if (ViewData["Category"] != null)
+{
+    @foreach (var item in ViewData["Category"] as List<Category>)
+    {
+        <li>
+            <a class="dropdown-item d-flex align-items-center gap-2 py-2" asp-action="Index" asp-controller="Product" asp-area="" asp-route-category="Anakart">
+                <span class="d-inline-block bg-success rounded-circle p-1"></span>
+                @item.CategoryName
+            </a>
+        </li>
+    }
+}
+else
+{
+
+    <li>
+        <a class="dropdown-item d-flex align-items-center gap-2 py-2" asp-action="Index" asp-controller="Home" asp-area="" asp-route-category="Anakart">
+            <span class="d-inline-block bg-success rounded-circle p-1"></span>
+            Anasayfa
+        </a>
+    </li>
+}

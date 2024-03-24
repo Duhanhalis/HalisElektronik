@@ -1,0 +1,30 @@
+@model CategoryViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "../Shared/_LayoutAdmin.cshtml";
+}
+<div class="container">
+<form asp-action="Edit" asp-controller="Category" asp-area="Admin" method="post">
+    <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+    <div class="container">
+        <input type="hidden" asp-for="CategoryId" />
+        <div class="row m-5">
+            <div class="col-12 mb-3">
+                <label asp-for="CategoryName" class="form-label"></label>
+                <input type="text" asp-for="CategoryName" class="form-control">
+                <div class="form-text">Kategori Adýný Giriniz !</div>
+                <span class="text-danger" asp-validation-for="CategoryName"></span>
+            </div>
+            <div class="col-12 mb-3">
+                <label asp-for="CategoryDescription" class="form-label"></label>
+                <textarea type="text" asp-for="CategoryDescription" class="form-control">
+
+                </textarea>
+                <div class="form-text">Kategori Açýklamasýný Giriniz !</div>
+                <span class="text-danger" asp-validation-for="CategoryDescription"></span>
+            </div>
+            <button class="col-3 btn btn-success">Ekle</button>
+        </div>
+    </div>
+</form>
+</div>

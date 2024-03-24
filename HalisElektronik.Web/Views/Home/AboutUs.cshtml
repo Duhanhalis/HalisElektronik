@@ -1,0 +1,110 @@
+﻿@{
+    ViewData["Title"] = "Privacy Policy";
+}
+
+
+
+<main class="container mt-5">
+    <div class="row px-2 mb-4 mx-0 rounded text-body-emphasis bg-body-secondary justify-content-around">
+        <div class="col-md-6 col-sm-12 px-0 my-sm-3">
+            What is Lorem Ipsum?
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+</div>
+        <div class="col-md-4 col-sm-12 m-0 p-0">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d188.79230181547905!2d30.3670647!3d40.7911184!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x409df78e2a1aacd3%3A0x5271c9c83316e9b3!2sHalis%20Elektronik!5e0!3m2!1str!2str!4v1709885416246!5m2!1str!2str"
+                    style="border:0;
+                    width:100%;
+                    height:350px;" allowfullscreen="" loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+        </div>
+    </div>
+    <div class="container g-5">
+        <div class="row">
+            <div class="col-sm-12 col-md-7">
+                @* <h3 class="pb-4 mb-4 fst-italic border-bottom">
+                </h3> *@
+
+                <article class="blog-post">
+                    <h2 class="display-5 link-body-emphasis mb-1">Sample blog post</h2>
+                    <p class="blog-post-meta">January 1, 2021 by <a href="https://localhost:44376/Home/Blog#">Mark</a></p>
+
+                    <p>
+                        Merhaba, benim adım Zeki ve küçük bir televizyon ve uydu sistemleri yapan dükkanım var.
+                        Bu blogda sizlere dükkanımızın hizmetleri, ürünleri ve kampanyaları hakkında bilgi vermeye çalışacağım.
+                    </p><hr>
+                    Umarım siz de bizimle iletişime geçer ve televizyon ve uydu sistemleri konusunda ihtiyaçlarınızı karşılamamıza yardımcı olursunuz.
+                    Dükkanımız 20 yıldır bu sektörde faaliyet gösteriyor ve müşterilerimize kaliteli, uygun fiyatlı ve güvenilir hizmet sunuyor.
+                    Televizyon ve uydu sistemleri satın almak isteyenler için geniş bir ürün yelpazesi sunuyoruz.
+                    <code>LCD, LED, OLED, QLED</code> gibi farklı teknolojilerde televizyonlar, çanak anten, uydu alıcı, kablo, LNB gibi uydu sistemleri malzemeleri, akıllı kumanda, <code>HDMI</code> kablo, ses sistemi gibi aksesuarlar bizde bulabilirsiniz.
+                    Ayrıca televizyon ve uydu sistemleri kurulumu, bakımı, onarımı ve ayarı gibi hizmetler de veriyoruz.
+                    Dükkanımızda sadece ürün satmakla kalmıyoruz, aynı zamanda müşterilerimize teknik servis,uydu montaj,televizyon montajı da yapıyoruz.
+                    Televizyon ve uydu sistemleri konusunda hangi ürünü almanız gerektiği, nasıl kurmanız gerektiği, hangi kanalları izleyebileceğiniz gibi sorularınıza cevap veriyoruz.
+                    Sizin için en uygun çözümü bulmaya çalışıyoruz.
+                    Dükkanımızda her zaman kampanyalar ve indirimler de oluyor.
+                    Televizyon ve uydu sistemleri almak isteyenler için cazip fırsatlar sunuyoruz.
+                    Örneğin şu anda Redline 50 inçlik bir LED televizyonu 15000 TL'ye satıyoruz. Ayrıca uydu sistemi alana kurulumu ücretsiz yapıyoruz.
+                    Bu fırsatları kaçırmayın!
+                    Web sitemizde ürünlerimizin resimleri, fiyatları, özellikleri ve stok durumları yer alıyor.
+                    Web sitemizin adresi: www.televizyonveuydusistemleri.com
+                    Televizyon ve uydu sistemleri konusunda ihtiyaçlarınız varsa bizimle iletişime geçin. Sizin için en iyi hizmeti vermeye hazırız.
+                    Dükkanımız haftanın her günü <time>09:00-21:00</time> saatleri arasında açık.
+                    <hr><address>Adresimiz: İstanbul Cad. No: 34/A Şişli/İstanbul.</address>
+
+                    Telefon numaramız: 0212 123 45 67.
+                    Teşekkür ederim.
+                    <p></p>
+
+                </article>
+                @*             @Html.Raw(Model.BlogDescription)
+                *@
+            </div>
+            <div class="col-sm-12 col-md-5">
+                <div class="container">
+                    <div class="row m-0 p-0">
+                        <table class="col-12 table table-striped table-bordered text-center">
+                            <thead>
+                                <tr>
+                                    <td>Pazartesi</td>
+                                    <td>Salı</td>
+                                    <td>Çarşamba</td>
+                                    <td>Perşembe</td>
+                                    <td>Cuma</td>
+                                    <td>Cumartesi</td>
+                                    <td>Pazar</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    @for (int i = 0; i < 6; i++)
+                                    {
+                                        <th>09.00</th>
+                                    }
+                                    <th>Kapalı</th>
+                                </tr>
+                                <tr>
+                                    @for (int i = 0; i < 6; i++)
+                                    {
+                                        <th>21.00</th>
+                                    }
+                                    <th>Kapalı</th>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="col-12 container my-5 mx-0 p-0">
+                            <div class="row">
+                                <div class="col col-8">
+                                    <img src="~/ImageLibrary/No-Image.jpg" class="w-100" alt="Whatsapp" />
+                                </div>
+                                <div class="col col-4 text-center">
+                                    <p class="text-dark fs-5">05336991555</p>
+                                </div>
+                            </div>
+                        </div>
+                        @* @Html.Raw(Model.WorkingHours) *@
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

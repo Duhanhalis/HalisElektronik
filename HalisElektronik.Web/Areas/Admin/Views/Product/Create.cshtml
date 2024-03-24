@@ -1,0 +1,54 @@
+@model ProductViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "../Shared/_LayoutAdmin.cshtml";
+}
+
+<form asp-action="Create" asp-controller="Product" asp-area="Admin" method="post" enctype="multipart/form-data">
+    <div class="container mt-5 border border-1 rounded-1 p-3">
+        <div class="text-danger" asp-validation-summary="All"></div>
+        <div class="row row-cols-4">
+            @for (int i = 0; i < 4; i++)
+            {
+                <div class="col mb-5">
+                    <input type="file" accept=".jpg, .jpeg, .png, image/*" asp-for="ListPhoto[i].ImageUrl" class="form-control my-2" />
+                    <span class="text-secondary my-2">Fotoðraf Seçin !</span>
+                    <input type="text" class="form-control my-2" asp-for="ListPhoto[i].ImageDescription" />
+                    <span class="text-secondary my-2">Açýklama Ekleyin !</span>
+                </div>
+            }
+        </div>
+        <hr />
+        <div class="row row-cols-1">
+            <div class="col">
+                <label class="text-secondary" asp-for="Title"></label>
+                <input type="text" asp-for="Title" class="form-control my-2" />
+                <span class="text-danger" asp-validation-for="Title"></span>
+            </div>
+            <div class="col">
+                <label class="text-secondary" asp-for="Category">Kategori Seçiniz :</label>
+                <select type="text" asp-for="CategoryId" class="form-control my-2" asp-items='@(ViewBag.ListCategory)'>
+                    <option value="">Birini Sec</option>
+                </select>
+                <span class="text-danger" asp-validation-for="Category"></span>
+            </div>
+            <div class="col">
+                <label class="text-secondary" asp-for="Description"></label>
+                <textarea id="edit" asp-for="Description"></textarea>
+                <partial name="../Shared/_TextEditor.cshtml" />
+                <span class="text-danger" asp-validation-for="Description"></span>
+            </div>
+            <div class="col">
+                <label class="text-secondary" asp-for="Price"></label>
+                <input type="number" class="form-control my-2" asp-for="Price" />
+                <span class="text-danger" asp-validation-for="Price"></span>
+            </div>
+            <div class="col">
+                <label class="text-secondary" asp-for="IsStock">Stokta Mevcut Mu ?</label>
+                <input type="checkbox" style="width:1.5em;height:1.5em;" class="form-check my-2 p-5" asp-for="IsStock" />
+                <span class="text-danger" asp-validation-for="IsStock"></span>
+            </div>
+        </div>
+        <button class="btn btn-success w-100">Ekle</button>
+    </div>
+</form>

@@ -1,0 +1,31 @@
+﻿@model ProductImageListViewModel
+@{
+    ViewData["Title"] = "ProductsImgEdit";
+    Layout = "../Shared/_LayoutAdmin.cshtml";
+}
+
+
+<div class="container ">
+    <div class="row justify-content-center align-items-center">
+        <div class="col"></div>
+        <div class="col-4 border border-1 rounded-3 my-5">
+            <form asp-action="ProductsImgEdit" asp-controller="Product" asp-area="Admin" method="post" enctype="multipart/form-data">
+                <input type="hidden" asp-for="ProductId">
+                <input type="hidden" asp-for="ProductMainId">
+                <input type="hidden" asp-for="ImageUrlString">
+
+                <img src="~/ImageLibrary/@Model.ImageUrlString" class="col w-100 object-fit-contain my-5   " />
+                <span asp-validation-for="ImageUrl"></span>
+
+                <input type="file" accept=".jpg, .jpeg, .png, image/*" class="col form-control mb-3" asp-for="ImageUrl" />
+                <label asp-for="ImageDescription"></label>
+
+                <input type="text" class="form-control" asp-for="ImageDescription" />
+                <span asp-validation-for="ImageDescription"></span>
+
+                <button class="btn btn-warning my-3">Güncelle</button>
+            </form>
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>

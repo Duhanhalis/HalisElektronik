@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "../../Shared/_LayoutAdmin.cshtml";
+}
+@model AboutUsViewModel
+
+<div class="container ">
+    <form asp-action="AboutUsAdd" asp-controller="AboutUs" asp-area="Admin" method="post" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6 p-3 g-3 border rounded-3">
+                <label class="text-secondary" asp-for="HeaderTitle"></label>
+                <input class="form-control mb-3" type="text" asp-for="HeaderTitle" />
+                <span class="text-danger" asp-validation-for="HeaderTitle"></span>
+
+                <label class="text-secondary" asp-for="HeaderDescription"></label>
+                <input class="form-control mb-3" type="text" asp-for="HeaderDescription" />
+                <span class="text-danger" asp-validation-for="HeaderDescription"></span>
+
+                <label class="text-secondary" asp-for="MapUrl"></label>
+                <input class="form-control mb-3" type="text" asp-for="MapUrl" />
+                <span class="text-danger" asp-validation-for="MapUrl"></span>
+
+                <label class="text-secondary" asp-for="BlogTitle"></label>
+                <input class="form-control mb-3" type="text" asp-for="BlogTitle" />
+                <span class="text-danger" asp-validation-for="BlogTitle"></span>
+
+                <label class="text-secondary" asp-for="BlogDescription"></label>
+                <input class="form-control mb-3" type="text" asp-for="BlogDescription" />
+                <span class="text-danger" asp-validation-for="BlogDescription"></span>
+
+                <label class="text-secondary" asp-for="WorkingHours"></label>
+                <input class="form-control mb-3" type="text" asp-for="WorkingHours" />
+                <span class="text-danger" asp-validation-for="WorkingHours"></span>
+
+                <button type="submit" class="btn btn-success">Ekle</button>
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </form>
+</div>

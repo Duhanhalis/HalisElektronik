@@ -1,0 +1,41 @@
+﻿@using HalisElektronik.Models;
+@model List<Category>
+
+
+<table class="col table table-bordered table-striped table-hover">
+    <thead>
+        <tr class="text-center">
+            <th>Kategori Id</th>
+            <th>Kategori Ismi</th>
+            <th>Kategori Açıklaması</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            for (int i = 0; i < Model.Count; i++)
+            {
+                if (i == 9) break;
+                <tr>
+                    <td>@Model[i].CategoryId</td>
+                    <td>@Model[i].CategoryName</td>
+                    <td>@Model[i].CategoryDescription</td>
+                    <td>
+                        <a class="btn btn-warning col" asp-action="Edit" asp-route-id="@Model[i].CategoryId" asp-controller="Category" asp-area="Admin">Düzenle</a>
+                        <a class="btn btn-danger col" asp-action="Delete" asp-route-id="@Model[i].CategoryId" asp-controller="Category" asp-area="Admin">Sil</a>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr class="text-center">
+                <th colspan="3" class="text-danger">Kategori Boş</th>
+            </tr>
+        }
+    </tbody>
+    
+</table>
+<hr />
+
