@@ -8,7 +8,7 @@ namespace HalisElektronik.Models
     /// </summary>
     [Table("Products")]
     public class Product
-    {   
+    {
 
         [Key]
         public int ProductId { get; set; }

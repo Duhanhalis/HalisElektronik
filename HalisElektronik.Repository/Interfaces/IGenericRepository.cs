@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -20,5 +21,7 @@ namespace HalisElektronik.Repositories.Interfaces
         Task<T> AddAsync(T entity);
         void Update(T entity);
         void Delete(T entity);
+        Task<string> ImageCreate(IFormFile formFile,string fileTitle);
+        void ImageDelete(string imageName);
     }
 }

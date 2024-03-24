@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace HalisElektronik.Models
+namespace HalisElektronik.Models.Product
 {
     /// <summary>
     /// Ürünlerin Fotoğrafları Tutulan Table

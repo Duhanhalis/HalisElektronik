@@ -1,4 +1,6 @@
 ﻿using HalisElektronik.Repositories.Interfaces;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
@@ -7,13 +9,15 @@ namespace HalisElektronik.Repositories.Implementation
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
         private readonly ApplicationDbContext _context;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public GenericRepository(ApplicationDbContext context)
+        public GenericRepository(ApplicationDbContext context, IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
+            _webHostEnvironment = webHostEnvironment;
         }
 
-        public virtual void Add(T entity)
+        public void Add(T entity)
         {
             try
             {
@@ -135,7 +139,48 @@ namespace HalisElektronik.Repositories.Implementation
 
                 throw new Exception(ex.ToString());
             }
-            
+
+        }
+        public async Task<string> ImageCreate(IFormFile formFile,string fileTitle)
+        {
+            try
+            {
+                if (formFile == null)
+                {
+                    string fileName1 = "No-Image.jpg";
+                    return fileName1;
+                }
+                string webRootPath = $"{_webHostEnvironment.WebRootPath}//ImageLibrary//";
+                string fileName = $"{fileTitle}_{Guid.NewGuid()}_{formFile.FileName}";
+                var filePath = Path.Combine(webRootPath, fileName);
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await formFile.CopyToAsync(stream);
+                }
+                return fileName;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception();
+            }
+        }
+        public void ImageDelete(string imageName)
+        {
+            try
+            {
+                if (!String.IsNullOrEmpty(imageName))
+                {
+                    string webRootPath = $"{_webHostEnvironment.WebRootPath}//ImageLibrary";
+                    if (System.IO.File.Exists(webRootPath + "//" + imageName))
+                    {
+                        System.IO.File.Delete(webRootPath + "//" + imageName);
+                    }
+                }
+            }
+            catch
+            {
+                throw new Exception();
+            }
         }
     }
 }

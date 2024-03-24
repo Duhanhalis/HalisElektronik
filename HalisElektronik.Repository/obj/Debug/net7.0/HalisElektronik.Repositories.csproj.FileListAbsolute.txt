@@ -9,10 +9,10 @@ C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Repository\obj\D
 C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Repository\obj\Debug\net7.0\HalisElektronik.Repositories.AssemblyInfoInputs.cache
 C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Repository\obj\Debug\net7.0\HalisElektronik.Repositories.AssemblyInfo.cs
 C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Repository\obj\Debug\net7.0\HalisElektronik.Repositories.csproj.CoreCompileInputs.cache
+C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Repository\obj\Debug\net7.0\HalisElektronik.Repositories.sourcelink.json
 C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Repository\obj\Debug\net7.0\HalisElektronik.Repositories.csproj.CopyComplete
 C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Repository\obj\Debug\net7.0\HalisElektronik.Repositories.dll
 C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Repository\obj\Debug\net7.0\refint\HalisElektronik.Repositories.dll
 C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Repository\obj\Debug\net7.0\HalisElektronik.Repositories.pdb
 C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Repository\obj\Debug\net7.0\HalisElektronik.Repositories.genruntimeconfig.cache
 C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Repository\obj\Debug\net7.0\ref\HalisElektronik.Repositories.dll
-C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Repository\obj\Debug\net7.0\HalisElektronik.Repositories.sourcelink.json

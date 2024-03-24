@@ -11,7 +11,7 @@ namespace HalisElektronik.Models
     {
         [Key]
         public int BlogsId { get; set; }
-        [Required,MaxLength(50),MinLength(3)]
+        [Required, MaxLength(50), MinLength(3)]
         public string BlogsTagName { get; set; } = string.Empty;
     }
 }

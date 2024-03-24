@@ -4,14 +4,14 @@
     "C:\\Users\\HUAWEI\\Desktop\\Code\\C#\\HalisElektronik\\HalisElektronik.Repository\\HalisElektronik.Repositories.csproj": {}
   },
   "projects": {
-    "C:\\Users\\HUAWEI\\Desktop\\Code\\C#\\HalisElektronik\\HalisElektronik.Models\\HalisElektronik.Models.csproj": {
+    "C:\\Users\\HUAWEI\\Desktop\\Code\\C#\\HalisElektronik\\HalisElektronik.Model\\HalisElektronik.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HUAWEI\\Desktop\\Code\\C#\\HalisElektronik\\HalisElektronik.Models\\HalisElektronik.Models.csproj",
+        "projectUniqueName": "C:\\Users\\HUAWEI\\Desktop\\Code\\C#\\HalisElektronik\\HalisElektronik.Model\\HalisElektronik.Models.csproj",
         "projectName": "HalisElektronik.Models",
-        "projectPath": "C:\\Users\\HUAWEI\\Desktop\\Code\\C#\\HalisElektronik\\HalisElektronik.Models\\HalisElektronik.Models.csproj",
+        "projectPath": "C:\\Users\\HUAWEI\\Desktop\\Code\\C#\\HalisElektronik\\HalisElektronik.Model\\HalisElektronik.Models.csproj",
         "packagesPath": "C:\\Users\\HUAWEI\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HUAWEI\\Desktop\\Code\\C#\\HalisElektronik\\HalisElektronik.Models\\obj\\",
+        "outputPath": "C:\\Users\\HUAWEI\\Desktop\\Code\\C#\\HalisElektronik\\HalisElektronik.Model\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\DevExpress 23.2\\Components\\Offline Packages",
@@ -42,6 +42,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -49,6 +54,14 @@
           "targetAlias": "net7.0",
           "dependencies": {
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.1, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[7.0.1, )"
+            },
+            "Microsoft.Extensions.Identity.Core": {
               "target": "Package",
               "version": "[7.0.1, )"
             }
@@ -69,7 +82,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -105,8 +118,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\HUAWEI\\Desktop\\Code\\C#\\HalisElektronik\\HalisElektronik.Models\\HalisElektronik.Models.csproj": {
-                "projectPath": "C:\\Users\\HUAWEI\\Desktop\\Code\\C#\\HalisElektronik\\HalisElektronik.Models\\HalisElektronik.Models.csproj"
+              "C:\\Users\\HUAWEI\\Desktop\\Code\\C#\\HalisElektronik\\HalisElektronik.Model\\HalisElektronik.Models.csproj": {
+                "projectPath": "C:\\Users\\HUAWEI\\Desktop\\Code\\C#\\HalisElektronik\\HalisElektronik.Model\\HalisElektronik.Models.csproj"
               }
             }
           }
@@ -115,6 +128,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -166,7 +184,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

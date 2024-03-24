@@ -9,3 +9,4 @@ C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.ViewModels\obj\D
 C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.ViewModels\obj\Debug\net8.0\refint\HalisElektronik.ViewModels.dll
 C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.ViewModels\obj\Debug\net8.0\HalisElektronik.ViewModels.pdb
 C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.ViewModels\obj\Debug\net8.0\ref\HalisElektronik.ViewModels.dll
+C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.ViewModels\obj\Debug\net8.0\HalisElektronik.ViewModels.sourcelink.json

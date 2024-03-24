@@ -1,49 +1,73 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - HalisElektronik.Web</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/HalisElektronik.Web.styles.css" asp-append-version="true" />
+    <title>@ViewData["Title"] - HalisElektronik</title>
+    <meta name="author" content="Duhan Halis - DH">
+    <meta name="description" content="@ViewData["Description"] - Televizyon Tamiri, Uydu İşleri, Sakarya">
+    <link rel="stylesheet" href="~/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">HalisElektronik.Web</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+        <div class="container-fluid bg-dark px-5">
+
+            <div class="row justify-content-center align-items-center" id="container-fluid">
+                <div class="col col-sm-5 col-md-3" id="navbar-img">
+                    <a href=""><img src="~/" height="50" alt="Logo"></a>
+                </div>
+
+
+                <div class="col col-md-6" id="navbar-group">
+                    <ul class="row row-cols-auto gap-3 m-0 px-0 py-2 list-unstyled justify-content-center">
+                        <a asp-controller="Anasayfa" asp-action="Index" asp-area="" class="col text-decoration-none text-center text-light">
+                        <li class="text-nowrap">
+                            Anasayfa
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </a>
+                        <a class="col text-decoration-none text-center text-light" asp-action="AboutUs" asp-controller="Home" asp-area="">
+                        <li class="text-nowrap">Bloglar</li>
+                        </a>
+
+                        <li class="text-nowrap text-light">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" asp-action="Index" asp-controller="Product">Ürünler</a>
+                            <div class="dropdown-menu dropdown-menu-dark border-0 pt-0 mx-0 rounded-3 shadow overflow-hidden">
+                                <ul class="list-unstyled mb-0">
+                                    @* kategoriyi dinamik hale getiriyor. *@
+                                    <partial name="Partial/_ProductCategory.cshtml" />
+
+                                </ul>
+                            </div>
                         </li>
+                        <a asp-action="Info" asp-controller="Home" asp-area="" class="col text-decoration-none text-center text-light">
+                        <li class="text-nowrap">Hakkımızda</li>
+                        </a>
                     </ul>
                 </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - HalisElektronik.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+
+                <div class="col col-md-3 col-sm-5 text-center invisible" id="hamburger">
+                    <img src="../bootstrap-icons-1.9.1/icons/1-circle-fill.svg" fill="white" height="30" width="30" alt="">
+                </div>
+            </div>
         </div>
+    </header>
+
+
+    <main role="main">
+        @RenderBody()
+    </main>
+
+
+    <footer class="container">
+        @* footer Dinamik Hale Getiriyor *@
+        @Html.Partial("Partial/_Footer.cshtml", ViewData["Footer"] as List<SocialMedia>)
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

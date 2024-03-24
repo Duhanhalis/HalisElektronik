@@ -11,7 +11,6 @@
   </ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\HalisElektronik.Models\HalisElektronik.Models.csproj" />
 	  <ProjectReference Include="..\HalisElektronik.Repository\HalisElektronik.Repositories.csproj" />
 	</ItemGroup>
 </Project>

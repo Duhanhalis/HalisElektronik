@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HalisElektronik.ViewModels")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+586f00d628d1709d607d84e21c22d94545de1c5e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cc3760c86d5ebd99005554550e8f89ced457a759")]
 [assembly: System.Reflection.AssemblyProductAttribute("HalisElektronik.ViewModels")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HalisElektronik.ViewModels")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
