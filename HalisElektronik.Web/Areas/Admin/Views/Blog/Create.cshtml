@@ -1,0 +1,60 @@
+﻿@model BlogViewModel
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    // ViewData["Title"] = "Bloglar";
+}
+@section Style {
+    <link href="~/css/Admin/Blogs.css" rel="stylesheet" />
+}
+
+<div class="admin-blogs-container-create">
+    <form asp-action="Create" asp-controller="Blog" asp-area="Admin" method="post" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6">
+              
+                <div class="form-group">
+                    <label asp-for="Images.ImageFile">Blog Fotoğraf:</label>
+                    <input type="file" asp-for="Images.ImageFile" class="form-control" />
+                    <span asp-validation-for="Images.ImageFile" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Images.Title">Blog Fotoğrafı Açıklama:</label>
+                    <input type="text" asp-for="Images.Title" class="form-control" />
+                    <span asp-validation-for="Images.Title" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="BlogTitle">Blog Başlığı:</label>
+                    <input type="text" asp-for="BlogTitle" class="form-control" />
+                    <span asp-validation-for="BlogTitle" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="BlogAltTitle">Blog Alt Başlığı:</label>
+                    <input type="text" asp-for="BlogAltTitle" class="form-control" />
+                    <span asp-validation-for="BlogAltTitle" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="BlogDescription">Blog Detayları:</label>
+                    <textarea id="edit" asp-for="BlogDescription"></textarea>
+                    <partial name="../Shared/_TextEditor.cshtml" />
+                    <span asp-validation-for="BlogDescription" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Tag">Blog Etiketleri:</label>
+                    <select type="text" asp-for="BlogsTagId" class="form-control my-2" asp-items='@(ViewBag.Tags)'>
+                        <option value="">Birini Sec</option>
+                    </select>
+                    <span asp-validation-for="Tag" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Oluştur</button>
+                </div>
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </form>
+    </div>

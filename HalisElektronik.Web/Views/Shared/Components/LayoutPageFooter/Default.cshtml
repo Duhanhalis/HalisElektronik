@@ -1,0 +1,24 @@
+﻿@model List<SocialMedia>
+
+<footer>
+    <hr>
+    <div class="container-footer">
+        <div class="container-sign">
+            <div class="footer-info w-25">
+                
+            </div>
+            <p>Lorem ipsum dolor sit amet.</p>
+        </div>
+        <div class="container-socialMedia">
+            <ol class="footer-socialMedia">
+                @foreach (var item in Model){
+                <li class="footer-socialMedia-item">
+                    <a href="@item.Link" title="@item.Title">
+                            <img src="https://localhost:7273/api/Image/GetImageByName/@(item.Images.ImageUrl)" alt="Alternate Text" />
+                    </a>
+                </li>
+                }
+            </ol>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,12 @@
+﻿@model IEnumerable<SocialMedia>
+<ul class="socialMedia">
+    @foreach (var item in Model)
+    {   
+    <li>
+        <a href="@item.Link">
+                <img src="https://localhost:7273/api/Image/GetImageByName/@(item.Images.ImageUrl)" alt="Alternate Text" />
+            <p>@item.Title</p>
+        </a>
+    </li>
+    }
+</ul>

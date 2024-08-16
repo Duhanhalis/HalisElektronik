@@ -1,0 +1,38 @@
+﻿@{
+    int urlId;
+    try
+    {
+        urlId = int.Parse(Url?.ActionContext?.HttpContext?.Request?.Query["page"]);
+    }
+    catch (Exception)
+    {
+        urlId = 1;
+    }
+}
+@model int
+@if (Model >= 20)
+{
+    <nav aria-label="Page navigation example" class="container-nav">
+        <ul class="pagination">
+
+            <li class="page-item @(urlId > 1 ? "" : "disabled") ">
+                <a class="page-link" asp-action="Index" asp-controller="Blog" asp-route-page="@(urlId-1)" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            @for (int i = 1; i <= Model / 20; i++)
+            {
+                <li class="page-item"><a class="page-link" asp-action="Index" asp-controller="Blog" asp-route-page="@i">@i</a></li>
+            }
+
+            <li class="page-item @(Model/20 > urlId ? "" : "disabled")">
+                <a class="page-link " asp-action="Index" asp-controller="Blog" asp-route-page="@(urlId+1)" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+
+
+
+        </ul>
+    </nav>
+}

@@ -10,8 +10,9 @@ namespace HalisElektronik.Models
     public class BlogsTag
     {
         [Key]
-        public int BlogsId { get; set; }
+        public int BlogsTagId { get; set; }
         [Required, MaxLength(50), MinLength(3)]
         public string BlogsTagName { get; set; } = string.Empty;
+        public ICollection<Blog>? Blogs { get; set; }
     }
 }

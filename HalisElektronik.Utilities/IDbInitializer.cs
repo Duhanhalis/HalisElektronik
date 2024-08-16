@@ -8,6 +8,6 @@ namespace HalisElektronik.Utilities
 {
     public interface IDbInitializer
     {
-        void Initialize();
+        void InitializeAsync();
     }
 }

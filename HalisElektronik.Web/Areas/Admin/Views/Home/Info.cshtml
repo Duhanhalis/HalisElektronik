@@ -1,0 +1,76 @@
+﻿@{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+@model IEnumerable<Info>
+@section Style {
+    <link href="~/css/Info.css" rel="stylesheet" />
+}
+@if (!Model.Any() || Model.Count()<0)
+{
+    <div class="container-fluid">
+        <a asp-action="InfoCreate" asp-controller="Home" asp-area="Admin" class="btn btn-warning">Ekle</a>
+    </div>
+}
+@if (Model != null)
+{
+    @foreach (var item in Model)
+    {
+        <div class="container-fluid">
+            <a asp-action="InfoEdit" asp-controller="Home" asp-area="Admin" asp-route-id="@item.InfoId" class="btn btn-warning">Düzenle</a>
+        </div>
+        <div class="info-container">
+
+            <div class="container-info">
+                <div class="container-banner">
+                    <div class="banner-col">
+                        <iframe src="@item.InfoMapsUrl"
+                                style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <div class="banner-col header">
+                        <h1 class="header-title">@item.HeaderTitle</h1>
+                        <p class="header-description">
+                            @item.HeaderDescription
+                        </p>
+                    </div>
+                </div>
+
+
+
+                <div class="container-description">
+                    <div class="description-col">
+                        <h1 class="description-title">@item.InfoTitle</h1>
+                        <p>
+                            @item.InfoBody
+                        </p>
+                    </div>
+                    <div class="description-col sidebar">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped table-hover text-center">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Hafta İçi</th>
+                                        <th scope="col">Hafta Sonu</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="">
+                                        <td scope="row">09:00</td>
+                                        <td scope="row">09:00</td>
+                                    </tr>
+                                    <tr class="">
+                                        <td scope="row">21:00</td>
+                                        <td>12:00</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="description-socialMedia">
+                            @await Component.InvokeAsync("HalisElektronik.Web.Areas.Admin.ViewComponents.InfoPageSocialMedia")
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}

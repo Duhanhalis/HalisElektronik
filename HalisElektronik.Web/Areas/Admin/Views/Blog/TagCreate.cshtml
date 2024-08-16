@@ -1,0 +1,20 @@
+﻿@model BlogsTagViewModel
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    ViewData["Title"] = "Bloglar";
+}
+
+<div class="row gap-2">
+    <div class="col-md-4 border rounded-2 offset-4 gy-3">
+        <form asp-action="TagCreate" asp-controller="Blog" asp-area="Admin" method="post">
+            <div class="form-group m-2">
+                <label asp-for="BlogsTagName" class="control-label">Blog Etiketi Başlığı:</label>
+                <input asp-for="BlogsTagName" class="form-control" />
+                <span asp-validation-for="BlogsTagName" class="text-danger"></span>
+            </div>
+            <div class="form-group m-2">
+                <input type="submit" value="Ekle" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,5 +1,4 @@
-﻿
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -8,53 +7,179 @@
     <meta name="author" content="Duhan Halis - DH">
     <meta name="description" content="@ViewData["Description"] - Televizyon Tamiri, Uydu İşleri, Sakarya">
     <link rel="stylesheet" href="~/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/_Layout.css" />
+    @await RenderSectionAsync("Css", required: false)
 </head>
 <body>
-    <header>
-        <div class="container-fluid bg-dark px-5">
+    <header class="container-header">
+        <div class="header-container">
+            <div class="header-logo">
+                <a asp-action="Index" asp-controller="Home" asp-area="">
+                    <img src="~/lib/Icons/browse.svg" />
+                </a>
+            </div>
+            <div class="header-list">
+                <ul class="header-list-group">
+                    <li class="header-list-item">
+                        <a asp-action="Index" asp-controller="Home" asp-area="">
+                            <p>Anasayfa</p>
+                        </a>
 
-            <div class="row justify-content-center align-items-center" id="container-fluid">
-                <div class="col col-sm-5 col-md-3" id="navbar-img">
-                    <a href=""><img src="~/" height="50" alt="Logo"></a>
-                </div>
-
-
-                <div class="col col-md-6" id="navbar-group">
-                    <ul class="row row-cols-auto gap-3 m-0 px-0 py-2 list-unstyled justify-content-center">
-                        <a asp-controller="Anasayfa" asp-action="Index" asp-area="" class="col text-decoration-none text-center text-light">
-                        <li class="text-nowrap">
-                            Anasayfa
+                    </li>
+                    <li class="header-list-item categoryDropdown">
+                        <a asp-action="Index" asp-controller="Products" asp-area="">
+                            <p>Ürünler</p>
+                            <img src="~/lib/Icons/chevron-down.svg" alt="">
+                        </a>
+                        @await Component.InvokeAsync("LayoutPageCategoryComponent")
+                    </li>
+                    <li class="header-list-item">
+                        <a asp-action="Index" asp-controller="Blogs" asp-area="">
+                            <p>Blog</p>
+                            <img src="~/lib/Icons/chevron-down.svg" alt="">
+                        </a>
+                        @await Component.InvokeAsync("LayoutPageBlogComponent")
+                    </li>
+                    <li class="header-list-item">
+                        <a asp-action="Info" asp-controller="Home" asp-area="">
+                            <p>Hakkımızda</p>
+                        </a>
+                    </li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li class="header-list-item">
+                            <a asp-action="Index" asp-controller="Home" asp-area="Admin">
+                                <img src="../wwwroot/lib/Icons/map.svg" alt="">
+                                <p>Admin</p>
+                            </a>
                         </li>
-                        </a>
-                        <a class="col text-decoration-none text-center text-light" asp-action="AboutUs" asp-controller="Home" asp-area="">
-                        <li class="text-nowrap">Bloglar</li>
-                        </a>
+                    }
+                </ul>
+            </div>
+            <div class="header-empty">
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="white">
+                    <use href="#grid" height="100%">
 
-                        <li class="text-nowrap text-light">
-                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" asp-action="Index" asp-controller="Product">Ürünler</a>
-                            <div class="dropdown-menu dropdown-menu-dark border-0 pt-0 mx-0 rounded-3 shadow overflow-hidden">
-                                <ul class="list-unstyled mb-0">
-                                    @* kategoriyi dinamik hale getiriyor. *@
-                                    <partial name="Partial/_ProductCategory.cshtml" />
-
-                                </ul>
-                            </div>
-                        </li>
-                        <a asp-action="Info" asp-controller="Home" asp-area="" class="col text-decoration-none text-center text-light">
-                        <li class="text-nowrap">Hakkımızda</li>
-                        </a>
-                    </ul>
-                </div>
-
-
-                <div class="col col-md-3 col-sm-5 text-center invisible" id="hamburger">
-                    <img src="../bootstrap-icons-1.9.1/icons/1-circle-fill.svg" fill="white" height="30" width="30" alt="">
-                </div>
+                    </use>
+                </svg>
             </div>
         </div>
-    </header>
+        <ul class="header-list-group-sm list-group">
+            <li class="header-list-item">
+                <a href="#" class="list-group-item">
+                    <svg class="bi">
+                        <use href="#house"></use>
+                    </svg>
+                    <p>Anasayfa</p>
+                </a>
 
+            </li>
+            <li class="header-list-item">
+                <a href="" class="list-group-item">
+                    <svg class="bi">
+                        <use href="#youtube"></use>
+                    </svg>
+                    <p>Ürünler</p>
+                    <svg class="bi">
+                        <use href="#chevron-down"></use>
+                    </svg>
+                </a>
+                <ul class="header-list-item-group list-group">
+                    <li>
+                        <a class="list-group-item" href="">
+                            <p>Etralom</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="list-group-item" href="">
+                            <p>Cifawis</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="list-group-item" href="">
+                            <p>Havacigeg</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="list-group-item" href="">
+                            <p>Pujvobmaj</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="list-group-item" href="">
+                            <p>Ujabebdeh</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="list-group-item" href="">
+                            <p>Argogos</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="list-group-item" href="">
+                            <p>Focigal</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="header-list-item">
+                <a href="" class="list-group-item">
+                    <svg class="bi">
+                        <use href="#youtube"></use>
+                    </svg>
+                    <p>Blog</p>
+                    <svg class="bi">
+                        <use href="#chevron-down"></use>
+                    </svg>
+                </a>
+                <ul class="header-list-item-group list-group">
+                    <li>
+                        <a href="" class="list-group-item">
+                            <p>Etralom</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" class="list-group-item">
+                            <p>Cifawis</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" class="list-group-item">
+                            <p>Havacigeg</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" class="list-group-item">
+                            <p>Pujvobmaj</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" class="list-group-item">
+                            <p>Ujabebdeh</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" class="list-group-item">
+                            <p>Argogos</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" class="list-group-item">
+                            <p>Focigal</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="header-list-item">
+                <a href="" class="list-group-item">
+                    <svg class="bi">
+                        <use href="#map"></use>
+                    </svg>
+                    <p>Hakkımızda</p>
+                </a>
+            </li>
+        </ul>
+    </header>
 
     <main role="main">
         @RenderBody()
@@ -63,11 +188,12 @@
 
     <footer class="container">
         @* footer Dinamik Hale Getiriyor *@
-        @Html.Partial("Partial/_Footer.cshtml", ViewData["Footer"] as List<SocialMedia>)
+        @await Component.InvokeAsync("LayoutPageFooter")
     </footer>
-
+    @await RenderSectionAsync("Scripts", required: false)
+    <script src="~/js/_Layout.js"></script>
+    <script src="~/js/Library.js"></script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

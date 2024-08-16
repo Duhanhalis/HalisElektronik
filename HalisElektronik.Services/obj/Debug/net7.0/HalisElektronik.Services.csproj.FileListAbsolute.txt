@@ -3,7 +3,9 @@ C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Services\bin\Deb
 C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Services\bin\Debug\net7.0\HalisElektronik.Services.pdb
 C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Services\bin\Debug\net7.0\HalisElektronik.Models.dll
 C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Services\bin\Debug\net7.0\HalisElektronik.Repositories.dll
+C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Services\bin\Debug\net7.0\HalisElektronik.ViewModels.dll
 C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Services\bin\Debug\net7.0\HalisElektronik.Repositories.pdb
+C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Services\bin\Debug\net7.0\HalisElektronik.ViewModels.pdb
 C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Services\bin\Debug\net7.0\HalisElektronik.Models.pdb
 C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Services\obj\Debug\net7.0\HalisElektronik.Services.csproj.AssemblyReference.cache
 C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Services\obj\Debug\net7.0\HalisElektronik.Services.GeneratedMSBuildEditorConfig.editorconfig
@@ -11,7 +13,7 @@ C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Services\obj\Deb
 C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Services\obj\Debug\net7.0\HalisElektronik.Services.AssemblyInfo.cs
 C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Services\obj\Debug\net7.0\HalisElektronik.Services.csproj.CoreCompileInputs.cache
 C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Services\obj\Debug\net7.0\HalisElektronik.Services.sourcelink.json
-C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Services\obj\Debug\net7.0\HalisElektronik.Services.csproj.CopyComplete
+C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Services\obj\Debug\net7.0\HalisEle.96B022E2.Up2Date
 C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Services\obj\Debug\net7.0\HalisElektronik.Services.dll
 C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Services\obj\Debug\net7.0\refint\HalisElektronik.Services.dll
 C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Services\obj\Debug\net7.0\HalisElektronik.Services.pdb

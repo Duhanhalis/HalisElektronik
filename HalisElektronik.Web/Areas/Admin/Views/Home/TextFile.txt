@@ -1,0 +1,11 @@
+﻿main.cshtml
+{
+ col =>
+ {
+ style = 300px;
+ shadow = shadow-sm;
+ title = {id:textClip; data-length:10;}
+ description = {id:textClip; data-length:30;}
+ button = btn-sm
+ }
+}

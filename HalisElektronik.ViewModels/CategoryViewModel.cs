@@ -17,6 +17,6 @@ namespace HalisElektronik.ViewModels
         public string CategoryName { get; set; } = string.Empty!;
         [MaxLength(200, ErrorMessage = "Maksimum 200 karekter."), Display(Name = "Kategori Açıklaması :")]
         public string? CategoryDescription { get; set; }
-        public List<ProductImageListViewModel>? Products { get; set; } = new List<ProductImageListViewModel>();
+        public List<ProductViewModel>? Products { get; set; } = new List<ProductViewModel>();
     }
 }

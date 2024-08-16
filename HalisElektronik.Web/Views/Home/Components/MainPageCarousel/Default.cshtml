@@ -1,0 +1,58 @@
+﻿@model List<CarouselMain>
+@if (Model.Count >= 0)
+{
+    <div id="myCarousel" class="carousel slide container-carousel mb-6" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="@(i)" class="@(i == 0 ? "active" : "")" @(i == 0 ? "aria-current=\"true\"" : "") aria-label="Slide @(i + 1)"></button>
+            }
+        </div>
+        <div class="carousel-inner">
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                <div class="carousel-item @(i == 0 ? "active" : "")">
+                    <img src="https://localhost:7273/api/Image/GetImageByName/@(Model[i].Images.ImageUrl)" class="d-block w-100 carousel-image" alt="@Model[i].Title" />
+                    <div class="container">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h1>@Model[i].Title</h1>
+                            <p class="opacity-75">@Model[i].Description</p>
+                            <p><a class="btn btn-lg btn-primary" href="//@Model[i].BtnUrl">@Model[i].BtnTitle</a></p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+}
+else
+{
+    <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+
+            <div class="carousel-inner">
+                <div class="carousel-item h-75">
+                    <img src="https://localhost:7273/api/Image/GetImageByName/No-Image.jpg" class="object-fit-contain w-100" alt="" />
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1></h1>
+                            <p class="opacity-75"></p>
+                            <p><a class="btn btn-lg btn-primary" href="//"></a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<script src="~/js/Carousel.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>

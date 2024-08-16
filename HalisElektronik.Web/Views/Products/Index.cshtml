@@ -1,0 +1,62 @@
+﻿@using System.Text.RegularExpressions
+@model List<Product>
+@section Css {
+    <link href="~/css/Products.css" rel="stylesheet" />
+}
+<div class="container my-5 container-renderBody">
+    <div>
+        <!--  Form Group -->
+        <form asp-controller="Products" asp-action="Index" method="get" enctype="application/x-www-form-urlencoded" class="form-renderbody">
+
+            <input type="text" name="searchQuery" title="deneme" class="form-control">
+
+            <button type="submit" class="btn btn-success">
+                <img src="~/lib/Icons/search.svg" />
+                Ara
+            </button>
+
+            @await Component.InvokeAsync("ProductsPageCategoryComponents")
+        </form>
+    </div>
+</div>
+
+<div class="container cards-container">
+    <div class="container-grid-card">
+        @foreach (var item in Model)
+        {
+            <div>
+                <div class="grid-card">
+                    <a asp-action="Details" asp-controller="Products" asp-route-id="@item.ProductId">
+                        <div class="card-image">
+                            @if (item.ProductImages != null)
+                            {
+                                <img src="https://localhost:7273/api/Image/GetImageByName/@(item.ProductImages.First().ImageUrl)" class="card-img-top" alt="" />
+                            }
+                            else
+                            {
+                                <img src="https://localhost:7273/api/Image/GetImageByName/No-Image.jpg" class="card-img-top" alt="" />
+                            }
+                        </div>
+                        <div class="grid-card-body">
+                            <h5 class="card-title">@item.Title</h5>
+                            <p class="card-description">@Regex.Replace(item.Description, "<.*?>", string.Empty)</p>
+                            <p class="card-category">@item.Category?.CategoryName</p>
+                            <div class="card-button">
+                                <h5 class="text-secondary">@item.Price &#x20BA;</h5>
+                                <button asp-action="Index" asp-controller="Products" asp-route-id="@item.ProductId" class="mt-3 btn btn-success">Göz At</button>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        }
+
+    </div>
+</div>
+@await Component.InvokeAsync("ProductsPagePagination")
+@section Scripts
+{
+    <script src="~/js/Products.js"></script>
+}
+

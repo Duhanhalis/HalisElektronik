@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace HalisElektronik.Models
 {
@@ -21,7 +22,7 @@ namespace HalisElektronik.Models
         public double? Price { get; set; } = null;
         public bool IsStock { get; set; } = true;
         public DateTime Date_Of_Adjustment { get; set; } = DateTime.Now;
-        public ICollection<ProductImageList>? ProductImageList { get; set; }
+        public ICollection<ProductImage>? ProductImages { get; set; }
     }
 }
 

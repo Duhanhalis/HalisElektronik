@@ -1,0 +1,20 @@
+﻿@model List<FeaturetteMain>
+
+<div class="container featurette">
+    <hr class="featurette-divider">
+    @for (int i = 0; i < Model.Count; i++)
+    {
+        @* Dikkat Asagida If Var *@
+        
+
+        <div class="container-featurette @(i%2 == 0 ? "featurette-left":"featurette-right")">
+            <div class="featurette-col-1">
+                <h1 class="featurette-title">@Model[i].Title</h1>
+                <p class="featurette-description">@Model[i].Description</p>
+            </div>
+            <div class="featurette-col-2">
+                <img src="https://localhost:7273/api/Image/GetImageByName/@(Model[i].Images.ImageUrl)" alt="Alternate Text" />
+            </div>
+        </div>
+    } 
+</div>

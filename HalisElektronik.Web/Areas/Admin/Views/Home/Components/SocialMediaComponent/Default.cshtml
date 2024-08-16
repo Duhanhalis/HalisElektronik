@@ -1,0 +1,42 @@
+﻿@model List<SocialMedia>
+<label class="my-2 fs-1">Sosyal Medya</label>
+<hr />
+
+<div class="socialMedia-group">
+
+    @if (Model.Count() > 0)
+    {
+        @foreach (var item in Model)
+        {
+            <div class="socialMedia-card">
+                <div class="socialMedia-img">
+                    <img src="https://localhost:7273/api/Image/GetImageByName/@(item.Images?.ImageUrl)" class="img" />
+                </div>
+                <div class="socialMedia-body">
+                    <h5>@item.Title</h5>
+                    <p>@item.Link</p>
+                    <div class="socialMedia-buttons">
+                        <a asp-action="SocialMediaEdit" asp-controller="Home" asp-area="Admin" asp-route-id="@item.SocialMediaId" class="btn btn-warning btn-sm">Düzenle</a>
+                        <a asp-action="SocialMediaDelete" asp-controller="Home" asp-area="Admin" asp-route-id="@item.SocialMediaId" class="btn btn-danger btn-sm">Sil</a>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    @if (Model.Count() < 4)
+    {
+
+        <div class="socialMedia-card">
+            <div class="socialMedia-img">
+                <img src="https://localhost:7273/api/Image/GetImageByName/No-Image.jpg" class="img" />
+            </div>
+            <div class="socialMedia-body">
+                <h5>...</h5>
+                <p>...</p>
+                <div class="socialMedia-buttons-add">
+                    <a asp-action="SocialMediaAdd" asp-controller="Home" asp-area="Admin" class="btn btn-primary btn-sm">Ekle</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

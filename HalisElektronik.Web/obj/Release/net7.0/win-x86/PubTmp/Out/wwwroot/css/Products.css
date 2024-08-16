@@ -1,0 +1,426 @@
+﻿@import './_Layout.css';
+a {
+    text-decoration: none;
+}
+/*#region Main */
+/*#region Form */
+.container-renderBody {
+    width: 100%;
+}
+
+.container-renderBody > div {
+    width: 100%;
+    padding: 1% 10%;
+    border: 1px solid rgba(0, 0, 0, 0.300);
+    border-radius: .5em;
+}
+
+.container-renderBody > div > form {
+    display: grid;
+    grid: repeat(2, 1fr) / 90% 10%;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.container-renderBody > div > form button {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 5px;
+    justify-content: space-evenly;
+}
+
+.container-renderBody > div > form button svg,
+.container-renderBody > div > form button use {
+    width: 25px;
+    height: 25px;
+    fill: white;
+}
+/*#endregion*/
+/*#region Cards */
+
+.cards-container {
+    padding: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    list-style: none;
+    -webkit-text-decoration: none;
+    text-decoration: none;
+}
+
+.cards-container > .container-grid-card {
+    display: grid;
+    grid: repeat(5, auto) / repeat(6,1fr);
+    gap: 1em;
+    margin: 1em 0 10em 0;
+    padding: 0;
+}
+
+.cards-container > .container-grid-card > div {
+    height: 350px;
+    cursor: pointer;
+    padding: 0;
+}
+
+.cards-container > .container-grid-card > div > .grid-card {
+    width: 100%;
+    border-radius: .3em;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid: 50% 50% / 100%;
+    height: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.300);
+}
+
+.cards-container > .container-grid-card > div > .grid-card > a > .card-image {
+    width: 100%;
+    height: 100%;
+}
+
+.cards-container > .container-grid-card > div > .grid-card > a > .card-image > img {
+    border-radius: .3em .3em 0 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.cards-container > .container-grid-card > div > .grid-card > a > .grid-card-body {
+    display: grid;
+    grid: 15% 45% 15% 25% / 100%;
+    padding: .5em;
+    height: 100%;
+    grid-row-gap: 1px;
+}
+
+.cards-container > .container-grid-card > div > .grid-card > a > .grid-card-body > .card-title {
+    font-size: 1.2em;
+    text-wrap: nowrap;
+    color: red;
+}
+
+.cards-container > .container-grid-card > div > .grid-card > a > .grid-card-body > .card-description {
+    text-wrap: wrap;
+    color: grey;
+}
+
+.cards-container > .container-grid-card > div > .grid-card > a > .grid-card-body > .card-category {
+    color: black;
+}
+
+.cards-container > .container-grid-card > div > .grid-card > a > .grid-card-body > .card-title,
+.cards-container > .container-grid-card > div > .grid-card > a > .grid-card-body > .card-description,
+.cards-container > .container-grid-card > div > .grid-card > a > .grid-card-body > .card-category {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-text-decoration: none;
+    text-decoration: none;
+    margin: 0;
+}
+
+.cards-container > .container-grid-card > div > .grid-card > a > .grid-card-body > .card-button {
+    display: grid;
+    grid: 100% / repeat(2,1fr);
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.cards-container > .container-grid-card > div > .grid-card > a > .grid-card-body > .card-button > button {
+    margin: 0 !important;
+}
+
+.cards-container > .container-grid-card > div > .grid-card > a > .grid-card-body > .card-button > h5 {
+    align-items: end;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-text-decoration: none;
+}
+
+.container-nav {
+    padding: var(--container-padding);
+}
+
+.container-nav .pagination {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*#endregion */
+/*#endregion */
+
+@media only screen and (min-width : 1224px) {
+    /*#region Form */
+    .container-renderBody {
+        width: 100%;
+    }
+
+    .container-renderBody > div {
+        width: 100%;
+        padding: 1% 10%;
+        border: 1px solid rgba(0, 0, 0, 0.300);
+        border-radius: .5em;
+    }
+
+    .container-renderBody > div > form {
+        display: grid;
+        grid: repeat(2, 1fr) / 90% 10%;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .container-renderBody > div > form button {
+        display: flex;
+        flex-flow: row nowrap;
+        gap: 5px;
+        justify-content: space-evenly;
+    }
+
+    .container-renderBody > div > form button svg,
+    .container-renderBody > div > form button use {
+        width: 25px;
+        height: 25px;
+        fill: white;
+    }
+    /*#endregion*/
+    /*#region Cards */
+
+    .cards-container {
+        padding: 0;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        list-style: none;
+        -webkit-text-decoration: none;
+        text-decoration: none;
+    }
+
+    .cards-container > .container-grid-card {
+        display: grid;
+        grid: repeat(5, auto) / repeat(6,1fr);
+        gap: 1em;
+        margin: 1em 0 10em 0;
+        padding: 0;
+    }
+
+    .cards-container > .container-grid-card > div {
+        height: 350px;
+        cursor: pointer;
+        padding: 0;
+    }
+
+    .cards-container > .container-grid-card > div > .grid-card {
+        width: 100%;
+        border-radius: .3em;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        grid: 50% 50% / 100%;
+        height: 100%;
+        border: 1px solid rgba(0, 0, 0, 0.300);
+    }
+
+    .cards-container > .container-grid-card > div > .grid-card > a > .card-image {
+        width: 100%;
+        height: 100%;
+    }
+
+    .cards-container > .container-grid-card > div > .grid-card > a > .card-image > img {
+        border-radius: .3em .3em 0 0;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .cards-container > .container-grid-card > div > .grid-card > a > .grid-card-body {
+        display: grid;
+        grid: 15% 45% 15% 25% / 100%;
+        padding: .5em;
+        height: 100%;
+        grid-row-gap: 1px;
+    }
+
+    .cards-container > .container-grid-card > div > .grid-card > a > .grid-card-body > .card-title {
+        font-size: 1.2em;
+        text-wrap: nowrap;
+        color: red;
+    }
+
+    .cards-container > .container-grid-card > div > .grid-card > a > .grid-card-body > .card-description {
+        text-wrap: wrap;
+        color: grey;
+    }
+
+    .cards-container > .container-grid-card > div > .grid-card > a > .grid-card-body > .card-category {
+        color: black;
+    }
+
+    .cards-container > .container-grid-card > div > .grid-card > a > .grid-card-body > .card-title,
+    .cards-container > .container-grid-card > div > .grid-card > a > .grid-card-body > .card-description,
+    .cards-container > .container-grid-card > div > .grid-card > a > .grid-card-body > .card-category {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-text-decoration: none;
+        text-decoration: none;
+        margin: 0;
+    }
+
+    .cards-container > .container-grid-card > div > .grid-card > a > .grid-card-body > .card-button {
+        display: grid;
+        grid: 100% / repeat(2,1fr);
+        align-items: center;
+        justify-content: space-around;
+        width: 100%;
+    }
+
+    .cards-container > .container-grid-card > div > .grid-card > a > .grid-card-body > .card-button > button {
+        margin: 0 !important;
+    }
+
+    .cards-container > .container-grid-card > div > .grid-card > a > .grid-card-body > .card-button > h5 {
+        align-items: end;
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-text-decoration: none;
+    }
+
+    .container-nav {
+        padding: var(--container-padding);
+    }
+
+    .container-nav .pagination {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    /*#endregion */
+}
+
+@media only screen and (max-width: 1024px) {
+    /*#region Form */
+    .container-renderBody > div {
+        padding: 1% 8%;
+    }
+
+    .container-renderBody > div > form button {
+        display: flex;
+        flex-flow: row nowrap;
+        gap: 5px;
+        justify-content: space-evenly;
+    }
+    /*#endregion */
+    /*#region Cards */
+
+    .cards-container > .container-grid-card {
+        grid: repeat(5, auto) / repeat(5,1fr);
+    }
+    /*#endregion */
+    /*#region pagination */
+    .container-nav {
+        padding: var(--container-padding);
+    }
+
+    .container-nav .pagination {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    /*#endregion */
+}
+
+@media only screen and (max-width : 834px) {
+    /*#region Form*/
+    .container-renderBody > div {
+        padding: 1% 5%;
+    }
+
+    .container-renderBody > div > form {
+        grid: repeat(2, 1fr) / 85% 15%;
+    }
+    /*#endregion */
+
+    /*#region Cards*/
+    .cards-container > .container-grid-card {
+        grid: repeat(5, auto) / repeat(4,1fr);
+    }
+    /*#endregion */
+
+    /*#region pagination */
+    .container-nav {
+        padding: var(--container-padding);
+    }
+
+    .container-nav .pagination {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    /*#endregion */
+}
+
+@media only screen and (max-width : 667px) {
+    .container-renderbody > div {
+        padding: 1% 3%;
+    }
+
+    .container-renderbody > div > form {
+        grid: repeat(2, 1fr) / 80% 20%;
+    }
+
+    .cards-container > .container-grid-card {
+        grid: repeat(5, auto) / repeat(3,1fr);
+    }
+
+    .container-nav {
+        padding: var(--container-padding);
+    }
+
+    .container-nav .pagination {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media only screen and (max-width : 425px) {
+    .container-renderBody > div {
+        padding: 1% 2%;
+    }
+
+    .container-renderBody > div > form {
+        grid: repeat(2, 1fr) / 75% 25%;
+    }
+    .cards-container
+    {
+        padding:2em;
+    }
+    .cards-container > .container-grid-card {
+        grid: repeat(5, auto) / repeat(2,1fr);
+    }
+
+    .container-nav {
+        padding: var(--container-padding);
+    }
+
+    .container-nav .pagination {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

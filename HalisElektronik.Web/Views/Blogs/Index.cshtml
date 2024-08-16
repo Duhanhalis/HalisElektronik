@@ -1,0 +1,63 @@
+﻿@model List<Blog>
+
+@section Css {
+    <link href="~/css/Blogs.css" rel="stylesheet" />
+}
+<!-- Search Container -->
+<div class="container my-5 container-renderBody">
+    <div class="border rounded-2">
+        <!--  Form Group -->
+        <form asp-action="Index" asp-controller="Blogs" class="form-renderbody" method="get">
+
+            <input type="text" class="form-control" name="searchQuery">
+            <button class="btn btn-success">
+                <img src="~/lib/Icons/search.svg" />
+                Ara
+            </button>
+
+            @await Component.InvokeAsync("BlogsPageTagComponents")
+
+        </form>
+    </div>
+</div>
+<!--  -->
+<div class="container-lg">
+    <div class="container-group">
+        @foreach (var item in Model)
+        {
+            <div class="container-group-card">
+                <div class="container-group-card-img">
+                    @if (item.BlogImage != null)
+                    {
+                        <img src="https://localhost:7273/api/Image/GetImageByName/@(item.BlogImage.ImageUrl)" class="card-img-top" alt="">
+                    }
+                    else
+                    {
+                        <img src="https://localhost:7273/api/Image/GetImageByName/No-Image.jpg" class="card-img-top" alt="">
+                    }
+                </div>
+                <div class="container-group-card-body">
+                    <h3>@item.BlogTitle</h3>
+                    <pre class="description">@Html.Raw(item.BlogDescription)</pre>
+                    <p class="date">@item.Date_Time.ToString("d/MM/yyyy")</p>
+                    <div class="tags">
+                        @if (item.Tags != null)
+                        {
+                            <p class="text-secondary">@item.Tags.BlogsTagName</p>
+                        }
+                        else
+                        {
+                            <p class="text-secondary"></p>
+                        }
+                    </div>
+                    <a asp-action="Details" asp-controller="Blogs" asp-route-id="@item.BlogId" class="btn btn-primary">
+                        <img src="~/lib/Icons/box-arrow-in-up-right.svg" />
+                        Goz at
+                        </a>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@await Component.InvokeAsync("BlogsPagePagination")

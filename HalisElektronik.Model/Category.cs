@@ -16,6 +16,7 @@ namespace HalisElektronik.Models
         public string CategoryName { get; set; } = string.Empty!;
         [MaxLength(200)]
         public string? CategoryDescription { get; set; }
+        public int ProductId { get; set; }
         public List<Product>? Products { get; set; } = new List<Product>();
     }
 }

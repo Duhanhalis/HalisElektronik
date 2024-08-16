@@ -12,7 +12,7 @@
         {
             <li class="ms-3">
                 <a class="text-body-secondary" href="@item.Link">
-                    <img src="~/ImageLibrary/@item.ImageUrl" alt="@item.Title" />
+                    <img src="https://localhost:7273/api/Image/GetImageByName/name?name=/@(item.Images.ImageUrl)" alt="@item.Title" />
                 </a>
             </li>
         }

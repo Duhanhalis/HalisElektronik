@@ -12,24 +12,28 @@
     <Compile Remove="++Kategoriler\**" />
     <Compile Remove="++Shared\**" />
     <Compile Remove="Areas\Admin\Views\Home\AboutUs\**" />
+    <Compile Remove="NewFolder\**" />
     <Compile Remove="wwwroot\ProductImages - Kopyala\**" />
     <Content Remove="++Anasayfa\**" />
     <Content Remove="++Blogs\**" />
     <Content Remove="++Kategoriler\**" />
     <Content Remove="++Shared\**" />
     <Content Remove="Areas\Admin\Views\Home\AboutUs\**" />
+    <Content Remove="NewFolder\**" />
     <Content Remove="wwwroot\ProductImages - Kopyala\**" />
     <EmbeddedResource Remove="++Anasayfa\**" />
     <EmbeddedResource Remove="++Blogs\**" />
     <EmbeddedResource Remove="++Kategoriler\**" />
     <EmbeddedResource Remove="++Shared\**" />
     <EmbeddedResource Remove="Areas\Admin\Views\Home\AboutUs\**" />
+    <EmbeddedResource Remove="NewFolder\**" />
     <EmbeddedResource Remove="wwwroot\ProductImages - Kopyala\**" />
     <None Remove="++Anasayfa\**" />
     <None Remove="++Blogs\**" />
     <None Remove="++Kategoriler\**" />
     <None Remove="++Shared\**" />
     <None Remove="Areas\Admin\Views\Home\AboutUs\**" />
+    <None Remove="NewFolder\**" />
     <None Remove="wwwroot\ProductImages - Kopyala\**" />
   </ItemGroup>
 
@@ -41,11 +45,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="7.0.16" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.15">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite.Core" Version="7.0.20" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.16" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.15">
       <PrivateAssets>all</PrivateAssets>
@@ -55,11 +61,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\EditorImages\" />
+    <Folder Include="Areas\Admin\Views\Product\Components\" />
+    <Folder Include="ViewComponents\Admin\Main\" />
+    <Folder Include="ViewComponents\Admin\Info\" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\js\site.js" />
+    <None Include="wwwroot\js\_Layout.js" />
   </ItemGroup>
 
 </Project>

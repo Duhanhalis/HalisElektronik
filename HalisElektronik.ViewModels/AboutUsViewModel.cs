@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,12 +9,10 @@ namespace HalisElektronik.ViewModels
 {
     public class AboutUsViewModel
     {
-        public int InfoId { get; set; }
-        public string HeaderTitle { get; set; }
-        public string HeaderDescription { get; set; }
-        public string MapUrl { get; set; }
-        public string BlogTitle { get; set; }
-        public string BlogDescription { get; set; }
-        public string WorkingHours { get; set; }
+        public string? HeaderTitle { get; set; }
+        public string? HeaderDescription { get; set; } = string.Empty;
+        public string? InfoTitle { get; set; } = string.Empty;
+        public string? InfoBody { get; set; } = string.Empty;
+        public string? InfoMapsUrl { get; set; } = string.Empty;
     }
 }

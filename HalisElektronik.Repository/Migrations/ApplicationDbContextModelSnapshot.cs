@@ -16,7 +16,7 @@ namespace HalisElektronik.Repositories.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.16")
+                .HasAnnotation("ProductVersion", "7.0.20")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             modelBuilder.Entity("HalisElektronik.Models.Blog", b =>
@@ -32,28 +32,32 @@ namespace HalisElektronik.Repositories.Migrations
                     b.Property<string>("BlogDescription")
                         .HasColumnType("longtext");
 
-                    b.Property<int?>("BlogTagId")
-                        .HasColumnType("int");
-
                     b.Property<string>("BlogTitle")
                         .HasMaxLength(100)
                         .HasColumnType("varchar(100)");
 
+                    b.Property<int?>("BlogsTagId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("Date_Time")
                         .HasColumnType("datetime(6)");
 
+                    b.Property<int>("ImageId")
+                        .HasColumnType("int");
+
                     b.HasKey("BlogId");
+
+                    b.HasIndex("BlogsTagId");
+
+                    b.HasIndex("ImageId");
 
                     b.ToTable("Blog");
                 });
 
             modelBuilder.Entity("HalisElektronik.Models.BlogsTag", b =>
                 {
-                    b.Property<int>("BlogsId")
+                    b.Property<int>("BlogsTagId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<int?>("BlogId")
                         .HasColumnType("int");
 
                     b.Property<string>("BlogsTagName")
@@ -61,9 +65,7 @@ namespace HalisElektronik.Repositories.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("varchar(50)");
 
-                    b.HasKey("BlogsId");
-
-                    b.HasIndex("BlogId");
+                    b.HasKey("BlogsTagId");
 
                     b.ToTable("BlogsTag");
                 });
@@ -83,10 +85,7 @@ namespace HalisElektronik.Repositories.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("longtext");
 
-                    b.Property<string>("ImageUrl")
-                        .HasColumnType("longtext");
-
-                    b.Property<int?>("MainId")
+                    b.Property<int>("ImageId")
                         .HasColumnType("int");
 
                     b.Property<string>("Title")
@@ -94,7 +93,7 @@ namespace HalisElektronik.Repositories.Migrations
 
                     b.HasKey("CarouselMainId");
 
-                    b.HasIndex("MainId");
+                    b.HasIndex("ImageId");
 
                     b.ToTable("CarouselMain");
                 });
@@ -114,6 +113,9 @@ namespace HalisElektronik.Repositories.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("varchar(50)");
 
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
                     b.HasKey("CategoryId");
 
                     b.ToTable("Categories");
@@ -125,19 +127,10 @@ namespace HalisElektronik.Repositories.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("BtnTitle")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("BtnUrl")
-                        .HasColumnType("longtext");
-
                     b.Property<string>("Description")
                         .HasColumnType("longtext");
 
-                    b.Property<string>("ImageUrl")
-                        .HasColumnType("longtext");
-
-                    b.Property<int?>("MainId")
+                    b.Property<int>("ImageId")
                         .HasColumnType("int");
 
                     b.Property<string>("Title")
@@ -145,7 +138,7 @@ namespace HalisElektronik.Repositories.Migrations
 
                     b.HasKey("ContainerMarketingId");
 
-                    b.HasIndex("MainId");
+                    b.HasIndex("ImageId");
 
                     b.ToTable("ContainerMarketing");
                 });
@@ -159,10 +152,7 @@ namespace HalisElektronik.Repositories.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("longtext");
 
-                    b.Property<string>("ImageUrl")
-                        .HasColumnType("longtext");
-
-                    b.Property<int?>("MainId")
+                    b.Property<int>("ImageId")
                         .HasColumnType("int");
 
                     b.Property<string>("Title")
@@ -170,9 +160,29 @@ namespace HalisElektronik.Repositories.Migrations
 
                     b.HasKey("FeaturetteMainId");
 
-                    b.HasIndex("MainId");
+                    b.HasIndex("ImageId");
 
                     b.ToTable("FeaturetteMain");
+                });
+
+            modelBuilder.Entity("HalisElektronik.Models.Image", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("EntityType")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Image");
                 });
 
             modelBuilder.Entity("HalisElektronik.Models.Info", b =>
@@ -185,10 +195,6 @@ namespace HalisElektronik.Repositories.Migrations
                         .HasMaxLength(2500)
                         .HasColumnType("varchar(2500)");
 
-                    b.Property<string>("HeaderImgUrl")
-                        .HasMaxLength(250)
-                        .HasColumnType("varchar(250)");
-
                     b.Property<string>("HeaderTitle")
                         .HasMaxLength(100)
                         .HasColumnType("varchar(100)");
@@ -196,9 +202,6 @@ namespace HalisElektronik.Repositories.Migrations
                     b.Property<string>("InfoBody")
                         .HasMaxLength(2500)
                         .HasColumnType("varchar(2500)");
-
-                    b.Property<DateTime>("InfoDateTime")
-                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("InfoMapsUrl")
                         .HasMaxLength(250)
@@ -210,18 +213,7 @@ namespace HalisElektronik.Repositories.Migrations
 
                     b.HasKey("InfoId");
 
-                    b.ToTable("Info");
-                });
-
-            modelBuilder.Entity("HalisElektronik.Models.Main", b =>
-                {
-                    b.Property<int>("MainId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.HasKey("MainId");
-
-                    b.ToTable("MainClass");
+                    b.ToTable("Information");
                 });
 
             modelBuilder.Entity("HalisElektronik.Models.Product", b =>
@@ -257,26 +249,26 @@ namespace HalisElektronik.Repositories.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("HalisElektronik.Models.ProductImageList", b =>
+            modelBuilder.Entity("HalisElektronik.Models.ProductImage", b =>
                 {
-                    b.Property<int>("ProductMainId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("ImageDescription")
+                    b.Property<string>("ImageUrl")
                         .HasColumnType("longtext");
 
-                    b.Property<string>("ImageUrl_1")
-                        .HasColumnType("longtext");
-
-                    b.Property<int?>("ProductId")
+                    b.Property<int>("ProductId")
                         .HasColumnType("int");
 
-                    b.HasKey("ProductMainId");
+                    b.Property<string>("Title")
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("ProductsImages");
+                    b.ToTable("ProductImage");
                 });
 
             modelBuilder.Entity("HalisElektronik.Models.SocialMedia", b =>
@@ -285,16 +277,12 @@ namespace HalisElektronik.Repositories.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("ImageUrl")
-                        .IsRequired()
-                        .HasColumnType("longtext");
+                    b.Property<int>("ImageId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Link")
                         .IsRequired()
                         .HasColumnType("longtext");
-
-                    b.Property<int?>("MainId")
-                        .HasColumnType("int");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -302,244 +290,59 @@ namespace HalisElektronik.Repositories.Migrations
 
                     b.HasKey("SocialMediaId");
 
-                    b.HasIndex("MainId");
+                    b.HasIndex("ImageId");
 
                     b.ToTable("SocialMedia");
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
+            modelBuilder.Entity("HalisElektronik.Models.Blog", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("varchar(255)");
+                    b.HasOne("HalisElektronik.Models.BlogsTag", "Tags")
+                        .WithMany("Blogs")
+                        .HasForeignKey("BlogsTagId");
 
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
-                        .HasColumnType("longtext");
+                    b.HasOne("HalisElektronik.Models.Image", "BlogImage")
+                        .WithMany()
+                        .HasForeignKey("ImageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Property<string>("Name")
-                        .HasMaxLength(256)
-                        .HasColumnType("varchar(256)");
+                    b.Navigation("BlogImage");
 
-                    b.Property<string>("NormalizedName")
-                        .HasMaxLength(256)
-                        .HasColumnType("varchar(256)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("NormalizedName")
-                        .IsUnique()
-                        .HasDatabaseName("RoleNameIndex");
-
-                    b.ToTable("AspNetRoles", (string)null);
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("ClaimType")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("ClaimValue")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("RoleId")
-                        .IsRequired()
-                        .HasColumnType("varchar(255)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("RoleId");
-
-                    b.ToTable("AspNetRoleClaims", (string)null);
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUser", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("varchar(255)");
-
-                    b.Property<int>("AccessFailedCount")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Email")
-                        .HasMaxLength(256)
-                        .HasColumnType("varchar(256)");
-
-                    b.Property<bool>("EmailConfirmed")
-                        .HasColumnType("tinyint(1)");
-
-                    b.Property<bool>("LockoutEnabled")
-                        .HasColumnType("tinyint(1)");
-
-                    b.Property<DateTimeOffset?>("LockoutEnd")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<string>("NormalizedEmail")
-                        .HasMaxLength(256)
-                        .HasColumnType("varchar(256)");
-
-                    b.Property<string>("NormalizedUserName")
-                        .HasMaxLength(256)
-                        .HasColumnType("varchar(256)");
-
-                    b.Property<string>("PasswordHash")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("longtext");
-
-                    b.Property<bool>("PhoneNumberConfirmed")
-                        .HasColumnType("tinyint(1)");
-
-                    b.Property<string>("SecurityStamp")
-                        .HasColumnType("longtext");
-
-                    b.Property<bool>("TwoFactorEnabled")
-                        .HasColumnType("tinyint(1)");
-
-                    b.Property<string>("UserName")
-                        .HasMaxLength(256)
-                        .HasColumnType("varchar(256)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("NormalizedEmail")
-                        .HasDatabaseName("EmailIndex");
-
-                    b.HasIndex("NormalizedUserName")
-                        .IsUnique()
-                        .HasDatabaseName("UserNameIndex");
-
-                    b.ToTable("AspNetUsers", (string)null);
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityUser");
-
-                    b.UseTphMappingStrategy();
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("ClaimType")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("ClaimValue")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("varchar(255)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("AspNetUserClaims", (string)null);
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
-                {
-                    b.Property<string>("LoginProvider")
-                        .HasColumnType("varchar(255)");
-
-                    b.Property<string>("ProviderKey")
-                        .HasColumnType("varchar(255)");
-
-                    b.Property<string>("ProviderDisplayName")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("varchar(255)");
-
-                    b.HasKey("LoginProvider", "ProviderKey");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("AspNetUserLogins", (string)null);
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
-                {
-                    b.Property<string>("UserId")
-                        .HasColumnType("varchar(255)");
-
-                    b.Property<string>("RoleId")
-                        .HasColumnType("varchar(255)");
-
-                    b.HasKey("UserId", "RoleId");
-
-                    b.HasIndex("RoleId");
-
-                    b.ToTable("AspNetUserRoles", (string)null);
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
-                {
-                    b.Property<string>("UserId")
-                        .HasColumnType("varchar(255)");
-
-                    b.Property<string>("LoginProvider")
-                        .HasColumnType("varchar(255)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("varchar(255)");
-
-                    b.Property<string>("Value")
-                        .HasColumnType("longtext");
-
-                    b.HasKey("UserId", "LoginProvider", "Name");
-
-                    b.ToTable("AspNetUserTokens", (string)null);
-                });
-
-            modelBuilder.Entity("HalisElektronik.Models.ApplicationUser", b =>
-                {
-                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
-
-                    b.HasDiscriminator().HasValue("ApplicationUser");
-                });
-
-            modelBuilder.Entity("HalisElektronik.Models.BlogsTag", b =>
-                {
-                    b.HasOne("HalisElektronik.Models.Blog", null)
-                        .WithMany("Tag")
-                        .HasForeignKey("BlogId");
+                    b.Navigation("Tags");
                 });
 
             modelBuilder.Entity("HalisElektronik.Models.CarouselMain", b =>
                 {
-                    b.HasOne("HalisElektronik.Models.Main", null)
-                        .WithMany("carouselMains")
-                        .HasForeignKey("MainId");
+                    b.HasOne("HalisElektronik.Models.Image", "Images")
+                        .WithMany()
+                        .HasForeignKey("ImageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Images");
                 });
 
             modelBuilder.Entity("HalisElektronik.Models.ContainerMarketing", b =>
                 {
-                    b.HasOne("HalisElektronik.Models.Main", null)
-                        .WithMany("containerMarketings")
-                        .HasForeignKey("MainId");
+                    b.HasOne("HalisElektronik.Models.Image", "Images")
+                        .WithMany()
+                        .HasForeignKey("ImageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Images");
                 });
 
             modelBuilder.Entity("HalisElektronik.Models.FeaturetteMain", b =>
                 {
-                    b.HasOne("HalisElektronik.Models.Main", null)
-                        .WithMany("featuretteMains")
-                        .HasForeignKey("MainId");
+                    b.HasOne("HalisElektronik.Models.Image", "Images")
+                        .WithMany()
+                        .HasForeignKey("ImageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Images");
                 });
 
             modelBuilder.Entity("HalisElektronik.Models.Product", b =>
@@ -551,76 +354,31 @@ namespace HalisElektronik.Repositories.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("HalisElektronik.Models.ProductImageList", b =>
+            modelBuilder.Entity("HalisElektronik.Models.ProductImage", b =>
                 {
-                    b.HasOne("HalisElektronik.Models.Product", "ProductImgMain")
-                        .WithMany("ProductImageList")
-                        .HasForeignKey("ProductId");
+                    b.HasOne("HalisElektronik.Models.Product", "Product")
+                        .WithMany("ProductImages")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("ProductImgMain");
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("HalisElektronik.Models.SocialMedia", b =>
                 {
-                    b.HasOne("HalisElektronik.Models.Main", null)
-                        .WithMany("socialMedias")
-                        .HasForeignKey("MainId");
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
-                {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                    b.HasOne("HalisElektronik.Models.Image", "Images")
                         .WithMany()
-                        .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
-                {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
-                {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
-                {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
-                        .WithMany()
-                        .HasForeignKey("RoleId")
+                        .HasForeignKey("ImageId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("Images");
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+            modelBuilder.Entity("HalisElektronik.Models.BlogsTag", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("HalisElektronik.Models.Blog", b =>
-                {
-                    b.Navigation("Tag");
+                    b.Navigation("Blogs");
                 });
 
             modelBuilder.Entity("HalisElektronik.Models.Category", b =>
@@ -628,20 +386,9 @@ namespace HalisElektronik.Repositories.Migrations
                     b.Navigation("Products");
                 });
 
-            modelBuilder.Entity("HalisElektronik.Models.Main", b =>
-                {
-                    b.Navigation("carouselMains");
-
-                    b.Navigation("containerMarketings");
-
-                    b.Navigation("featuretteMains");
-
-                    b.Navigation("socialMedias");
-                });
-
             modelBuilder.Entity("HalisElektronik.Models.Product", b =>
                 {
-                    b.Navigation("ProductImageList");
+                    b.Navigation("ProductImages");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,8 +1,10 @@
 ﻿using HalisElektronik.Models;
 using HalisElektronik.Repositories;
 using HalisElektronik.Repositories.Implementation;
-using HalisElektronik.Repositories.Interfaces;
+using HalisElektronik.Repositories.Implementation.Mvc.Inteface;
 using HalisElektronik.ViewModels;
+using HalisElektronik.ViewModels.ApiFetch;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -12,160 +14,188 @@ using System.Text.Json;
 namespace HalisElektronik.Web.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize]
     public class HomeController : Controller
     {
 
-        private readonly ApplicationDbContext _context;
-        private readonly IGenericRepository<CarouselMain> _carouselMain;
-        private readonly IGenericRepository<ContainerMarketing> _containerMarketing;
-        private readonly IGenericRepository<FeaturetteMain> _featuretteMain;
-        private readonly IGenericRepository<SocialMedia> _socialMedia;
-        public HomeController(ApplicationDbContext applicationDbContext, IGenericRepository<CarouselMain> carouselMain, IGenericRepository<FeaturetteMain> featuretteMain, IGenericRepository<ContainerMarketing> containerMarketing, IGenericRepository<SocialMedia> socialMedia)
+        private readonly ApiIRepository<CarouselMain> _carousel;
+        private readonly ApiIRepository<ContainerMarketing> _container;
+        private readonly ApiIRepository<Info> _info;
+        private readonly ImageApiInterface<Image> _image;
+        private readonly ApiIRepository<FeaturetteMain> _featurette;
+        private readonly ApiIRepository<SocialMedia> _socialMedia;
+        private readonly HomeUrl _homeUrl;
+        private readonly InfoUrl _infoUrl;
+        private readonly ImageUrl _imageUrl;
+        public HomeController(ApiIRepository<CarouselMain> carousel, HomeUrl homeUrl, ApiIRepository<Info> info, InfoUrl infoUrl, ImageApiInterface<Image> image, ImageUrl imageUrl, ApiIRepository<ContainerMarketing> container, ApiIRepository<FeaturetteMain> featurette, ApiIRepository<SocialMedia> socialMedia)
         {
-            _context = applicationDbContext;
-            this._carouselMain = carouselMain;
-            this._featuretteMain = featuretteMain;
-            this._containerMarketing = containerMarketing;
+            _carousel = carousel;
+            _homeUrl = homeUrl;
+            _info = info;
+            _infoUrl = infoUrl;
+            _image = image;
+            _imageUrl = imageUrl;
+            _container = container;
+            _featurette = featurette;
             _socialMedia = socialMedia;
         }
 
         public IActionResult Index()
         {
-            List<Product> products = new List<Product>();
-            List<Category> categories = new List<Category>();
-            foreach (var item in _context.Products.Take(10).ToList())
-            {
-                products.Add(item);
-            }
-            foreach (var item in _context.Categories.Take(10).ToList())
-            {
-                categories.Add(item);
-            }
 
-            return View(new ModelClassView() { categories = categories, product = products });
+            return View();
         }
-        public IActionResult Main()
+
+        #region Info
+        public async Task<IActionResult> Info()
         {
-            Main mainViewModel = new Main()
-            {
-                carouselMains = _carouselMain.GetAll(),
-                containerMarketings = _containerMarketing.GetAll(),
-                featuretteMains = _featuretteMain.GetAll(),
-                socialMedias = _socialMedia.GetAll(),
-            };
-            return View(mainViewModel);
+            return View(await _info.GetAllItemsAsync(_infoUrl.InfoList));
         }
-        #region AboutUs
-        //public IActionResult AboutUs()
-        //{
-        //    AboutUsViewModel aboutViewModel = new AboutUsViewModel()
-        //    {
-        //        HeaderTitle = "Deneme",
-        //        HeaderDescription = "Deneem",
-        //        BlogTitle = "",
-        //        BlogDescription = "",
-        //        WorkingHours = "",
-        //        MapUrl = "",
-        //        InfoId = 1
-        //    };
-        //    string fileName = "AboutUs.json";
-        //    string jsonString = JsonSerializer.Serialize<AboutUsViewModel>(aboutViewModel);
 
-        //    return View($"AboutUs/{nameof(HomeController.AboutUs)}",jsonString);
-        //}
-        //[HttpGet]
-        //public IActionResult AboutUsEdit()
-        //{
-        //    return View($"AboutUs/{nameof(HomeController.AboutUsAdd)}");
-        //}
-        //public IActionResult AboutUsAdd(AboutUsViewModel model)
-        //{
-
-        //    return View(nameof(HomeController.AboutUs));
-        //}
-
+        [HttpGet]
+        public IActionResult InfoCreate()
+        {
+            return View($"Info/{nameof(HomeController.InfoCreate)}");
+        }
+        [HttpPost]
+        public async Task<IActionResult> InfoCreate(Info model)
+        {
+            if (ModelState.IsValid)
+            {
+                await _info.AddItemAsync(_infoUrl.InfoCreate, model);
+                return RedirectToAction(nameof(HomeController.Info));
+            }
+            return View();
+        }
+        [HttpGet]
+        public async Task<IActionResult> InfoEdit(int id)
+        {
+            var model = await _info.GetItemByIdAsync(_infoUrl.InfoGet, id);
+            return View($"Info/{nameof(HomeController.InfoEdit)}", model);
+        }
+        [HttpPost]
+        public async Task<IActionResult> InfoEdit(Info model)
+        {
+            if (ModelState.IsValid)
+            {
+                await _info.UpdateItemAsync(_infoUrl.InfoEdit, model);
+                return RedirectToAction(nameof(HomeController.Info));
+            }
+            return View();
+        }
         #endregion
+
         #region Carousel
         public IActionResult CarouselAdd()
         {
             return View($"Carousel/{nameof(HomeController.CarouselAdd)}");
         }
+
         [HttpPost]
-        public async Task<IActionResult> CarouselAdd(CarouselViewModel carouselViewModel)
+        public async Task<IActionResult> CarouselAdd(CarouselViewModel model)
         {
-            if (ModelState.IsValid)
+            if (model.Image.ImageFile == null)
             {
-                await _carouselMain.AddAsync(new CarouselMain()
-                {
-                    Title = carouselViewModel.Title,
-                    Description = carouselViewModel.Description,
-                    BtnTitle = carouselViewModel.BtnTitle,
-                    BtnUrl = carouselViewModel.BtnUrl,
-                    ImageUrl = await _carouselMain.ImageCreate(carouselViewModel.ImageUrlFile, "Carousel"),
-                });
+                return View($"Carousel/{nameof(HomeController.CarouselAdd)}", model);
             }
-            return RedirectToAction(nameof(HomeController.Main));
+            await _carousel.AddItemAsync(_homeUrl.CarouselMainCreate, new CarouselMain()
+            {
+                Title = model.Title,
+                Description = model.Description,
+                BtnTitle = model.BtnTitle,
+                BtnUrl = model.BtnUrl,
+                Images = new Image()
+                {
+                    ImageUrl = await _image.AddImageAsync(_imageUrl.PhotoCreate, model.Image.ImageFile, model.Title),
+                    Title = model.Image.Title,
+                    EntityType = EntityType.CarouselMain,
+                }
+            });
+
+            return RedirectToAction(nameof(HomeController.Index));
         }
+
         public async Task<IActionResult> CarouselDelete(int id)
         {
-            CarouselMain carousel = await _carouselMain.GetByIdAsync(id);
+            var model = await _carousel.GetItemByIdAsync(_homeUrl.CarouselMainGet, id);
+            await _image.DeleteImageAsync(_imageUrl.ImageDelete, model.ImageId);
+            await _carousel.DeleteItemAsync(_homeUrl.CarouselMainDelete, id);
 
-            _carouselMain.ImageDelete(carousel.ImageUrl);
-            _carouselMain.Delete(carousel);
-
-            return RedirectToAction(nameof(HomeController.Main));
+            return RedirectToAction(nameof(HomeController.Index));
         }
+
+        [HttpGet]
         public async Task<IActionResult> CarouselEdit(int id)
         {
-            CarouselMain carousel = await _carouselMain.GetByIdAsync(id);
-
+            var carousel = await _carousel.GetItemByIdAsync(_homeUrl.CarouselMainGet, id);
             return View($"Carousel/{nameof(HomeController.CarouselEdit)}", new CarouselViewModel()
             {
                 Title = carousel.Title,
                 Description = carousel.Description,
                 BtnTitle = carousel.BtnTitle,
                 BtnUrl = carousel.BtnUrl,
-                ImageUrl = carousel.ImageUrl,
-                CarouselMainId = id
+                CarouselMainId = id,
+                ImageId = carousel.ImageId,
+                Image = new ImageViewModel()
+                {
+                    Id = carousel.Images.Id,
+                    ImageUrl = carousel.Images.ImageUrl,
+                    Title = carousel.Images.Title,
+                    EntityId = EntityTypeViewModel.CarouselMain,
+                },
             });
         }
+
         [HttpPost]
-        public async Task<IActionResult> CarouselEdit(CarouselViewModel carouselViewModel)
+        public async Task<IActionResult> CarouselEdit(CarouselViewModel model)
         {
             if (ModelState.IsValid)
             {
-                if (carouselViewModel.ImageUrlFile != null)
+                if (model.Image.ImageFile != null)
                 {
                     //Image Sil
-                    _carouselMain.ImageDelete(carouselViewModel.ImageUrl);
+                    await _image.DeleteImageAsync(_imageUrl.ImageUpdateDelete, model.ImageId);
                     //Image Ekle
-                    _carouselMain.Update(new CarouselMain()
+                    await _image.AddImageClassAsync(_imageUrl.ImageUpdate, new Image()
                     {
-                        Title = carouselViewModel.Title,
-                        BtnTitle = carouselViewModel.BtnTitle,
-                        BtnUrl = carouselViewModel.BtnUrl,
-                        CarouselMainId = carouselViewModel.CarouselMainId,
-                        Description = carouselViewModel.Description,
-                        ImageUrl = await _carouselMain.ImageCreate(carouselViewModel.ImageUrlFile, "Carousel"),
+                        ImageUrl = await _image.AddImageAsync(_imageUrl.PhotoCreate, model.Image.ImageFile, model.Title),
+                        Title = model.Image.Title,
+                        Id = model.Image.Id,
+                        EntityType = EntityType.CarouselMain,
+                    });
+                    await _carousel.UpdateItemAsync(_homeUrl.CarouselMainEdit, new CarouselMain()
+                    {
+                        Title = model.Title,
+                        BtnTitle = model.BtnTitle,
+                        BtnUrl = model.BtnUrl,
+                        CarouselMainId = model.CarouselMainId,
+                        Description = model.Description,
+                        ImageId = model.ImageId,
                     });
                 }
                 else
                 {
-                    _carouselMain.Update(new CarouselMain()
+                    await _carousel.UpdateItemAsync(_homeUrl.CarouselMainEdit, new CarouselMain()
                     {
-                        CarouselMainId = carouselViewModel.CarouselMainId,
-                        Title = carouselViewModel.Title,
-                        BtnTitle = carouselViewModel.BtnTitle,
-                        BtnUrl = carouselViewModel.BtnUrl,
-                        Description = carouselViewModel.Description,
-                        ImageUrl = carouselViewModel.ImageUrl,
+                        Title = model.Title,
+                        BtnTitle = model.BtnTitle,
+                        BtnUrl = model.BtnUrl,
+                        CarouselMainId = model.CarouselMainId,
+                        Description = model.Description,
+                        ImageId = model.ImageId,
+                        Images = await _image.AddImageClassAsync(_imageUrl.ImageUpdate, new Image()
+                        {
+                            Id = model.Image.Id,
+                            Title = model.Image.Title,
+                            ImageUrl = model.Image.ImageUrl,
+                        })
                     });
                 }
-                return RedirectToAction(nameof(HomeController.Main));
+                return RedirectToAction(nameof(HomeController.Index));
             }
             else
             {
-                return View(carouselViewModel);
+                return View(nameof(HomeController.CarouselEdit), model);
             }
         }
         #endregion
@@ -176,73 +206,99 @@ namespace HalisElektronik.Web.Areas.Admin.Controllers
             return View($"ContainerMarketing/{nameof(HomeController.ContainerMarketingAdd)}");
         }
         [HttpPost]
-        public async Task<IActionResult> ContainerMarketingAdd(CMViewModel containerMarketing)
+        public async Task<IActionResult> ContainerMarketingAdd(CMViewModel model)
         {
             if (ModelState.IsValid)
             {
-
-                await _containerMarketing.AddAsync(new ContainerMarketing()
+                await _container.AddItemAsync(_homeUrl.ContainerMarketingCreate, new ContainerMarketing()
                 {
-                    Title = containerMarketing.Title,
-                    Description = containerMarketing.Description,
-                    ImageUrl = await _containerMarketing.ImageCreate(containerMarketing.ImageUrlFile, "ContainerMarketing"),
+                    Title = model.Title,
+                    Description = model.Description,
+                    Images = new Image()
+                    {
+                        Title = model.Image.Title,
+                        ImageUrl = await _image.AddImageAsync(_imageUrl.PhotoCreate, model.Image.ImageFile, model.Title),
+                        EntityType = EntityType.ContainerMarketing,
+                    }
                 });
             }
-            return RedirectToAction(nameof(HomeController.Main));
+            return RedirectToAction(nameof(HomeController.Index));
         }
         public async Task<IActionResult> ContainerMarketingDelete(int id)
         {
-            ContainerMarketing containerMarketing = await _containerMarketing.GetByIdAsync(id);
+            var model = await _container.GetItemByIdAsync(_homeUrl.ContainerMarketingGet, id);
+            await _image.DeleteImageAsync(_imageUrl.ImageDelete, model.ImageId);
+            await _container.DeleteItemAsync(_homeUrl.ContainerMarketingDelete, id);
 
-            _containerMarketing.ImageDelete(containerMarketing.ImageUrl);
-            _containerMarketing.Delete(containerMarketing);
-
-            return RedirectToAction(nameof(HomeController.Main));
+            return RedirectToAction(nameof(HomeController.Index));
         }
         public async Task<IActionResult> ContainerMarketingEdit(int id)
         {
-            ContainerMarketing carousel = await _containerMarketing.GetByIdAsync(id);
-            return View($"ContainerMarketing/{nameof(HomeController.ContainerMarketingAdd)}", new CMViewModel()
+            var carousel = await _container.GetItemByIdAsync(_homeUrl.ContainerMarketingGet, id);
+
+            return View($"ContainerMarketing/{nameof(HomeController.ContainerMarketingEdit)}", new CMViewModel()
             {
                 Title = carousel.Title,
                 Description = carousel.Description,
-                ImageUrl = carousel.ImageUrl,
-                ContainerMarketingId = id
+                ContainerMarketingId = id,
+                ImageId = carousel.ImageId,
+                Image = new ImageViewModel()
+                {
+                    Id = carousel.Images.Id,
+                    ImageUrl = carousel.Images.ImageUrl,
+                    Title =carousel.Images.Title,
+                    EntityId = EntityTypeViewModel.ContainerMarketing,
+                }
             });
         }
-        [HttpPost]
-        public async Task<IActionResult> ContainerMarketingEdit(CMViewModel containerMarketing)
+        [HttpPost]  
+        public async Task<IActionResult> ContainerMarketingEdit(CMViewModel model)
         {
             if (ModelState.IsValid)
             {
-                if (containerMarketing.ImageUrlFile != null)
+                var container = await _container.GetItemByIdAsync(_homeUrl.ContainerMarketingGet, model.ContainerMarketingId);
+                if (model.Image.ImageFile != null)
                 {
                     // Image Delete
-                    _containerMarketing.ImageDelete(containerMarketing.ImageUrl);
+                    await _image.DeleteImageAsync(_imageUrl.ImageUpdateDelete, model.ImageId);
                     // Image Create
-                    _containerMarketing.Update(new ContainerMarketing()
+                    await _image.AddImageClassAsync(_imageUrl.ImageUpdate, new Image()
                     {
-                        Title = containerMarketing.Title,
-                        ContainerMarketingId = containerMarketing.ContainerMarketingId,
-                        Description = containerMarketing.Description,
-                        ImageUrl = await _containerMarketing.ImageCreate(containerMarketing.ImageUrlFile, "ContainerMarketing"),
+                        Id = model.Image.Id,
+                        ImageUrl = await _image.AddImageAsync(_imageUrl.PhotoCreate, model.Image.ImageFile, model.Title),
+                        Title = model.Image.Title,
+                        EntityType = EntityType.ContainerMarketing
+                    });
+                    await _container.UpdateItemAsync(_homeUrl.ContainerMarketingEdit, new ContainerMarketing()
+                    {
+                        Title = model.Title,
+                        Description = model.Description,
+                        ContainerMarketingId = model.ContainerMarketingId,
+                        ImageId = model.ImageId,
                     });
                 }
                 else
                 {
-                    _containerMarketing.Update(new ContainerMarketing()
+                    await _image.AddImageClassAsync(_imageUrl.ImageUpdate, new Image()
                     {
-                        ContainerMarketingId = containerMarketing.ContainerMarketingId,
-                        Title = containerMarketing.Title,
-                        Description = containerMarketing.Description,
-                        ImageUrl = containerMarketing.ImageUrl,
+                        Title = model.Image.Title,
+                        Id = model.Image.Id,
+                        ImageUrl = model.Image.ImageUrl,
+                        EntityType = EntityType.ContainerMarketing
+                    });
+                    await _container.UpdateItemAsync(_homeUrl.ContainerMarketingEdit, new ContainerMarketing()
+                    {
+                        Title = model.Title,
+                        Description = model.Description,
+                        ContainerMarketingId = model.ContainerMarketingId,
+                        ImageId = model.ImageId
                     });
                 }
-                return RedirectToAction(nameof(HomeController.Main));
+                return RedirectToAction(nameof(HomeController.Index));
             }
             else
             {
-                return View(containerMarketing);
+                return View(model);
             }
         }
         #endregion
@@ -257,35 +313,46 @@ namespace HalisElektronik.Web.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-
-                await _featuretteMain.AddAsync(new FeaturetteMain()
+                await _featurette.AddItemAsync(_homeUrl.FeaturetteMainCreate, new FeaturetteMain()
                 {
                     Title = model.Title,
                     Description = model.Description,
-                    ImageUrl = await _featuretteMain.ImageCreate(model.ImageUrlFile, "FeaturetteMain"),
+                    Images = new Image()
+                    {
+                        ImageUrl = await _image.AddImageAsync(_imageUrl.PhotoCreate, model.Image.ImageFile, model.Title),
+                        Title = model.Image.Title,
+                        EntityType = EntityType.FeaturetteMain,
+                    }
                 });
+
             }
-            return RedirectToAction(nameof(HomeController.Main));
+            return RedirectToAction(nameof(HomeController.Index));
         }
         public async Task<IActionResult> FeaturetteMainDelete(int id)
         {
-            FeaturetteMain containerMarketing = await _featuretteMain.GetByIdAsync(id);
+            var model = await _featurette.GetItemByIdAsync(_homeUrl.FeaturetteMainGet, id);
+            await _image.DeleteImageAsync(_imageUrl.ImageDelete, model.ImageId);
+            await _featurette.DeleteItemAsync(_homeUrl.FeaturetteMainDelete, id);
 
-            _featuretteMain.ImageDelete(containerMarketing.ImageUrl);
-
-            _featuretteMain.Delete(containerMarketing);
-
-            return RedirectToAction(nameof(HomeController.Main));
+            return RedirectToAction(nameof(HomeController.Index));
         }
         public async Task<IActionResult> FeaturetteMainEdit(int id)
         {
-            FeaturetteMain featurette = await _featuretteMain.GetByIdAsync(id);
+            var featurette = await _featurette.GetItemByIdAsync(_homeUrl.FeaturetteMainGet, id);
+
             return View($"Featurette/{nameof(HomeController.FeaturetteMainEdit)}", new FeaturetteMainViewModel()
             {
                 Title = featurette.Title,
                 Description = featurette.Description,
-                ImageUrl = featurette.ImageUrl,
-                FeaturetteMainId = id
+                FeaturetteMainId = id,
+                ImageId  = featurette.ImageId,
+                Image = new ImageViewModel()
+                {
+                    ImageUrl = featurette.Images.ImageUrl,
+                    Id = featurette.Images.Id,
+                    Title = featurette.Images.Title,
+                    EntityId = EntityTypeViewModel.FeaturetteMain,
+                }
             });
         }
         [HttpPost]
@@ -293,28 +360,44 @@ namespace HalisElektronik.Web.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (model.ImageUrlFile != null)
+                var featurette = await _featurette.GetItemByIdAsync(_homeUrl.FeaturetteMainGet, model.FeaturetteMainId);
+                if (model.Image.ImageFile != null)
                 {
-                    _featuretteMain.ImageDelete(model.ImageUrl);
-                    _featuretteMain.Update(new FeaturetteMain()
+                    await _image.DeleteImageAsync(_imageUrl.ImageUpdateDelete, model.ImageId);
+                    // Image Create
+                    await _image.AddImageClassAsync(_imageUrl.ImageUpdate, new Image()
+                    {
+                        Id = model.Image.Id,
+                        ImageUrl = await _image.AddImageAsync(_imageUrl.PhotoCreate, model.Image.ImageFile, model.Title),
+                        Title = model.Image.Title,
+                        EntityType = EntityType.FeaturetteMain,
+                    });
+                    await _featurette.AddItemAsync(_homeUrl.FeaturetteMainCreate, new FeaturetteMain()
                     {
                         Title = model.Title,
                         FeaturetteMainId = model.FeaturetteMainId,
                         Description = model.Description,
-                        ImageUrl = await _featuretteMain.ImageCreate(model.ImageUrlFile, "FeaturetteMain"),
+                        ImageId = model.ImageId
                     });
                 }
                 else
                 {
-                    _featuretteMain.Update(new FeaturetteMain()
+                    await _image.AddImageClassAsync(_imageUrl.ImageUpdate, new Image()
                     {
-                        FeaturetteMainId = model.FeaturetteMainId,
+                        Id = model.Image.Id,
+                        ImageUrl = model.Image.ImageUrl,
+                        Title = model.Image.Title,
+                        EntityType = EntityType.FeaturetteMain
+                    });
+                    await _featurette.UpdateItemAsync(_homeUrl.FeaturetteMainEdit, new FeaturetteMain()
+                    {
                         Title = model.Title,
+                        FeaturetteMainId = model.FeaturetteMainId,
                         Description = model.Description,
-                        ImageUrl = model.ImageUrl,
+                        ImageId = model.Image.Id,
                     });
                 }
-                return RedirectToAction(nameof(HomeController.Main));
+                return RedirectToAction(nameof(HomeController.Index));
             }
             else
             {
@@ -333,33 +416,49 @@ namespace HalisElektronik.Web.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                await _socialMedia.AddAsync(new SocialMedia()
+                await _socialMedia.AddItemAsync(_homeUrl.SocialMediaCreate, new SocialMedia()
                 {
                     Title = model.Title,
-                    ImageUrl = await _socialMedia.ImageCreate(model.ImageUrlFile, "SocialMedia"),
                     Link = model.Link,
+                    Images = new Image()
+                    {
+                        ImageUrl = await _image.AddImageAsync(_imageUrl.PhotoCreate, model.Image.ImageFile, model.Title),
+                        Title = model.Image?.Title,
+                        EntityType = EntityType.SocialMedia
+                    }
                 });
+                 return RedirectToAction(nameof(HomeController.Index));
             }
-            return RedirectToAction(nameof(HomeController.Main));
+            else
+            {
+                return View(model);
+            }
+           
         }
         public async Task<IActionResult> SocialMediaDelete(int id)
         {
-            SocialMedia socialMedia = await _socialMedia.GetByIdAsync(id);
-
-            _socialMedia.ImageDelete(socialMedia.ImageUrl);
-
-            _socialMedia.Delete(socialMedia);
-            return RedirectToAction(nameof(HomeController.Main));
+            var model = await _socialMedia.GetItemByIdAsync(_homeUrl.SocialMediaGet, id);
+            await _image.DeleteImageAsync(_imageUrl.ImageDelete, model.ImageId);
+            await _socialMedia.DeleteItemAsync(_homeUrl.SocialMediaGet, id);
+            return RedirectToAction(nameof(HomeController.Index));
         }
         public async Task<IActionResult> SocialMediaEdit(int id)
         {
-            SocialMedia socialMedia = await _socialMedia.GetByIdAsync(id);
+            var socialMedia = await _socialMedia.GetItemByIdAsync(_homeUrl.SocialMediaGet, id);
+            
             return View($"SocialMedia/{nameof(HomeController.SocialMediaEdit)}", new SocialMediaViewModel()
             {
                 Title = socialMedia.Title,
-                ImageUrl = socialMedia.ImageUrl,
                 SocialMediaId = id,
                 Link = socialMedia.Link,
+                ImageId = socialMedia.ImageId,
+                Image = new ImageViewModel()
+                {
+                    ImageUrl = socialMedia.Images.ImageUrl,
+                    Title = socialMedia.Images.Title,
+                    Id = socialMedia.Images.Id,
+                    EntityId = EntityTypeViewModel.SocialMedia,
+                }
             });
         }
         [HttpPost]
@@ -367,29 +466,44 @@ namespace HalisElektronik.Web.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (model.ImageUrlFile != null)
+                var m = await _socialMedia.GetItemByIdAsync(_homeUrl.SocialMediaGet, model.SocialMediaId);
+                if (model.Image.ImageFile != null)
                 {
-                    _socialMedia.ImageDelete(model.ImageUrl);
+                    await _image.DeleteImageAsync(_imageUrl.ImageUpdateDelete, model.ImageId);
+                    // Image Create
+                    await _image.AddImageClassAsync(_imageUrl.ImageUpdate, new Image()
+                    {
+                        Id = model.Image.Id,
+                        ImageUrl = await _image.AddImageAsync(_imageUrl.PhotoCreate, model.Image.ImageFile, model.Title),
+                        Title = model.Image.Title,
+                        EntityType = EntityType.SocialMedia,
+                    });
 
-                    _socialMedia.Update(new SocialMedia()
+                    await _socialMedia.UpdateItemAsync(_homeUrl.SocialMediaEdit, new SocialMedia()
                     {
                         Title = model.Title,
                         SocialMediaId = model.SocialMediaId,
                         Link = model.Link,
-                        ImageUrl = await _socialMedia.ImageCreate(model.ImageUrlFile, "SocialMedia"),
+                        ImageId = model.ImageId,
                     });
                 }
                 else
                 {
-                    _socialMedia.Update(new SocialMedia()
+                    await _image.AddImageClassAsync(_imageUrl.ImageUpdate, new Image()
                     {
-                        SocialMediaId = model.SocialMediaId,
+                        Id = m.Images.Id,
+                        ImageUrl = m.Images.ImageUrl,
+                        Title = m.Images.Title,
+                        EntityType = EntityType.SocialMedia
+                    });
+                    await _socialMedia.UpdateItemAsync(_homeUrl.SocialMediaEdit, new SocialMedia()
+                    {
                         Title = model.Title,
+                        SocialMediaId = model.SocialMediaId,
                         Link = model.Link,
-                        ImageUrl = model.ImageUrl,
                     });
                 }
-                return RedirectToAction(nameof(HomeController.Main));
+                return RedirectToAction(nameof(HomeController.Index));
             }
             else
             {

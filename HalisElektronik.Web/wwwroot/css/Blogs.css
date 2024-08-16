@@ -1,0 +1,433 @@
+﻿@import '~/css/_Layout.css';
+
+
+
+/*#region Form Action */
+
+.container-renderBody {
+    width: 100%;
+}
+
+.container-renderBody > div {
+    width: 100%;
+    padding: 1% 10%;
+    border: 1px solid black;
+    border-radius: .5em;
+}
+
+.container-renderBody > div > form {
+    display: grid;
+    grid: repeat(2, 1fr) / 90% 10%;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.container-renderBody > div > form > button {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 5px;
+    justify-content: space-evenly;
+}
+
+.container-renderBody > div > form > button > img{
+    width: 25px;
+    height: 25px;
+}
+
+
+/*#endregion */
+
+/*#region Container Group */
+
+.container-group {
+    margin: 1em 0 10em 0;
+    display: grid;
+    grid: repeat(5,auto) / repeat(3,1fr);
+    gap: 1em;
+}
+
+.container-group-card {
+    display: grid;
+    grid: 100% / 50% 50%;
+    border-radius: .3em;
+    height: 200px;
+    border: 1px solid rgba(0, 0, 0, 0.300);
+}
+
+.container-group-card-img > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: .3em 0 0 .3em;
+}
+
+.container-group-card-body {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid: 15% 45% 10% 15% 15% / 100%;
+    padding: 1% 2%;
+}
+
+.container-group-card-body > * {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.container-group-card-body h3 {
+    font-size: 1.4em;
+    word-wrap: normal;
+    color:red;
+    padding: 0;
+    margin: 0;
+}
+
+.container-group-card-body > p {
+    margin: 0;
+    padding: 0;
+}
+
+.container-group-card-body > .tags {
+    display: flex;
+    flex-flow: row nowrap;
+    overflow-x: hidden;
+    gap: 1em;
+}
+
+.container-group-card-body p[class^="description"] {
+    word-wrap: break-word;
+    font-size: 15px;
+}
+
+.container-group-card-body p.date {
+    word-wrap: normal;
+}
+
+.container-group-card-body p.text-secondary {
+    word-wrap: normal;
+}
+
+.container-group-card-body > a.btn.btn-primary {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/*#endregion */
+
+
+/*#region Responsive */
+
+/*@media only screen and (min-width : 1224px) {*/
+    /*#region Body */
+
+
+
+    /*.container-renderBody {
+        width: 100%;
+    }
+
+    .container-renderBody > div {
+        width: 100%;
+        padding: 1% 10%;
+        border: 1px solid black;
+        border-radius: .5em;
+    }
+
+    .container-renderBody > div > form {
+        display: grid;
+        grid: repeat(2, 1fr) / 90% 10%;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .container-renderBody > div > form button {
+        display: flex;
+        flex-flow: row nowrap;
+        gap: 5px;
+        justify-content: space-evenly;
+    }
+
+    .container-renderBody > div > form button svg,
+    .container-renderBody > div > form button use {
+        width: 25px;
+        height: 25px;
+        fill: white;
+    }*/
+    /*
+*/
+    /*.container-group {
+        margin: 1em 0 10em 0;
+        display: grid;
+        grid: repeat(5,auto) / repeat(3,1fr);
+        gap: 1em;
+    }
+
+    .container-group-card {
+        display: grid;
+        width: 100%;
+        grid: 100% / 50% 50%;
+        border-radius: .3em;
+        height: 200px;
+        border: 1px solid rgba(0, 0, 0, 0.300);
+    }
+
+    .container-group-card-img > img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: .3em 0 0 .3em;
+    }
+
+    .container-group-card-body {
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid: 15% 45% 10% 10% 15% / 100%;
+        padding: .2em .1em;
+        row-gap: .2em;
+    }
+
+    .container-group-card-body > * {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .container-group-card-body h3 {
+        font-size: 1.4em;
+        padding: 0;
+        margin: 0;
+    }
+
+    .container-group-card-body > p {
+        margin: 0;
+        padding: 0;
+    }
+
+    .container-group-card-body p[class^="description"] {
+        word-wrap: break-word;
+        font-size: 15px;
+    }
+
+    .container-group-card-body p.date {
+        word-wrap: normal;
+    }
+
+    .container-group-card-body p.text-secondary {
+        word-wrap: normal;
+    }
+
+    .container-group-card-body > a.btn.btn-primary {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }*/
+    /**/
+
+    /*.container-nav {
+        padding: var(--container-padding);
+    }
+
+    .container-nav .pagination {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }*/
+    /*#endregion */
+
+/*}
+
+@media only screen and (max-width: 1024px) {
+
+    .container-renderBody > div {
+        padding: 1% 8%;
+    }
+
+    .container-renderBody > div > form button {
+        display: flex;
+        flex-flow: row nowrap;
+        gap: 5px;
+        justify-content: space-evenly;
+    }*/
+    /*Container Group*/
+    /*.container-group {
+        display: grid;
+        grid: repeat(5,auto) / repeat(2,1fr);
+    }
+
+    .container-nav {
+        padding: var(--container-padding);
+    }
+
+    .container-nav .pagination {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media only screen and (max-width : 834px) {
+    .container-renderBody > div {
+        padding: 1% 5%;
+    }
+
+    .container-renderBody > div > form {
+        grid: repeat(2, 1fr) / 85% 15%;
+    }*/
+    /*#region Container Group*/
+
+    /*.container-group {
+        grid: repeat(5,auto) / repeat(2,1fr);
+        gap: .5em;
+    }
+
+    .container-group-card {
+        width: 100%;
+        grid: 100% / 30% 70%;
+        height: 150px;
+    }
+
+    .container-group-card-body {
+        grid: 15% 45% 15% 20% / 100%;
+        padding: .1em .2em .3em .3em;
+    }
+
+    .container-group-card-body p.date {
+        display: none;
+    }*/
+    /*#endregion */
+    /*.container-nav {
+        padding: var(--container-padding);
+    }
+
+    .container-nav .pagination {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media only screen and (max-width : 667px) {
+    .container-renderBody > div {
+        padding: 1% 3%;
+    }
+
+    .container-renderBody > div > form {
+        grid: repeat(2, 1fr) / 80% 20%;
+    }*/
+
+
+    /*#region Container Group */
+    /*.container-group {
+        display: grid;
+        grid: repeat(5,auto) / repeat(2,1fr);
+        gap: .2em;
+        padding: 0 1em;
+    }
+
+    .container-group-card {
+        grid: 100% / 40% 60%;
+        height: 150px;
+    }
+
+    .container-group-card-body {
+        grid: 15% 45% 15% 20% / 100%;
+        padding: .2em .1em;
+        row-gap: .2em;
+    }
+
+    .container-group-card-body p.date {
+        display: none;
+        word-wrap: normal;
+    }*/
+
+    /*#endregion */
+    /*.container-nav {
+        padding: var(--container-padding);
+    }
+
+    .container-nav .pagination {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media only screen and (max-width : 425px) {
+    .container-renderBody > div {
+        padding: 1% 2%;
+    }
+
+    .container-renderBody > div > form {
+        grid: repeat(2, 1fr) / 75% 25%;
+    }*/
+
+    /*Container Group*/
+    /*.container-group {
+        grid: repeat(5,auto) / repeat(2,1fr);
+        gap: .2em;
+    }
+
+    .container-group-card {
+        grid: 40% 60% / 100%;
+        border-radius: .3em;
+        height: 250px;
+        border: 1px solid rgba(0, 0, 0, 0.300);
+    }
+
+    .container-group-card-body {
+        grid: 20% 35% 10% 10% 20% / 100%;
+        padding: .5em .1em;
+        row-gap: .2em;
+    }
+
+    .container-group-card-body h3 {
+        font-size: 5vw;
+        word-wrap: normal;
+        padding: 0;
+        margin: 0;
+    }
+
+    .container-group-card-body p[class^="description"] {
+        word-wrap: break-word;
+        font-size: 10px;
+    }
+
+    .container-group-card-body p.date {
+        font-size: 10px;
+        word-wrap: normal;
+        display: block;
+    }
+
+    .container-group-card-body p.text-secondary {
+        font-size: 10px;
+        word-wrap: normal;
+    }
+
+    .container-group-card-body > a.btn.btn-primary {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container-nav {
+        padding: var(--container-padding);
+    }
+
+    .container-nav .pagination {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}*/
+/*#endregion */

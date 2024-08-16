@@ -1,0 +1,30 @@
+﻿:root {
+    --clr-blue-1: #03045E;
+    --clr-blue-2: #0077B6;
+    --clr-blue-3: #90E0EF;
+    /* ! Altta ki De�erleri Html Sayfas�na Al�nacak */
+    --row-grid-menu-sm: 4;
+    --column-grid-menu-sm: 1;
+    --row-grid-dropdown: 2;
+    --column-grid-dropdown: 1;
+    --row-grid-dropdown-item: 5;
+    --column-grid-dropdown-item: 2;
+    --container-padding: .5% 5%;
+    --row-grid-dropdown-sm: 2;
+    --column-grid-dropdown-sm: 1;
+    /* ADE8F4  CAF0F8 */
+}
+@font-face {
+    font-family: 'Oswald';
+    src: url('../wwwroot/lib/Fonts/Oswald/Oswald-VariableFont_wght.ttf');
+}
+
+@font-face {
+    font-family: 'RobotoSerif';
+    src: url('../wwwroot/lib/Fonts/Roboto_Serif/RobotoSerif-VariableFont_GRAD\,opsz\,wdth\,wght.ttf');
+}
+
+@font-face {
+    font-family: 'RobotoSerifItalic';
+    src: url('../wwwroot/lib/Fonts/Roboto_Serif/RobotoSerif-Italic-VariableFont_GRAD\,opsz\,wdth\,wght.ttf');
+}

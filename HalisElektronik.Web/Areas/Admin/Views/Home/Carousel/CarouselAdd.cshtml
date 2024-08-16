@@ -10,9 +10,12 @@
         <div class="row">
             <div class="col-3"></div>
             <div class="col-6 p-3 g-3 border rounded-3">
-                <label asp-for="ImageUrlFile"></label>
-                <input class="form-control" type="file" asp-for="ImageUrlFile" />
-                
+                <label asp-for="Image.ImageFile"></label>
+                <input class="form-control" type="file" asp-for="Image.ImageFile" />
+
+                <label asp-for="Image.Title"></label>
+                <input class="form-control" type="text" asp-for="Image.Title" />
+
                 <label asp-for="Title"></label>
                 <input type="text" class="form-control" asp-for="Title" />
 

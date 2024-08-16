@@ -1,21 +1,25 @@
-﻿@using HalisElektronik.Repositories
-@model ModelClassView
+﻿
 @{
     ViewData["Title"] = "Index";
     Layout = "../Shared/_LayoutAdmin.cshtml";
 }
-<div class="row m-0">
+@section Style
+{
+    <link href="~/css/Admin/Index.css" rel="stylesheet" />
+}
 
-    <partial name="../Shared/_NavbarAdmin.cshtml" />
+<div class="container-fluid m-0 p-0">
+    <!-- #region Container Mains -->
+    @await Component.InvokeAsync("CarouselComponent")
+    <!-- #endregion -->
+    <!-- #region Container Marketing -->
+    @await Component.InvokeAsync("ContainerMarketingComponent")
+    <!-- #endregion -->
+    <!-- #region Featurette Mains -->
+    @await Component.InvokeAsync("FeaturetteComponent")
+    <!-- #endregion -->
+    <!-- #region Social Media -->
+    @await Component.InvokeAsync("SocialMediaComponent")
+    <!-- #endregion -->
 
-    <div class="col-10 row my-2">
-        <div class="col col-lg-12 col-sm-12">
-            @await Html.PartialAsync("_CategoryResult", Model.categories)
-            <a asp-area="Admin" asp-controller="Category" asp-action="Create" class="btn btn-primary">Kategori Ekle</a>
-        </div>
-        <div class="col col-lg-12 col-sm-12 px-sm-3 mx-lg-0">
-            @await Html.PartialAsync("_ProductResult", Model.product)
-            <a asp-area="Admin" asp-controller="Product" asp-action="Create" class="btn btn-primary">Ürün Ekle</a>
-        </div>
-    </div>
 </div>

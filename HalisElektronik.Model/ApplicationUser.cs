@@ -10,6 +10,6 @@ namespace HalisElektronik.Models
 {
     public class ApplicationUser : IdentityUser
     {
-
+       
     }
 }

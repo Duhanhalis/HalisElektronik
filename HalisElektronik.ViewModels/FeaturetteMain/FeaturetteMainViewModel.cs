@@ -12,10 +12,10 @@ namespace HalisElektronik.ViewModels
     public class FeaturetteMainViewModel
     {
         [Key]
-        public virtual int FeaturetteMainId { get; set; }
-        public virtual string? Title { get; set; }
+        public int FeaturetteMainId { get; set; }
+        public string? Title { get; set; }
         public string? Description { get; set; }
-        public string? ImageUrl { get; set; }
-        public IFormFile? ImageUrlFile { get; set; }
+        public int ImageId { get; set; }
+        public ImageViewModel? Image { get; set; }
     }
 }

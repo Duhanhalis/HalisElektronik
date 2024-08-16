@@ -9,16 +9,15 @@
         <div class="col-4 border border-1 rounded-3 my-5">
             <form asp-action="ProductsImgCreate" asp-controller="Product" asp-area="Admin" method="post" enctype="multipart/form-data">
                 <input type="hidden" asp-for="ProductId">
-                <input type="hidden" asp-for="ProductMainId">
-                <input type="hidden" asp-for="ImageUrlString">
+                <input type="hidden" asp-for="ImageUrl">
 
-                <input type="file" class="form-control mt-5" asp-for="ImageUrl" />
+                <input type="file" class="form-control mt-5" asp-for="ImageUrlForm" />
                 <span asp-validation-for="ImageUrl"></span>
 
-                <label asp-for="ImageDescription"></label>
-                <input type="text" class="form-control" asp-for="ImageDescription" />
+                <label asp-for="Title"></label>
+                <input type="text" class="form-control" asp-for="Title" />
+                <span asp-validation-for="Title"></span>
 
-                <span asp-validation-for="ImageDescription"></span>
                 <button class="btn btn-warning my-3">Ekle</button>
             </form>
         </div>

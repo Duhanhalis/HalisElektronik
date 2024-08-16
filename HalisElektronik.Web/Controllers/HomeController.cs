@@ -1,50 +1,35 @@
 using HalisElektronik.Models;
 using HalisElektronik.Repositories;
 using HalisElektronik.Repositories.Implementation;
-using HalisElektronik.Repositories.Interfaces;
 using HalisElektronik.ViewModels;
+using HalisElektronik.ViewModels.ApiFetch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using System.Diagnostics;
+using System.Net.Http;
 
 namespace HalisElektronik.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-        private readonly IGenericRepository<Category> _categoryRepository;
-        private readonly IGenericRepository<Main> _mainRepository;
-        private readonly ApplicationDbContext _context;
-        public HomeController(ILogger<HomeController> logger, ApplicationDbContext context, IGenericRepository<Category> categoryRepository, IGenericRepository<Main> mainRepository, ApplicationDbContext applicationDbContext)
+        private readonly ApiIRepository<Info> _repository;
+        private readonly InfoUrl _infoUrl;
+        public HomeController(ApiIRepository<Info> repository, InfoUrl homeUrl)
         {
-            _logger = logger;
-            _categoryRepository = categoryRepository;
-            _mainRepository = mainRepository;
-            _context = applicationDbContext;
+            _repository = repository;
+            _infoUrl = homeUrl;
         }
-
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            MainViewModel mainViewModel = new MainViewModel()
-            {
-                carouselMains = await _context.CarouselMains.ToListAsync(),
-                containerMarketings = await _context.ContainerMarketings.ToListAsync(),
-                featuretteMains = await _context.FeaturetteMains.ToListAsync(),
-                socialMedias = await _context.SocialMedia.ToListAsync(),
-            };
-            _mainRepository.GetAll();
-            ViewData["Footer"] = _context.SocialMedia.ToList();
-            ViewData["Category"] = _categoryRepository.GetAll();
-            Console.WriteLine("Deneme");
-            return View(mainViewModel);
-        }
-
-        public IActionResult AboutUs()
-        {
-            
-            ViewData["Footer"] = _context.SocialMedia.ToList();
-            ViewData["Category"] = _categoryRepository.GetAll();
             return View();
         }
+
+        public async Task<IActionResult> Info()
+        {
+
+            return View(await _repository.GetAllItemsAsync(_infoUrl.InfoList));
+        }
     }
+
 }

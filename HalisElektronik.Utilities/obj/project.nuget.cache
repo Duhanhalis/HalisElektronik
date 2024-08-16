@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "mUfAI/QloNYfOkUrZEYDPrUynRGOuvUkzd33J5kgxLCqIiRrTN2NFos01ZsC5Y7wiSO2uc2nFvOjSoXhDB9BOQ==",
+  "dgSpecHash": "YJapAosTOSw=",
   "success": true,
   "projectFilePath": "C:\\Users\\HUAWEI\\Desktop\\Code\\C#\\HalisElektronik\\HalisElektronik.Utilities\\HalisElektronik.Utilities.csproj",
   "expectedPackageFiles": [
@@ -26,7 +26,12 @@
     "C:\\Users\\HUAWEI\\.nuget\\packages\\microsoft.extensions.options\\7.0.1\\microsoft.extensions.options.7.0.1.nupkg.sha512",
     "C:\\Users\\HUAWEI\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512",
     "C:\\Users\\HUAWEI\\.nuget\\packages\\mysqlconnector\\2.2.5\\mysqlconnector.2.2.5.nupkg.sha512",
-    "C:\\Users\\HUAWEI\\.nuget\\packages\\pomelo.entityframeworkcore.mysql\\7.0.0\\pomelo.entityframeworkcore.mysql.7.0.0.nupkg.sha512"
+    "C:\\Users\\HUAWEI\\.nuget\\packages\\pomelo.entityframeworkcore.mysql\\7.0.0\\pomelo.entityframeworkcore.mysql.7.0.0.nupkg.sha512",
+    "C:\\Users\\HUAWEI\\.nuget\\packages\\sqlitepclraw.bundle_e_sqlite3\\2.1.9\\sqlitepclraw.bundle_e_sqlite3.2.1.9.nupkg.sha512",
+    "C:\\Users\\HUAWEI\\.nuget\\packages\\sqlitepclraw.core\\2.1.9\\sqlitepclraw.core.2.1.9.nupkg.sha512",
+    "C:\\Users\\HUAWEI\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.1.9\\sqlitepclraw.lib.e_sqlite3.2.1.9.nupkg.sha512",
+    "C:\\Users\\HUAWEI\\.nuget\\packages\\sqlitepclraw.provider.e_sqlite3\\2.1.9\\sqlitepclraw.provider.e_sqlite3.2.1.9.nupkg.sha512",
+    "C:\\Users\\HUAWEI\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512"
   ],
   "logs": []
 }

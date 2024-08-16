@@ -1,0 +1,8 @@
+﻿@model List<BlogsTag>
+<select name="blogQuery" id="" class="form-select">
+    <option value="" class="form-select">Kategori Secin</option>
+    @foreach (var item in Model)
+    {
+        <option value="@item.BlogsTagId" class="form-select">@item.BlogsTagName</option>
+    }
+</select>

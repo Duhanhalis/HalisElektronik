@@ -203,6 +203,150 @@
           }
         }
       },
+      "SQLitePCLRaw.bundle_e_sqlite3/2.1.9": {
+        "dependencies": {
+          "SQLitePCLRaw.lib.e_sqlite3": "2.1.9",
+          "SQLitePCLRaw.provider.e_sqlite3": "2.1.9"
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.batteries_v2.dll": {
+            "assemblyVersion": "2.1.9.2410",
+            "fileVersion": "2.1.9.2410"
+          }
+        }
+      },
+      "SQLitePCLRaw.core/2.1.9": {
+        "dependencies": {
+          "System.Memory": "4.5.3"
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.core.dll": {
+            "assemblyVersion": "2.1.9.2410",
+            "fileVersion": "2.1.9.2410"
+          }
+        }
+      },
+      "SQLitePCLRaw.lib.e_sqlite3/2.1.9": {
+        "runtimeTargets": {
+          "runtimes/browser-wasm/nativeassets/net7.0/e_sqlite3.a": {
+            "rid": "browser-wasm",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-arm/native/libe_sqlite3.so": {
+            "rid": "linux-arm",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-arm64/native/libe_sqlite3.so": {
+            "rid": "linux-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-armel/native/libe_sqlite3.so": {
+            "rid": "linux-armel",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-mips64/native/libe_sqlite3.so": {
+            "rid": "linux-mips64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-musl-arm/native/libe_sqlite3.so": {
+            "rid": "linux-musl-arm",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-musl-arm64/native/libe_sqlite3.so": {
+            "rid": "linux-musl-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-musl-s390x/native/libe_sqlite3.so": {
+            "rid": "linux-musl-s390x",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-musl-x64/native/libe_sqlite3.so": {
+            "rid": "linux-musl-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-ppc64le/native/libe_sqlite3.so": {
+            "rid": "linux-ppc64le",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-s390x/native/libe_sqlite3.so": {
+            "rid": "linux-s390x",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-x64/native/libe_sqlite3.so": {
+            "rid": "linux-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-x86/native/libe_sqlite3.so": {
+            "rid": "linux-x86",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/maccatalyst-arm64/native/libe_sqlite3.dylib": {
+            "rid": "maccatalyst-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/maccatalyst-x64/native/libe_sqlite3.dylib": {
+            "rid": "maccatalyst-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/osx-arm64/native/libe_sqlite3.dylib": {
+            "rid": "osx-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/osx-x64/native/libe_sqlite3.dylib": {
+            "rid": "osx-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-arm/native/e_sqlite3.dll": {
+            "rid": "win-arm",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-arm64/native/e_sqlite3.dll": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x64/native/e_sqlite3.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x86/native/e_sqlite3.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "SQLitePCLRaw.provider.e_sqlite3/2.1.9": {
+        "dependencies": {
+          "SQLitePCLRaw.core": "2.1.9"
+        },
+        "runtime": {
+          "lib/net6.0/SQLitePCLRaw.provider.e_sqlite3.dll": {
+            "assemblyVersion": "2.1.9.2410",
+            "fileVersion": "2.1.9.2410"
+          }
+        }
+      },
+      "System.Memory/4.5.3": {},
       "HalisElektronik.Models/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "7.0.1",
@@ -219,7 +363,8 @@
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "7.0.1",
           "Microsoft.EntityFrameworkCore": "7.0.2",
           "Microsoft.Extensions.Identity.Core": "7.0.15",
-          "Pomelo.EntityFrameworkCore.MySql": "7.0.0"
+          "Pomelo.EntityFrameworkCore.MySql": "7.0.0",
+          "SQLitePCLRaw.bundle_e_sqlite3": "2.1.9"
         },
         "runtime": {
           "HalisElektronik.Repositories.dll": {}
@@ -393,6 +538,41 @@
       "sha512": "sha512-Qk5WB/skSZet5Yrz6AN2ywjZaB1pxfAmvQ+5I4khTkLwwIamI4QJoH2NphCWLFQL+2ar8HvsNCTmwYk0qhqL0w==",
       "path": "pomelo.entityframeworkcore.mysql/7.0.0",
       "hashPath": "pomelo.entityframeworkcore.mysql.7.0.0.nupkg.sha512"
+    },
+    "SQLitePCLRaw.bundle_e_sqlite3/2.1.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-fZ55aXvtwdp3eVmqfc7fuSmn+W4aOD1+EImxScRoTCkjKZn6yFi5xlsMDkhrlgRPMoOhBJK0d7urfn1fyHJdTw==",
+      "path": "sqlitepclraw.bundle_e_sqlite3/2.1.9",
+      "hashPath": "sqlitepclraw.bundle_e_sqlite3.2.1.9.nupkg.sha512"
+    },
+    "SQLitePCLRaw.core/2.1.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Msy9TS3hH0EZ98YlR3uUyu153RO3M1cpLIEeciSSLXUNzIvvBIzzqMJIdZwPz4otQw7AzXYmsKQac6wOWu5a0Q==",
+      "path": "sqlitepclraw.core/2.1.9",
+      "hashPath": "sqlitepclraw.core.2.1.9.nupkg.sha512"
+    },
+    "SQLitePCLRaw.lib.e_sqlite3/2.1.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-PdXKp7RdMJu2BAiqAfg9TOgVLZR1NHh5V88puAmpyjA/mWGv2s/5RZ9a2dkOlP4aQuJup9WA3A1WArIJ38ocfg==",
+      "path": "sqlitepclraw.lib.e_sqlite3/2.1.9",
+      "hashPath": "sqlitepclraw.lib.e_sqlite3.2.1.9.nupkg.sha512"
+    },
+    "SQLitePCLRaw.provider.e_sqlite3/2.1.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-AlsPpTqdc7gaiVrQCQ7027v8afAs61cCNnarJM65KJEiWVjZPyUZVzgS1X3m95TogjKcwAaXkJdjMaZCDzwXdg==",
+      "path": "sqlitepclraw.provider.e_sqlite3/2.1.9",
+      "hashPath": "sqlitepclraw.provider.e_sqlite3.2.1.9.nupkg.sha512"
+    },
+    "System.Memory/4.5.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3oDzvc/zzetpTKWMShs1AADwZjQ/36HnsufHRPcOjyRAAMLDlu2iD33MBI2opxnezcVUtXyqDXXjoFMOU9c7SA==",
+      "path": "system.memory/4.5.3",
+      "hashPath": "system.memory.4.5.3.nupkg.sha512"
     },
     "HalisElektronik.Models/1.0.0": {
       "type": "project",

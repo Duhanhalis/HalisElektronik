@@ -11,7 +11,7 @@ C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.ViewModels\obj\D
 C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.ViewModels\obj\Debug\net7.0\HalisElektronik.ViewModels.AssemblyInfo.cs
 C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.ViewModels\obj\Debug\net7.0\HalisElektronik.ViewModels.csproj.CoreCompileInputs.cache
 C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.ViewModels\obj\Debug\net7.0\HalisElektronik.ViewModels.sourcelink.json
-C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.ViewModels\obj\Debug\net7.0\HalisElektronik.ViewModels.csproj.CopyComplete
+C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.ViewModels\obj\Debug\net7.0\HalisEle.CA8FFBD0.Up2Date
 C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.ViewModels\obj\Debug\net7.0\HalisElektronik.ViewModels.dll
 C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.ViewModels\obj\Debug\net7.0\refint\HalisElektronik.ViewModels.dll
 C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.ViewModels\obj\Debug\net7.0\HalisElektronik.ViewModels.pdb

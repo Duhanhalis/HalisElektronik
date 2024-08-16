@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Users\HUAWEI\Desktop\HE_Api</_PublishTargetUrl>
+    <History>True|2024-08-16T12:00:39.6070503Z||;True|2024-08-15T23:03:43.5770522+03:00||;True|2024-08-15T23:02:46.1796399+03:00||;True|2024-08-14T20:55:12.5771296+03:00||;True|2024-08-13T11:28:39.3365561+03:00||;True|2024-08-13T10:01:31.1350701+03:00||;True|2024-08-13T08:09:57.0534097+03:00||;True|2024-08-12T10:09:12.7457242+03:00||;True|2024-08-12T10:07:47.1688952+03:00||;True|2024-08-12T09:39:36.1634798+03:00||;True|2024-08-09T22:02:32.0558619+03:00||;True|2024-08-05T09:19:36.0717282+03:00||;True|2024-08-04T22:22:16.9711362+03:00||;True|2024-08-04T18:52:34.7961456+03:00||;True|2024-08-02T09:17:05.5441938+03:00||;</History>
+    <LastFailureDetails />
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+  </PropertyGroup>
+  <ItemGroup>
+    <EFMigrations Include="HalisElektronik.Repositories.ApplicationDbContext">
+      <Value>Server=localhost%3bPort=3306%3bDatabase=haliselektronikinitiazer%3bUid=root%3bPwd=duhanIstanbul_34</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

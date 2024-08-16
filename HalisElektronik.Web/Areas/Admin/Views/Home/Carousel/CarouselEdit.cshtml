@@ -9,13 +9,22 @@
         <div class="row">
             <div class="col-3"></div>
             <div class="col-6 p-3 g-3 border rounded-3">
-                <img src="~/CarouselImage/@Model.ImageUrl" class="w-100" />
-                <input type="hidden" asp-for="ImageUrl" />
-                <input type="hidden" asp-for="CarouselMainId" class="hidden" />
 
-                <label asp-for="ImageUrlFile" class="mt-3"></label>
-                <input class="form-control" type="file" asp-for="ImageUrlFile" />
-                <span asp-validation-for="ImageUrl"></span>
+                <input type="hidden" asp-for="CarouselMainId" class="hidden" />
+                @if (Model.Image != null)
+                {
+                    <input type="hidden" asp-for="ImageId" />
+                    <input type="hidden" asp-for="Image.Id" />
+                    <input type="hidden" asp-for="Image.ImageUrl" />
+                    <img src="https://localhost:7273/api/Image/GetImageByName/@(Model.Image.ImageUrl)" class="w-100" />
+                }
+                <label asp-for="Image.ImageFile" class="mt-3"></label>
+                <input class="form-control" type="file" asp-for="Image.ImageFile" />
+                <span asp-validation-for="Image.ImageFile"></span>
+
+                <label asp-for="Image.Title" class="mt-3"></label>
+                <input class="form-control" type="text" asp-for="Image.Title" />
+                <span asp-validation-for="Image.Title"></span>
 
                 <label asp-for="Title"></label>
                 <input type="text" class="form-control" asp-for="Title" />

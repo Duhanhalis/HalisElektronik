@@ -11,8 +11,8 @@ namespace HalisElektronik.ViewModels
     {
         public int SocialMediaId { get; set; }
         public string? Title { get; set; }
-        public string? ImageUrl { get; set; }
-        public IFormFile? ImageUrlFile {  get; set; }
         public string? Link { get; set; }
+        public int ImageId { get; set; }
+        public ImageViewModel? Image { get; set; }
     }
 }

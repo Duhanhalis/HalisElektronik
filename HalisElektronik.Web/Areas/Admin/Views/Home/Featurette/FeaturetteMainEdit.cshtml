@@ -9,12 +9,21 @@
         <div class="row">
             <div class="col-3"></div>
             <div class="col-6 p-3 g-3 border rounded-3">
-                <img src="~/ContainerMarketing/@Model.ImageUrl" class="w-100" />
-                <input type="hidden" asp-for="ImageUrl" />
-                <input type="hidden" asp-for="FeaturetteMainId" class="hidden" />
 
-                <label asp-for="ImageUrlFile" class="mt-3"></label>
-                <input class="form-control" type="file" asp-for="ImageUrlFile" />
+                <input type="hidden" asp-for="FeaturetteMainId" />
+                @if (Model.Image != null)
+                {
+                    <img src="https://localhost:7273/api/Image/GetImageByName/@(Model.Image.ImageUrl)" class="w-100" />
+                    <input type="hidden" asp-for="ImageId" />
+                    <input type="hidden" asp-for="Image.Id" />
+                    <input type="hidden" asp-for="Image.ImageUrl" />
+                }
+
+                <label asp-for="Image.ImageFile"></label>
+                <input class="form-control" type="file" asp-for="Image.ImageFile" />
+
+                <label asp-for="Image.Title"></label>
+                <input class="form-control" type="text" asp-for="Image.Title" />
 
                 <label asp-for="Title"></label>
                 <input type="text" class="form-control" asp-for="Title" />

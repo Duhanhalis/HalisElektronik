@@ -2,48 +2,45 @@
     ViewData["Title"] = "Index";
     Layout = "../Shared/_LayoutAdmin.cshtml";
 }
-@model List<Category>
+@model IEnumerable<Category>
 
-<div class="row">
-    <partial name="../Shared/_NavbarAdmin.cshtml" />
-    <div class="container col-10">
-        <h1>Kategoriler</h1>
-        <hr />
-        <table class="col table table-bordered table-striped table-hover">
-            <thead>
-                <tr class="text-center">
-                    <th>Kategori Id</th>
-                    <th>Kategori Ismi</th>
-                    <th>Kategori Açıklaması</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @if (Model != null)
+<div class="container-fluid">
+    <h1>Kategoriler</h1>
+    <hr />
+    <table class="col table table-bordered table-striped table-hover">
+        <thead>
+            <tr class="text-center">
+                <th>Kategori Id</th>
+                <th>Kategori Ismi</th>
+                <th>Kategori Açıklaması</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null)
+            {
+               foreach (var item in Model)
                 {
-                    for (int i = 0; i < Model.Count; i++)
-                    {
-                        <tr>
-                            <td>@Model[i].CategoryId</td>
-                            <td>@Model[i].CategoryName</td>
-                            <td>@Model[i].CategoryDescription</td>
-                            <td>
-                                <a class="btn btn-warning col" asp-action="Edit" asp-route-id="@Model[i].CategoryId" asp-controller="Category" asp-area="Admin">Düzenle</a>
-                                <a class="btn btn-danger col" asp-action="Delete" asp-route-id="@Model[i].CategoryId" asp-controller="Category" asp-area="Admin">Sil</a>
-                            </td>
-                        </tr>
-                    }
-                }
-                else
-                {
-                    <tr class="text-center">
-                        <th colspan="3" class="text-danger">Kategori Boş</th>
+                    <tr>
+                        <td>@item.CategoryId</td>
+                        <td>@item.CategoryName</td>
+                        <td>@item.CategoryDescription</td>
+                        <td>
+                            <a class="btn btn-warning col" asp-action="Edit" asp-route-id="@item.CategoryId" asp-controller="Category" asp-area="Admin">Düzenle</a>
+                            <a class="btn btn-danger col" asp-action="Delete" asp-route-id="@item.CategoryId" asp-controller="Category" asp-area="Admin">Sil</a>
+                        </td>
                     </tr>
                 }
-            </tbody>
+            }
+            else
+            {
+                <tr class="text-center">
+                    <th colspan="3" class="text-danger">Kategori Boş</th>
+                </tr>
+            }
+        </tbody>
 
-        </table>
-        <a asp-area="Admin" asp-controller="Category" asp-action="Create" class="btn btn-primary">Kategori Ekle</a>
-        <hr />
-    </div>
+    </table>
+    <a asp-area="Admin" asp-controller="Category" asp-action="Create" class="btn btn-primary">Kategori Ekle</a>
+    <hr />
 </div>

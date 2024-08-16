@@ -12,9 +12,9 @@ namespace HalisElektronik.ViewModels
     {
         [Key]
         public int ContainerMarketingId { get; set; }
-        public string? ImageUrl { get; set; }
-        public IFormFile? ImageUrlFile { get; set; }
         public string? Title { get; set; }
         public string? Description { get; set; }
+        public int ImageId { get; set; }
+        public ImageViewModel? Image { get; set; }
     }
 }

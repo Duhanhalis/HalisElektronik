@@ -1,0 +1,26 @@
+﻿@model Blog
+@section Css {
+    <link href="~/css/BlogDetails.css" rel="stylesheet" />
+}
+
+<div class="container-fluid container-fluid-blog">
+    <div class="container container-blog rounded-3 shadow-sm">
+        @if (Model.BlogImage != null)
+        {
+            <img src="https://localhost:7273/api/Image/GetImageByName/@(Model?.BlogImage.ImageUrl)" alt="" class="container-blog-image" />
+        }
+        else
+        {
+            <img src="https://localhost:7273/api/Image/GetImageByName/No-Image.jpg" alt="" class="container-blog-image" />
+        }
+
+        <div class="container-blog-body">
+            <h1 class="blog-title">@Model.BlogTitle</h1>
+            <h5 class="blog-alt-title">@Model.BlogAltTitle</h5>
+            <div class="blog-description"><p>@Html.Raw(Model.BlogDescription)</p></div>
+            <p class="blog-tags">@Model.Tags.BlogsTagName</p>
+            <i class="blog-date">@Model.Date_Time.ToString("d/MM/yyyy")</i>
+            <a href="mailto:duhanhalis@gmail.com" class="btn btn-primary">Mail</a>
+        </div>
+    </div>
+</div>

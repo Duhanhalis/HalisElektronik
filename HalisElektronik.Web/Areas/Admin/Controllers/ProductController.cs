@@ -1,157 +1,134 @@
 using HalisElektronik.Models;
 using HalisElektronik.Repositories;
-using HalisElektronik.Repositories.Interfaces;
+using HalisElektronik.Repositories.Implementation.Mvc.Inteface;
 using HalisElektronik.ViewModels;
+using HalisElektronik.ViewModels.ApiFetch;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Build.Evaluation;
 using Microsoft.CodeAnalysis;
+using Microsoft.EntityFrameworkCore;
 using System.IO;
 
 namespace HalisElektronik.Web.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize]
     public class ProductController : Controller
     {
-        private readonly IGenericRepository<Product> _repository;
-        private readonly IGenericRepository<Category> _repositoryCategory;
-        private readonly IGenericRepository<ProductImageList> _repositoryImageList;
-        private readonly IWebHostEnvironment _webHostEnvironment;
-        private readonly ApplicationDbContext _context;
+        private readonly ApiIRepository<Product> _repository;
+        private readonly ApiIRepository<ProductImage> _repositoryImage;
+        private readonly ApiIRepository<Category> _categoryRepository;
 
-        public ProductController(IGenericRepository<Product> repository, IGenericRepository<Category> repositoryCategory, IWebHostEnvironment webHostEnvironment, ApplicationDbContext context, IGenericRepository<ProductImageList> repositoryImageList)
+        private readonly ImageApiInterface<Image> _image;
+        private readonly ImageApiInterface<ProductImage> _productImage;
+
+        private readonly ImageUrl _imageUrl;
+        private readonly ProductUrl _productUrl;
+        private readonly CategoryUrl _categoryUrl;
+        public ProductController(ApiIRepository<Product> repository, ApiIRepository<Category> categoryRepository, ImageUrl imageUrl, ProductUrl productUrl, CategoryUrl categoryUrl, ImageApiInterface<ProductImage> productImage, ApiIRepository<ProductImage> repositoryImage, ImageApiInterface<Image> image)
         {
             _repository = repository;
-            _repositoryCategory = repositoryCategory;
-            _webHostEnvironment = webHostEnvironment;
-            _context = context;
-            _repositoryImageList = repositoryImageList;
+            _categoryRepository = categoryRepository;
+            _imageUrl = imageUrl;
+            _productUrl = productUrl;
+            _categoryUrl = categoryUrl;
+            _productImage = productImage;
+            _repositoryImage = repositoryImage;
+            _image = image;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Index()
+        {
+            return View(await _repository.GetAllItemsAsync(_productUrl.ProductsList));
         }
         [HttpGet]
-        public IActionResult Index()
+        public async Task<IActionResult> Create()
         {
-            List<Product> products = new List<Product>();
-            foreach (var item in _context.Products.ToList())
-            {
-                var img = _context.ProductImageLists.Where(x => x.ProductId == item.ProductId).ToList();
-                if (img != null)
-                {
-                    products.Add(new Product()
-                    {
-                        ProductId = item.ProductId,
-                        CategoryId = item.CategoryId,
-                        Date_Of_Adjustment = item.Date_Of_Adjustment,
-                        Description = item.Description,
-                        IsStock = item.IsStock,
-                        Price = item.Price,
-                        Title = item.Title,
-                        ProductImageList = img
-                    });
-                }
-            }
-            return View(products);
-        }
-        [HttpGet]
-        public IActionResult Create()
-        {
-            ViewBag.ListCategory = new SelectList(_repositoryCategory.GetAll(), "CategoryId", "CategoryName");
+            ViewBag.ListCategory = new SelectList(await _categoryRepository.GetAllItemsAsync(_categoryUrl.CategoryList), "CategoryId", "CategoryName");
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Create(ProductViewModel product)
+        public async Task<IActionResult> Create(ProductViewModel model)
         {
             if (ModelState.IsValid)
             {
-                List<ProductImageList> images = new List<ProductImageList>();
-                if (product.ListPhoto != null && product.ListPhoto.Any())
-                {
-                    foreach (var photo in product.ListPhoto)
-                    {
-                        if (photo.ImageUrl != null)
-                        {
-                            // Dosyayý wwwroot klasörüne kaydedin
-                            //var webRootPath = $"{_webHostEnvironment.WebRootPath}//ProductImages";
-                            //var fileName = $"{product.Title}_{product.CategoryId}_{photo.ImageUrl.FileName}";
-                            //var filePath = Path.Combine(webRootPath, fileName);
 
-                            //using (var stream = new FileStream(filePath, FileMode.Create))
-                            //{
-                            //    photo.ImageUrl.CopyTo(stream);
-                            //}
-                            var fileName = await _repositoryImageList.ImageCreate(photo.ImageUrl, product.Title);
-                            images.Add(
-                                new ProductImageList()
-                                {
-                                    ImageUrl_1 = fileName,
-                                    ImageDescription = photo.ImageDescription
-                                });
+                if (model.Images != null)
+                {
+                    List<ProductImage> images = new List<ProductImage>();
+                    foreach (var item in model.Images)
+                    {
+                        if (item.ImageFile != null)
+                        {
+                            images.Add(new ProductImage()
+                            {
+                                ImageUrl = await _productImage.AddImageAsync(_imageUrl.PhotoCreate, item.ImageFile, item.Title),
+                                Title = item.Title,
+                            });
                         }
                     }
-                }
-                _repository.Add(new Product()
-                {
-                    Title = product.Title,
-                    Description = product.Description,
-                    CategoryId = product.CategoryId,
-                    Category = product.Category,
-                    Date_Of_Adjustment = product.Date_Of_Adjustment,
-                    IsStock = product.IsStock,
-                    Price = product.Price,
-                    ProductImageList = images
-                });
-                return RedirectToAction("Index", "Product");
-            }
-            return View(product);
-        }
-        [HttpGet]
-        public IActionResult Edit(int id)
-        {
-            var product = _repository.GetById(id);
-            var productImgList = _context.ProductImageLists.Where(pi => pi.ProductId == product.ProductId).ToList();
-            List<ProductImageListViewModel> images = new List<ProductImageListViewModel>();
-            if (product.ProductImageList != null)
-            {
-                foreach (var item in productImgList)
-                {
-                    images.Add(new ProductImageListViewModel()
+
+                    await _repository.AddItemAsync(_productUrl.ProductCreate, new Product()
                     {
-                        ImageDescription = item.ImageDescription,
-                        ImageUrlString = item.ImageUrl_1,
-                        ProductMainId = item.ProductMainId,
-                        ProductId = item.ProductId,
+                        Title = model.Title,
+                        CategoryId = model.CategoryId,
+                        Date_Of_Adjustment = DateTime.Now,
+                        Description = model.Description,
+                        IsStock = model.IsStock,
+                        Price = model.Price,
+                        ProductImages = images
                     });
                 }
+                else
+                {
+                    await _repository.AddItemAsync(_productUrl.ProductCreate, new Product()
+                    {
+                        Title = model.Title,
+                        CategoryId = model.CategoryId,
+                        Date_Of_Adjustment = DateTime.Now,
+                        Description = model.Description,
+                        IsStock = model.IsStock,
+                        Price = model.Price,
+                        ProductImages = new List<ProductImage>()
+                    });
+                }
+                return RedirectToAction("Index", "Product");
+            }
+            return View(model);
+        }
+        [HttpGet]
+        public async Task<IActionResult> Edit(int id)
+        {
+            ViewBag.ListCategory = new SelectList(await _categoryRepository.GetAllItemsAsync(_categoryUrl.CategoryList), "CategoryId", "CategoryName");
+
+            Product model = await _repository.GetItemByIdAsync(_productUrl.ProductGet, id);
+            //IEnumerable<Image> images = await _image.GetListById(_imageUrl.ImageGetListById, model.ImageId);
+
+            if (model != null)
+            {
+                return View(new Product()
+                {
+                    ProductId = model.ProductId,
+                    CategoryId = model.CategoryId,
+                    Title = model.Title,
+                    Date_Of_Adjustment = model.Date_Of_Adjustment,
+                    Price = model.Price,
+                    Description = model.Description,
+                    IsStock = model.IsStock,
+                    ProductImages = model.ProductImages
+                });
             }
 
-
-
-            //while (images.Count < 4)
-            //{
-            //    images.Add(new() { ImageUrl = null, ImageDescription = "", ImageUrlString = "No-Image.jpg" });
-            //}
-
-
-            ViewBag.ListCategory = new SelectList(_repositoryCategory.GetAll(), "CategoryId", "CategoryName");
-            return View(new ProductViewModel()
-            {
-                Category = product.Category,
-                CategoryId = product.CategoryId,
-                Date_Of_Adjustment = product.Date_Of_Adjustment,
-                Description = product.Description,
-                IsStock = product.IsStock,
-                ListPhoto = images,
-                Price = product.Price,
-                Title = product.Title,
-                ProductId = product.ProductId,
-            });
+            return Redirect("/");
         }
         [HttpPost]
-        public IActionResult Edit(ProductViewModel model)
+        public IActionResult Edit(Product model)
         {
-
-            var productImgList = _context.ProductImageLists.Where(pi => pi.ProductId == model.ProductId).ToList();
-            _repository.Update(new Product()
+            _repository.UpdateItemAsync(_productUrl.ProductEdit, new Product()
             {
                 ProductId = model.ProductId,
                 Date_Of_Adjustment = DateTime.Now,
@@ -160,74 +137,79 @@ namespace HalisElektronik.Web.Areas.Admin.Controllers
                 IsStock = model.IsStock,
                 Price = model.Price,
                 Title = model.Title,
-                ProductImageList = productImgList
+                //ImageId = model.ImageId,
             });
-            return RedirectToAction("Index", "Product");
+            return RedirectToAction(nameof(ProductController.Index));
         }
-        public IActionResult Delete(int id)
+
+        
+        public async Task<IActionResult> DeleteAsync(int id)
         {
-            var result = _context.ProductImageLists.Where(x => x.ProductId == id).ToList();
-            _repository.Delete(_context.Products.Find(id));
-            foreach (var item in result)
+            var model = await _repository.GetItemByIdAsync(_productUrl.ProductGet, id);
+
+            //var modelImage = await _repositoryImage.GetListById("Products/ProductImageGetList", model.ProductId);
+
+            foreach (var item in model.ProductImages)
             {
-                var webRootPath = $"{_webHostEnvironment.WebRootPath}//ProductImages";
-                if (System.IO.File.Exists(webRootPath + "//" + item.ImageUrl_1))
-                {
-                    System.IO.File.Delete(webRootPath + "//" + item.ImageUrl_1);
-                }
-                _context.ProductImageLists.Remove(item);
-                _context.SaveChanges();
+                await _productImage.DeleteImageAsync("Products/ProductImageDelete", item.Id);
             }
-            return RedirectToAction("Index", "Product");
+
+            await _repository.DeleteItemAsync(_productUrl.ProductDelete, id);
+
+            return RedirectToAction(nameof(ProductController.Index));
         }
+
+
         [HttpGet]
-        public IActionResult ProductsImgEdit(int id)
+        public async Task<IActionResult> ProductsImgEdit(int id)
         {
-            ProductImageList image = _repositoryImageList.GetById(id);
+            var model = await _repositoryImage.GetItemByIdAsync(_productUrl.ProductImageGet, id);
 
             return View(new ProductImageListViewModel()
             {
-                ImageDescription = image.ImageDescription,
-                ImageUrlString = image.ImageUrl_1,
-                ProductMainId = image.ProductMainId,
-                ProductId = image.ProductId,
+                Title = model.Title,
+                ImageUrl = model.ImageUrl,
+                ProductId = model.ProductId,
+                Id = model.Id,
             });
         }
         [HttpPost]
-        public IActionResult ProductsImgEdit(ProductImageListViewModel image)
+        public async Task<IActionResult> ProductsImgEdit(ProductImageListViewModel image)
         {
             if (ModelState.IsValid)
             {
-                string oldImg = image.ImageUrlString;
-                var webRootPath = $"{_webHostEnvironment.WebRootPath}//ProductImages";
-                var fileName = $"{Guid.NewGuid()}_{image.ImageUrl.FileName}";
-                var filePath = Path.Combine(webRootPath, fileName);
+                var model = await _repositoryImage.GetItemByIdAsync(_productUrl.ProductImageGet, image.Id);
 
-                if (System.IO.File.Exists(webRootPath + "//" + oldImg))
+                if (image.ImageUrl != null)
                 {
-                    System.IO.File.Delete(webRootPath + "//" + oldImg);
+                    await _repositoryImage.DeleteItemAsync(_productUrl.ProductImageUpdateDelete, image.Id);
+                    await _repositoryImage.UpdateItemAsync(_productUrl.ProductImageUpdate, new ProductImage()
+                    {
+                        Id = image.Id,
+                        ImageUrl = await _image.AddImageAsync(_imageUrl.PhotoCreate, image.ImageUrlForm, image.Title),
+                        ProductId = image.ProductId,
+                        Title = model.Title,
+                    });
+                    return RedirectToAction(nameof(ProductController.Edit), new { id = image.ProductId });
                 }
-                using (var stream = new FileStream(filePath, FileMode.Create))
+                else
                 {
-                    image.ImageUrl.CopyTo(stream);
+                    await _repositoryImage.UpdateItemAsync(_productUrl.ProductImageUpdate, new ProductImage()
+                    {
+                        Id = image.Id,
+                        ImageUrl = image.ImageUrl,
+                        ProductId = image.ProductId,
+                        Title = model.Title,
+                    });
+                    return RedirectToAction(nameof(ProductController.Edit), new { id = image.ProductId });
                 }
 
-                _repositoryImageList.Update(new ProductImageList()
-                {
-                    ImageDescription = image.ImageDescription,
-                    ProductId = image.ProductId,
-                    ProductMainId = image.ProductMainId,
-                    ImageUrl_1 = fileName
-                });
-                return RedirectToAction("Edit", "Product", new { id = image.ProductId });
             }
             return View();
         }
         [HttpGet]
         public IActionResult ProductsImgCreate(int id)
         {
-            //var result = _repository.GetById(id);
-
             return View(new ProductImageListViewModel()
             {
                 ProductId = id,
@@ -236,34 +218,28 @@ namespace HalisElektronik.Web.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> ProductsImgCreate(ProductImageListViewModel image)
         {
-
-            //var webRootPath = $"{_webHostEnvironment.WebRootPath}//ProductImages";
-            //var fileName = $"{Guid.NewGuid()}_{image.ImageUrl.FileName}";
-            //var filePath = Path.Combine(webRootPath, fileName);
-
-            //using (var stream = new FileStream(filePath, FileMode.Create))
-            //{
-            //    image.ImageUrl.CopyTo(stream);
-            //}
-            var fileName = await _repositoryImageList.ImageCreate(image.ImageUrl, image.ImageDescription);
-            _repositoryImageList.Add(new ProductImageList()
+            if (ModelState.IsValid)
             {
-                ProductId = image.ProductId,
-                ImageDescription = image.ImageDescription,
-                ImageUrl_1 = fileName
-            });
-            return RedirectToAction("Edit", "Product", new { id = image.ProductId });
+                await _repositoryImage.AddItemAsync(_productUrl.ProductImageCreateByModel, new ProductImage()
+                {
+                    ProductId = image.ProductId,
+                    ImageUrl = await _image.AddImageAsync(_imageUrl.PhotoCreate, image.ImageUrlForm, image.Title),
+                    Title = image.Title,
+                });
+                return RedirectToAction(nameof(ProductController.Edit), new { id = image.ProductId });
+            }
+            else
+            {
+                return View();
+            }
 
-
-            //return View();
         }
         [HttpGet]
-        public IActionResult ProductsImgDelete(int id)
+        public async Task<IActionResult> ProductsImgDelete(int id, int requestUrl)
         {
-            var result = _context.ProductImageLists.Find(id);
-            _repositoryImageList.ImageDelete(result.ImageUrl_1);
-            _repositoryImageList.Delete(result);
-            return RedirectToAction("Edit", "Product", new { id = result.ProductId });
+            await _repositoryImage.DeleteItemAsync(_productUrl.ProductImageDelete, id);
+
+            return RedirectToAction(nameof(ProductController.Edit), new { id = requestUrl });
         }
     }
 }

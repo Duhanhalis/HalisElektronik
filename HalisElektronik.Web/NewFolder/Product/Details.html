@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - HalisElektronik</title>
+    <meta name="author" content="Duhan Halis - DH">
+    <meta name="description" content="@ViewData[" Description"] - Televizyon Tamiri, Uydu İşleri, Sakarya">
+    <link rel="stylesheet" href="../../wwwroot/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="Details.css" />
+</head>
+
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+        <symbol id="chevron-left" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+                d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0" />
+        </symbol>
+        <symbol id="chevron-right" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708" />
+        </symbol>
+        <symbol id="chevron-down" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+                d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708" />
+        </symbol>
+        <symbol id="bag" viewBox="0 0 16 16">
+            <path
+                d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z" />
+        </symbol>
+    </svg>
+
+
+
+
+
+
+
+    <header class="container-header">
+        <div class="header-container">
+            <div class="header-logo">
+                <a href="">
+                    <svg class="bi">
+                        <use href="#house"></use>
+                    </svg>
+                </a>
+            </div>
+            <div class="header-list">
+                <ul class="header-list-group">
+                    <li class="header-list-item">
+                        <a href="#" class="">
+                            <img src="../wwwroot/lib/Icons/house.svg" alt="">
+                            <p>Anasayfa</p>
+                        </a>
+
+                    </li>
+                    <li class="header-list-item categoryDropdown">
+                        <a href="">
+                            <img src="../wwwroot/lib/Icons/youtube.svg" style="fill: wheat;" alt="">
+                            <p>Ürünler</p>
+                            <img src="../wwwroot/lib/Icons/chevron-down.svg" alt="">
+                        </a>
+                        <ul class="header-list-item-group">
+                            <li>
+                                <a href="">
+                                    <p>Etralom</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <p>Cifawis</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <p>Havacigeg</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <p>Pujvobmaj</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <p>Ujabebdeh</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <p>Argogos</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <p>Focigal</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="header-list-item">
+                        <a href="">
+                            <img src="../wwwroot/lib/Icons/youtube.svg" alt="">
+                            <p>Blog</p>
+                            <img src="../wwwroot/lib/Icons/chevron-down.svg" alt="">
+                        </a>
+                        <ul class="header-list-item-group">
+                            <li>
+                                <a href="">
+                                    <p>Etralom</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <p>Cifawis</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <p>Havacigeg</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <p>Pujvobmaj</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <p>Ujabebdeh</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <p>Argogos</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <p>Focigal</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="header-list-item">
+                        <a href="">
+                            <img src="../wwwroot/lib/Icons/map.svg" alt="">
+                            <p>Hakkımızda</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="header-empty">
+                <img src="../wwwroot/lib/Icons/list.svg" alt="" srcset="">
+            </div>
+        </div>
+        <ul class="header-list-group-sm list-group">
+            <li class="header-list-item">
+                <a href="#" class="list-group-item">
+                    <svg class="bi">
+                        <use href="#house"></use>
+                    </svg>
+                    <p>Anasayfa</p>
+                </a>
+
+            </li>
+            <li class="header-list-item">
+                <a href="" class="list-group-item">
+                    <svg class="bi">
+                        <use href="#youtube"></use>
+                    </svg>
+                    <p>Ürünler</p>
+                    <svg class="bi">
+                        <use href="#chevron-down"></use>
+                    </svg>
+                </a>
+                <ul class="header-list-item-group list-group">
+                    <li>
+                        <a class="list-group-item" href="">
+                            <p>Etralom</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="list-group-item" href="">
+                            <p>Cifawis</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="list-group-item" href="">
+                            <p>Havacigeg</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="list-group-item" href="">
+                            <p>Pujvobmaj</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="list-group-item" href="">
+                            <p>Ujabebdeh</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="list-group-item" href="">
+                            <p>Argogos</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="list-group-item" href="">
+                            <p>Focigal</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="header-list-item">
+                <a href="" class="list-group-item">
+                    <svg class="bi">
+                        <use href="#youtube"></use>
+                    </svg>
+                    <p>Blog</p>
+                    <svg class="bi">
+                        <use href="#chevron-down"></use>
+                    </svg>
+                </a>
+                <ul class="header-list-item-group list-group">
+                    <li>
+                        <a href="" class="list-group-item">
+                            <p>Etralom</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" class="list-group-item">
+                            <p>Cifawis</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" class="list-group-item">
+                            <p>Havacigeg</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" class="list-group-item">
+                            <p>Pujvobmaj</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" class="list-group-item">
+                            <p>Ujabebdeh</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" class="list-group-item">
+                            <p>Argogos</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" class="list-group-item">
+                            <p>Focigal</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="header-list-item">
+                <a href="" class="list-group-item">
+                    <svg class="bi">
+                        <use href="#map"></use>
+                    </svg>
+                    <p>Hakkımızda</p>
+                </a>
+            </li>
+        </ul>
+    </header>
+
+    <main>
+        <div class="container-main container-lg">
+            <div class="main-grid-col ">
+                <div class="main-img border border-2 rounded p-2 mb-3 shadow-sm">
+                    <button class="btn">
+                        <svg class="left">
+                            <use href="#chevron-left"></use>
+                        </svg>
+                    </button>
+                    <div class="main-img-head">
+                        
+                    </div>
+                    <button class="btn">
+                        <svg class="right">
+                            <use href="#chevron-right"></use>
+                        </svg>
+                    </button>
+                </div>
+                
+                <div class="img-list">
+                </div>
+            </div>
+            <div class="main-grid-col">
+                <div class="details p-0 px-lg-5 py-lg-2">
+                    <h1>Lorem ipsum dolor sit amet.</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit in quasi debitis reiciendis
+                        tempore deserunt modi velit cum maiores eos nisi, ea quis officiis minima tempora sint, voluptas
+                        numquam aperiam perspiciatis, iusto culpa praesentium? Earum sequi quae harum impedit odit,
+                        maiores delectus molestias aut soluta reiciendis distinctio dolor aspernatur vel eveniet quos
+                        non repellat nulla iure alias porro minus. Quia doloremque facere reiciendis. Esse odio magnam
+                        earum amet quod impedit voluptatum in recusandae vel, vero veritatis, beatae qui obcaecati error
+                        harum delectus nihil reiciendis illum non. Quam nam odit, numquam laboriosam unde officiis
+                        consequuntur. Adipisci quasi alias accusantium sunt ipsum.</p>
+                    <div class="details-btn">
+                        <button class="btn btn-success">
+                            <svg>
+                                <use href="#bag"></use>
+                            </svg>
+                            <p>İletişim</p>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+
+
+
+
+
+
+    <script src="Details.js"></script>
+    <script src="../wwwroot/lib/jquery/dist/jquery.min.js"></script>
+    <script src="../wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- @await RenderSectionAsync("Scripts", required: false) -->
+
+</body>
+
+</html>

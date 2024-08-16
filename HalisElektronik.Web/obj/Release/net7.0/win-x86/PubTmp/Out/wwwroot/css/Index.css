@@ -1,0 +1,83 @@
+﻿@import '../Layout/_Layout.css';
+
+.container-carousel {
+    width: 60%;
+    height: 50vh;
+    display: grid;
+    grid: 100%/5% 90% 5%;
+    place-items: center;
+}
+
+.container-carousel>.carousel-control {
+    width: 50px;
+}
+
+.container-carousel>.carousel-main {
+    width: 100%;
+    height: 100%;
+}
+
+.container-carousel>.carousel-main>.carousel-card>.carousel-card-body {
+    position: absolute;
+    top: 200px;
+    bottom: 0;
+}
+
+.container-carousel>.carousel-main>.carousel-card>img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.container-featurette { 
+    /*  */
+    display: grid;
+    grid: 30vh / 50% 50%;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(128, 128, 128, 0.100);
+    border-radius: 1em;
+    padding: 1em;
+    margin: 1em 0;
+
+    &[class *="featurette-right"] {
+        grid-template-areas:
+            "col-2 col-1"
+        ;
+
+        & .featurette-col-2 {
+            margin: 0 1em 0 0;
+        }
+    }
+
+    &[class *="featurette-left"] {
+        grid-template-areas:
+            "col-1 col-2"
+        ;
+
+    }
+
+    & .featurette-col-1 {
+        display: grid;
+        grid: repeat(2, 1fr) / 100%;
+        row-gap: 1em;
+        grid-area: col-1;
+
+        & .featurette-description {
+            color: grey;
+        }
+    }
+
+    & .featurette-col-2 {
+        width: auto;
+        grid-area: col-2;
+
+        & img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: .5em;
+        }
+
+    }
+}

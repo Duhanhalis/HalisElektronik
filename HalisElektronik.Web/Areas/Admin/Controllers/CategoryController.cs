@@ -1,8 +1,9 @@
 ﻿using HalisElektronik.Models;
 using HalisElektronik.Repositories;
 using HalisElektronik.Repositories.Implementation;
-using HalisElektronik.Repositories.Interfaces;
 using HalisElektronik.ViewModels;
+using HalisElektronik.ViewModels.ApiFetch;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NuGet.Protocol.Core.Types;
@@ -10,20 +11,23 @@ using NuGet.Protocol.Core.Types;
 namespace HalisElektronik.Web.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize]
     public class CategoryController : Controller
     {
-        //private readonly ApplicationDbContext _context;
-        private readonly IGenericRepository<Category> _repository;
-        public CategoryController(IGenericRepository<Category> categoryRepository)
+        private readonly ApiIRepository<Category> _repository;
+        private readonly CategoryUrl _categoryUrl;
+
+        public CategoryController(ApiIRepository<Category> repository, CategoryUrl categoryUrl)
         {
-            _repository = categoryRepository;
+            _repository = repository;
+            _categoryUrl = categoryUrl;
         }
 
-        [HttpGet]
-        public IActionResult Index()
-        {
 
-            return View(_repository.GetAll());
+        [HttpGet]
+        public async Task<IActionResult> Index()
+        {
+            return View(await _repository.GetAllItemsAsync(_categoryUrl.CategoryList));
         }
         [HttpGet]
         public IActionResult Create()
@@ -36,20 +40,19 @@ namespace HalisElektronik.Web.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                await _repository.AddAsync(new Category()
+                await _repository.AddItemAsync(_categoryUrl.CategoryCreate, new Category()
                 {
                     CategoryName = category.CategoryName,
                     CategoryDescription = category.CategoryDescription,
-                    CategoryId = category.CategoryId,
                 });
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction(nameof(CategoryController.Index));
             }
-           return View();
+            return View();
         }
         [HttpGet]
-        public IActionResult Edit(int id)
+        public async Task<IActionResult> EditAsync(int id)
         {
-            Category category = _repository.GetById(id);
+            Category category = await _repository.GetItemByIdAsync(_categoryUrl.CategoryGet, id);
 
             return View(new CategoryViewModel()
             {
@@ -59,29 +62,33 @@ namespace HalisElektronik.Web.Areas.Admin.Controllers
             });
         }
         [HttpPost]
-        public IActionResult Edit(CategoryViewModel category)
+        public async Task<IActionResult> EditAsync(CategoryViewModel category)
         {
             if (ModelState.IsValid)
             {
-                _repository.Update(new Category()
+               await _repository.UpdateItemAsync(_categoryUrl.CategoryEdit, new Category()
                 {
-                    CategoryName=category.CategoryName,
-                    CategoryDescription=category.CategoryDescription,
-                    CategoryId=category.CategoryId,
+                    CategoryName = category.CategoryName,
+                    CategoryDescription = category.CategoryDescription,
+                    CategoryId = category.CategoryId,
                 });
-                return RedirectToAction("Index","Home");
+                return RedirectToAction(nameof(CategoryController.Index));
             }
-            return View("Index");
+            return View(category);
         }
-        
-        public IActionResult Delete(int id)
+
+        public async Task<IActionResult> DeleteAsync(int id)
         {
-            Category category = _repository.GetById(id);
-            if(category != null)
+            try
             {
-                _repository.Delete(category);
+                await _repository.DeleteItemAsync(_categoryUrl.CategoryDelete, id);
             }
-            return RedirectToAction("Index", "Home");
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return RedirectToAction(nameof(CategoryController.Index));
 
         }
     }

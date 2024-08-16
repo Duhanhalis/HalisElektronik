@@ -1,0 +1,54 @@
+﻿@using HalisElektronik.ViewModels.Product
+@model ProductDetailsViewModel
+@section Css {
+    <link href="~/css/ProductDetails.css" rel="stylesheet" />
+}
+@await Html.PartialAsync("../Shared/Icons")
+<div class="main-container">
+    <div class="column-grid-1">
+        <div class="image-container">
+            <div class="image-header">
+                @if (String.IsNullOrEmpty(Model.MainPhoto))
+                {
+                    <img src="https://localhost:7273/api/Image/GetImageByName/@(Model.ProductImages?.First().ImageUrl)" class="border rounded-2" />
+                }
+                else
+                {
+                    <img src="https://localhost:7273/api/Image/GetImageByName/@(Model.MainPhoto)" class="border rounded-2" />
+                }
+            </div>
+        </div>
+
+        <div class="thumbnail-list">
+            @foreach (var item in Model.ProductImages)
+            {
+                <a asp-action="Details" asp-controller="Products" asp-route-id="@Model.ProductId" asp-route-mainPhoto="@item.ImageUrl">
+                    <img class="thumbnail-border border rounded-2" src="https://localhost:7273/api/Image/GetImageByName/@(item.ImageUrl)" alt="">
+                </a>
+            }
+        </div>
+    </div>
+    <div class="column-grid-2 border rounded-3 shadow-sm">
+        <div class="details-container">
+            <h1 class="title">@Model.Title</h1>
+            <div class="description overflow-auto">@Html.Raw(Model.Description)</div>
+            <p class="category">@Model.Category.CategoryName</p>
+            <h2 class="price">@Model.Price &#x20BA;</h2>
+            <p class="date">Eklenme Tarihi : <b><i>@Model.Date_Of_Adjustment.ToString("yyyy-M-d")</i></b></p>
+            <div class="details-button">
+                <a href="tel:+1234567890" class="btn btn-primary success-button">
+                    <img src="~/lib/Icons/telephone.svg" />
+                    <p>İletişim</p>
+                </a>
+                <a href="mailto:duhanhalis@gmail.com" class="btn btn-success success-button">
+                    <img src="~/lib/Icons/whatsapp.svg" />
+                    <p>WhatsApp</p>
+                </a>
+                <a href="https://wa.me/1234567890" class="btn btn-warning success-button">
+                    <img src="~/lib/Icons/envelope.svg" />
+                    <p>Email</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

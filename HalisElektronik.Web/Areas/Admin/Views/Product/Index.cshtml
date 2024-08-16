@@ -1,12 +1,11 @@
-﻿@{
+﻿@using System.Text.RegularExpressions
+@{
     Layout = "../Shared/_LayoutAdmin.cshtml";
 
 }
 @model List<Product>
 
-<div class="row">
-    <partial name="../Shared/_NavbarAdmin.cshtml" />
-    <div class="container col-10">
+    <div class="container-fluid">
         <h1>Ürünler</h1>
         <hr />
         <table class="col table table-bordered table-striped table-hover">
@@ -30,15 +29,15 @@
                     {
                         <tr>
                             <td width="25%">
-                                @if (item.ProductImageList != null)
+                                @if (item.ProductImages != null)
                                 {
 
                                     <div class="row">
-                                        @foreach (var item1 in item.ProductImageList)
+                                        @foreach (var item1 in item.ProductImages)
                                         {
-                                            @if (!String.IsNullOrEmpty(item1.ImageUrl_1))
+                                            @if (!String.IsNullOrEmpty(item1.ImageUrl))
                                             {
-                                                <img src="~/ImageLibrary/@item1.ImageUrl_1" alt="@item1.ImageDescription" class="col-3" />
+                                            <img src="https://localhost:7273/api/Image/GetImageByName/@(item1.ImageUrl)" alt="@item1.Title" class="col-3" />
                                             }
                                         }
                                     </div>
@@ -51,7 +50,7 @@
                             <td>@item.ProductId</td>
                             <td>@item.Title</td>
                             <td>
-                                @Html.Raw(item.Description)
+                            @Regex.Replace(item.Description, "<.*?>", string.Empty)
                             </td>
                             <td>@item?.Category?.CategoryName</td>
                             <td>@item.Price</td>
@@ -75,4 +74,3 @@
         <hr />
         <a asp-area="Admin" asp-controller="Product" asp-action="Create" class="btn btn-primary">Ürün Ekle</a>
     </div>
-</div>

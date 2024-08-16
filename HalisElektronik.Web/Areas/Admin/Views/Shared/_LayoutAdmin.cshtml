@@ -7,17 +7,102 @@
     <meta name="author" content="Duhan Halis - DH">
     <meta name="description" content="@ViewData["Description"] - Televizyon Tamiri, Uydu İşleri, Sakarya">
     <link rel="stylesheet" href="~/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/Admin/_LayoutAdmin.css" />
+    @await RenderSectionAsync("Style", required: false)
 </head>
 <body>
+    <partial name="_NavbarIcons.cshtml" />
+    <main>
+        <div class="sidebarLayout-color">
+            <div class="sidebarLayout">
+                <div class="sidebarLayout-col-icon">
+                    <a asp-action="Index" asp-controller="Home" asp-area="" class="sidebarLayout-list-item-icon">
+                        <svg class="sidebarLayout-list-item-svg"><use xlink:href="#bootstrap" /></svg>
+                        <p class="sidebarLayout-col-icon-text">Admin Paneli</p>
+                    </a>
+                </div>
+                <div class="sidebarLayout-col-list">
+                    <ul class="sidebarLayout-list">
+                        <li class="sidebarLayout-list-item">
+                            <a asp-action="Index" asp-controller="Home" asp-area="Admin" aria-current="page">
+                                <img class="sidebarLayout-list-item-svg" src="~/lib/Icons/home.svg" />
+                                <p>Anasayfa</p>
+                            </a>
+                        </li>
+                        <li class="sidebarLayout-list-item">
+                            <a asp-action="Index" asp-controller="Category" asp-area="Admin">
+                                <img class="sidebarLayout-list-item-svg" src="~/lib/Icons/category.svg" />
+                                <p>Kategoriler</p>
+                            </a>
+                        </li>
+                        <li class="sidebarLayout-list-item">
+                            <a asp-action="Index" asp-controller="Product" asp-area="Admin">
+                                <img class="sidebarLayout-list-item-svg" src="~/lib/Icons/cards-icon.svg" />
+                                <p>Ürünler</p>
+                            </a>
+                        </li>
+                        <li class="sidebarLayout-list-item">
+                            <a asp-action="Index" asp-controller="Blog" asp-area="Admin">
+                                <img class="sidebarLayout-list-item-svg" src="~/lib/Icons/description.svg" />
+                                <p>Bloglar</p>
+                            </a>
+                        </li>
+                        <li class="sidebarLayout-list-item">
+                            <a asp-action="Info" asp-controller="Home" asp-area="Admin">
+                                <img class="sidebarLayout-list-item-svg" src="~/lib/Icons/browse.svg" />
+                                <p>Hakkımızda</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            @RenderBody()
+        </div>
+    </main>
 
- <main>
-     <div class="container-fluid m-0 p-0">
-         @RenderBody()
-     </div>
- </main>
 
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+            // Navbar'daki tüm linkleri al
+            var links = document.querySelectorAll("#nav a");
+
+            // Her bir linke tıklandığında
+            links.forEach(function (link) {
+                // Tıklandığında aktif sınıfı kaldır
+                link.addEventListener("click", function () {
+                    links.forEach(function (el) {
+                        el.classList.remove("active");
+                    });
+                    this.classList.add("active");
+                });
+            });
+
+            // Sayfa yüklendiğinde navbar'ı kontrol et ve aktif sınıfı ayarla
+            function setActiveClass() {
+                var currentUrl = window.location.pathname;
+
+                links.forEach(function (link) {
+                    var linkUrl = link.getAttribute("href");
+                    if (currentUrl === linkUrl) {
+                        link.classList.add("active");
+                    } else {
+                        link.classList.remove("active");
+                    }
+                });
+            }
+
+            setActiveClass();
+
+            // URL değiştiğinde navbar'ı tekrar kontrol et
+            window.addEventListener("popstate", setActiveClass);
+        });
+
+    </script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/Library.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>

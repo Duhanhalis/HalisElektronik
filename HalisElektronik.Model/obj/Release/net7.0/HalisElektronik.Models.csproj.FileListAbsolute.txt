@@ -1,0 +1,13 @@
+C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Model\bin\Release\net7.0\HalisElektronik.Models.deps.json
+C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Model\bin\Release\net7.0\HalisElektronik.Models.dll
+C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Model\bin\Release\net7.0\HalisElektronik.Models.pdb
+C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Model\obj\Release\net7.0\HalisElektronik.Models.csproj.AssemblyReference.cache
+C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Model\obj\Release\net7.0\HalisElektronik.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Model\obj\Release\net7.0\HalisElektronik.Models.AssemblyInfoInputs.cache
+C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Model\obj\Release\net7.0\HalisElektronik.Models.AssemblyInfo.cs
+C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Model\obj\Release\net7.0\HalisElektronik.Models.csproj.CoreCompileInputs.cache
+C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Model\obj\Release\net7.0\HalisElektronik.Models.sourcelink.json
+C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Model\obj\Release\net7.0\HalisElektronik.Models.dll
+C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Model\obj\Release\net7.0\refint\HalisElektronik.Models.dll
+C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Model\obj\Release\net7.0\HalisElektronik.Models.pdb
+C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Model\obj\Release\net7.0\ref\HalisElektronik.Models.dll

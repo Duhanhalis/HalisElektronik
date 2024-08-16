@@ -14,10 +14,6 @@ namespace HalisElektronik.ViewModels
     {
         [Key]
         public int CarouselMainId { get; set; }
-        public string? ImageUrl { get; set; }
-
-        [Display(AutoGenerateField = true, AutoGenerateFilter = true, Name = "Carousel(Slider) Fotoğraf :", Prompt = "1908*1080px Olmasına Özen Gösterin !")]
-        public IFormFile? ImageUrlFile { get; set; }
 
         [Display(AutoGenerateField = true,
             AutoGenerateFilter = true, 
@@ -42,5 +38,7 @@ namespace HalisElektronik.ViewModels
         public string? BtnTitle { get; set; }
         [Display(Name = "Button Url :")]
         public string? BtnUrl { get; set; }
+        public int ImageId { get; set; }
+        public ImageViewModel? Image { get; set; }
     }
 }

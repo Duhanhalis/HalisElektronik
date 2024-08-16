@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\HalisElektronik.Repository\HalisElektronik.Repositories.csproj" />
+    <ProjectReference Include="..\HalisElektronik.ViewModels\HalisElektronik.ViewModels.csproj" />
   </ItemGroup>
 
 </Project>

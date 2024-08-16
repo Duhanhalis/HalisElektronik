@@ -1,0 +1,19 @@
+﻿@model List<ContainerMarketing>
+
+    
+<h2 class="pb-2 border-bottom">Hizmetlerimiz</h2>
+<div class="row row-cols-3 p-0 m-0 justify-content-center mb-5">
+@foreach (var item in Model)
+{
+    <div class="col d-flex align-items-start row p-0 m-0 text-center">
+        <div class="col-12">
+                <img src="https://localhost:7273/api/Image/GetImageByName/@(item.Images.ImageUrl)"
+                 class="container-marketing-image" />
+        </div>
+        <div class="col-12">
+            <h3 class="fs-2 text-body-emphasis">@item.Title</h3>
+            <p>@item.Description</p>
+        </div>
+    </div>
+}
+</div>

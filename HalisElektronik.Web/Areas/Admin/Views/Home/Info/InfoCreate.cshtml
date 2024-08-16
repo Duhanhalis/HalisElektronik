@@ -1,0 +1,38 @@
+﻿@model Info
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+@section Style {
+    <link href="~/css/Info.css" rel="stylesheet" />
+}
+
+<div class="container">
+    <form asp-action="InfoCreate" asp-controller="Home" asp-area="Admin" method="post" enctype="multipart/form-data">
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary()
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6 p-3 g-3 border rounded-3">
+                <label asp-for="HeaderTitle"></label>
+                <input class="form-control" type="text" asp-for="HeaderTitle" />
+
+                <label asp-for="HeaderDescription"></label>
+                <input type="text" class="form-control" asp-for="HeaderDescription" />
+
+                <label asp-for="InfoTitle"></label>
+                <input type="text" class="form-control" asp-for="InfoTitle" />
+
+                <label asp-for="InfoBody"></label>
+                <input type="text" class="form-control" asp-for="InfoBody" />
+
+                <label asp-for="InfoMapsUrl"></label>
+                <input type="text" class="form-control" asp-for="InfoMapsUrl" />
+
+                <button type="submit" class="btn btn-success my-3">Ekle</button>
+            </div>
+            <div class="col-3"></div>
+        </div>
+
+
+    </form>
+</div>

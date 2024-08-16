@@ -1,0 +1,39 @@
+﻿@model IEnumerable<FeaturetteMain>
+
+<label class="my-2 fs-1">Poster</label>
+<hr>
+
+<div class="container-group">
+    @if (Model.Count() > 0)
+    {
+        @foreach (var item in Model)
+        {
+            <div class="container-group-card ContainerMains">
+                <div class="card-img p-0">
+                    <img class="img" src="https://localhost:7273/api/Image/GetImageByName/@(item.Images.ImageUrl)">
+                </div>
+                <div class="container-group-card-body">
+                    <h4 class="card-title">@item.Title</h4>
+                    <p class="card-text">@item.Description</p>
+                    <div class="buttons">
+                        <a asp-action="FeaturetteMainEdit" asp-controller="Home" asp-area="Admin" asp-route-id="@item.FeaturetteMainId" class="btn btn-warning btn-sm">Düzenle</a>
+                        <a asp-action="FeaturetteMainDelete" asp-controller="Home" asp-area="Admin" asp-route-id="@item.FeaturetteMainId" class="btn btn-danger btn-sm">Sil</a>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    @if (Model.Count() < 4)
+    {
+        <div class="container-group-card ContainerMains">
+            <div class="card-img p-0">
+                <img class="img" src="https://localhost:7273/api/Image/GetImageByName/No-Image.jpg">
+            </div>
+            <div class="container-group-card-body">
+                <h5 class="card-title">...</h5>
+                <p class="card-text">...</p>
+                <a asp-action="FeaturetteMainAdd" asp-controller="Home" asp-area="Admin" class="btn btn-primary btn-sm">Ekle</a>
+            </div>
+        </div>
+    }
+</div>

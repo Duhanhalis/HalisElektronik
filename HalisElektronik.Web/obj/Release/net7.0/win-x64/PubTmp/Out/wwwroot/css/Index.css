@@ -1,0 +1,70 @@
+﻿@import '../Layout/_Layout.css';
+
+/*#region carousel */
+.carousel-image {
+    height: 70vh;
+    object-fit: cover;
+}
+
+/*#endregion */
+
+/*#region container marketing */
+.container-marketing-image {
+    width: 25%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+/*#endregion */
+
+/*#region featurette */
+
+.container-featurette {
+    display: grid;
+    grid: 250px / 50% 50%;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(128, 128, 128, 0.1);
+    border-radius: 1em;
+    padding: 1em;
+    margin: 1em 0;
+}
+.container-featurette[class*="featurette-right"] {
+    grid-template-areas: "col-2 col-1";
+}
+
+.container-featurette[class*="featurette-right"] .featurette-col-2 {
+    margin: 0 1em 0 0;
+}
+
+.container-featurette[class*="featurette-left"] {
+    grid-template-areas: "col-1 col-2";
+}
+
+.container-featurette .featurette-col-1 {
+    display: grid;
+    grid: repeat(2, 1fr) / 100%;
+    row-gap: 1em;
+    grid-area: col-1;
+}
+
+.container-featurette .featurette-col-1 .featurette-description {
+    color: grey;
+}
+
+.container-featurette .featurette-col-2 {
+    width: 100%;
+    grid-area: col-2;
+    height:100%;
+    margin: 1em 0;
+}
+
+.container-featurette > .featurette-col-2 > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.5em;
+
+}
+
+/*#endregion */

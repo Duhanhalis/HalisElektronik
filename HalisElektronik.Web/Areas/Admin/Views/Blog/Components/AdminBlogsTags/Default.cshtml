@@ -1,0 +1,29 @@
+﻿@model List<BlogsTag>?
+<div class="admin-blog-container-tag">
+    <div class="blog-container-tag-col-header">
+        <h4 class="col BlogId">Id</h4>
+        <h4 class="col BlogTagName">Etiket İsmi</h4>
+        <h4 class="col BlogTagCount">Oluşturma Sayısı</h4>
+        <h4 class="col Actions">Buttonlar</h4>
+    </div>
+    <hr />
+    <div class="blog-container-tag-col-body">
+        @if (Model.Count >= 0)
+        {
+            @foreach (var blog in Model)
+            {
+                <div class="blog-row">
+                    <p class="BlogId1 multiline-ellipsis">@blog.BlogsTagId</p>
+                    <p class="BlogTagName multiline-ellipsis">@blog.BlogsTagName</p>
+                    <div class="Actions1">
+                        <a asp-action="TagEdit" asp-controller="Blog" asp-area="Admin" asp-route-id="@blog.BlogsTagId" class="btn btn-warning">Düzenle</a>
+                        <a asp-action="TagDelete" asp-controller="Blog" asp-area="Admin" asp-route-id="@blog.BlogsTagId" class="btn btn-danger">Sil</a>
+                    </div>
+                </div>
+                <hr />
+
+            }
+        }
+    </div>
+    <a asp-action="TagCreate" asp-controller="Blog" asp-area="Admin" class="btn btn-primary">Ekle</a>
+</div>

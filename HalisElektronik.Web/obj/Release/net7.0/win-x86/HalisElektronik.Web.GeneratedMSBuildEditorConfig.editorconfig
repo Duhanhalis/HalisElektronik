@@ -1,0 +1,279 @@
+is_global = true
+build_property.EnableAotAnalyzer = 
+build_property.EnableSingleFileAnalyzer = 
+build_property.EnableTrimAnalyzer = true
+build_property.IncludeAllContentForSelfExtract = 
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = HalisElektronik.Web
+build_property.RootNamespace = HalisElektronik.Web
+build_property.ProjectDir = C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Web\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\HUAWEI\Desktop\Code\C#\HalisElektronik\HalisElektronik.Web
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Areas/Admin/Views/Blog/BlogImageCreate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQmxvZ1xCbG9nSW1hZ2VDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Areas/Admin/Views/Blog/BlogImageEditcshtml.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQmxvZ1xCbG9nSW1hZ2VFZGl0Y3NodG1sLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Areas/Admin/Views/Blog/Components/AdminBlogsPagination/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQmxvZ1xDb21wb25lbnRzXEFkbWluQmxvZ3NQYWdpbmF0aW9uXERlZmF1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Areas/Admin/Views/Blog/Components/AdminBlogsTags/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQmxvZ1xDb21wb25lbnRzXEFkbWluQmxvZ3NUYWdzXERlZmF1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Areas/Admin/Views/Blog/Components/BlogListTag/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQmxvZ1xDb21wb25lbnRzXEJsb2dMaXN0VGFnXERlZmF1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Areas/Admin/Views/Blog/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQmxvZ1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Areas/Admin/Views/Blog/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQmxvZ1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Areas/Admin/Views/Blog/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQmxvZ1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Areas/Admin/Views/Blog/TagCreate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQmxvZ1xUYWdDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Areas/Admin/Views/Blog/TagEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQmxvZ1xUYWdFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Areas/Admin/Views/Category/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcnlcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Areas/Admin/Views/Category/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcnlcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Areas/Admin/Views/Category/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcnlcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Areas/Admin/Views/Home/Carousel/CarouselAdd.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxDYXJvdXNlbFxDYXJvdXNlbEFkZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Areas/Admin/Views/Home/Carousel/CarouselEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxDYXJvdXNlbFxDYXJvdXNlbEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Areas/Admin/Views/Home/Components/CarouselComponent/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxDb21wb25lbnRzXENhcm91c2VsQ29tcG9uZW50XERlZmF1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Areas/Admin/Views/Home/Components/ContainerMarketingComponent/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxDb21wb25lbnRzXENvbnRhaW5lck1hcmtldGluZ0NvbXBvbmVudFxEZWZhdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Areas/Admin/Views/Home/Components/FeaturetteComponent/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxDb21wb25lbnRzXEZlYXR1cmV0dGVDb21wb25lbnRcRGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Areas/Admin/Views/Home/Components/InfoPageSocialMedia/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxDb21wb25lbnRzXEluZm9QYWdlU29jaWFsTWVkaWFcRGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Areas/Admin/Views/Home/Components/SocialMediaComponent/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxDb21wb25lbnRzXFNvY2lhbE1lZGlhQ29tcG9uZW50XERlZmF1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Areas/Admin/Views/Home/ContainerMarketing/ContainerMarketingAdd.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxDb250YWluZXJNYXJrZXRpbmdcQ29udGFpbmVyTWFya2V0aW5nQWRkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Areas/Admin/Views/Home/ContainerMarketing/ContainerMarketingEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxDb250YWluZXJNYXJrZXRpbmdcQ29udGFpbmVyTWFya2V0aW5nRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Areas/Admin/Views/Home/Featurette/FeaturetteMainAdd.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxGZWF0dXJldHRlXEZlYXR1cmV0dGVNYWluQWRkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Areas/Admin/Views/Home/Featurette/FeaturetteMainEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxGZWF0dXJldHRlXEZlYXR1cmV0dGVNYWluRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Areas/Admin/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Areas/Admin/Views/Home/Info.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxJbmZvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Areas/Admin/Views/Home/Info/InfoCreate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxJbmZvXEluZm9DcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Areas/Admin/Views/Home/Info/InfoEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxJbmZvXEluZm9FZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Areas/Admin/Views/Home/SocialMedia/SocialMediaAdd.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxTb2NpYWxNZWRpYVxTb2NpYWxNZWRpYUFkZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Areas/Admin/Views/Home/SocialMedia/SocialMediaEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxTb2NpYWxNZWRpYVxTb2NpYWxNZWRpYUVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Areas/Admin/Views/Product/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdFxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Areas/Admin/Views/Product/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdFxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Areas/Admin/Views/Product/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Areas/Admin/Views/Product/ProductsImgCreate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdFxQcm9kdWN0c0ltZ0NyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Areas/Admin/Views/Product/ProductsImgEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdFxQcm9kdWN0c0ltZ0VkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9MYXlvdXRBZG1pbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Areas/Admin/Views/Shared/_NavbarIcons.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9OYXZiYXJJY29ucy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Areas/Admin/Views/Shared/_TextEditor.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9UZXh0RWRpdG9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Areas/Admin/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Views/Blogs/Components/BlogsPagePagination/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ3NcQ29tcG9uZW50c1xCbG9nc1BhZ2VQYWdpbmF0aW9uXERlZmF1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Views/Blogs/Components/BlogsPageTagComponents/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ3NcQ29tcG9uZW50c1xCbG9nc1BhZ2VUYWdDb21wb25lbnRzXERlZmF1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Views/Blogs/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ3NcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Views/Blogs/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ3NcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Views/Home/Components/InfoPageSocialMedia/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb21wb25lbnRzXEluZm9QYWdlU29jaWFsTWVkaWFcRGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Views/Home/Components/MainPageCarousel/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb21wb25lbnRzXE1haW5QYWdlQ2Fyb3VzZWxcRGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Views/Home/Components/MainPageConMark/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb21wb25lbnRzXE1haW5QYWdlQ29uTWFya1xEZWZhdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Views/Home/Components/MainPageFeaturette/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb21wb25lbnRzXE1haW5QYWdlRmVhdHVyZXR0ZVxEZWZhdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Views/Home/Info.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmZvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Views/Products/Components/ProductsPageCategoryComponents/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcQ29tcG9uZW50c1xQcm9kdWN0c1BhZ2VDYXRlZ29yeUNvbXBvbmVudHNcRGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Views/Products/Components/ProductsPagePagination/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcQ29tcG9uZW50c1xQcm9kdWN0c1BhZ2VQYWdpbmF0aW9uXERlZmF1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Views/Products/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Views/Products/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Views/Shared/Components/LayoutPageBlogComponent/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcTGF5b3V0UGFnZUJsb2dDb21wb25lbnRcRGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Views/Shared/Components/LayoutPageCategoryComponent/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcTGF5b3V0UGFnZUNhdGVnb3J5Q29tcG9uZW50XERlZmF1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Views/Shared/Components/LayoutPageFooter/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcTGF5b3V0UGFnZUZvb3RlclxEZWZhdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Views/Shared/Icons.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEljb25zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Views/Shared/Partial/_Footer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFBhcnRpYWxcX0Zvb3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Views/Shared/Partial/_ProductCategory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFBhcnRpYWxcX1Byb2R1Y3RDYXRlZ29yeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Views/Shared/_LoginPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HUAWEI/Desktop/Code/C\#/HalisElektronik/HalisElektronik.Web/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-zkbnvpstpk
